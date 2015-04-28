@@ -1,0 +1,1 @@
+cocos compile -s .\ -p win32 -m debug -o .\bin

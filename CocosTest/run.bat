@@ -1,0 +1,1 @@
+cocos run -s .\ -p win32
