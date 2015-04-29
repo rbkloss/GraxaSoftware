@@ -44,7 +44,7 @@ bool HelloWorld::init() {
 
 	tempNode = rootNode->getChildByName("Ground");
 	auto sprite = (Sprite*)tempNode;
-	auto physBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize());
+	auto physBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(1.0f, 0.0f, 1.0f));
 	physBody->setDynamic(false);
 	sprite->setPhysicsBody(physBody);
 	

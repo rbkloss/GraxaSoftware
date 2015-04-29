@@ -14,7 +14,7 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 	hero->addEvents();
 
 
-	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(0.1f, 1.0f, 1.0f));
+	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(1.0f, 0.0f, 1.0f));
 	//physicsBody->setResting(true);
 	physicsBody->setDynamic(true);
 	physicsBody->setRotationEnable(false);
