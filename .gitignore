@@ -219,4 +219,4 @@ pip-log.txt
 #############
 ## Cocos
 #############
-bin/
+CocosProject/bin/
