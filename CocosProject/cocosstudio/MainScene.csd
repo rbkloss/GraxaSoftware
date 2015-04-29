@@ -32,15 +32,27 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Ground.png" />
           </NodeObjectData>
-          <NodeObjectData Name="monster" ActionTag="923726164" FrameEvent="" Tag="2" LeftMargin="572.7648" RightMargin="672.2352" TopMargin="725.6825" BottomMargin="330.3175" ctype="SpriteObjectData">
-            <Position X="590.2648" Y="342.3175" />
+          <NodeObjectData Name="layer_1" ActionTag="392730280" FrameEvent="" Tag="9" IconVisible="True" LeftMargin="-7.5002" RightMargin="7.5001" TopMargin="2.5006" BottomMargin="-2.5006" InnerActionSpeed="1.0000" ctype="ProjectNodeObjectData">
+            <Position X="-7.5002" Y="-2.5006" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <AnchorPoint />
             <CColor A="255" R="255" G="255" B="255" />
-            <Size X="35.0000" Y="24.0000" />
-            <PrePosition X="0.4611" Y="0.3170" />
+            <Size X="1280.0000" Y="1080.0000" />
+            <PrePosition X="-0.0059" Y="-0.0023" />
             <PreSize X="0.0000" Y="0.0000" />
-            <FileData Type="Normal" Path="sprite2.png" />
+            <Children>
+              <NodeObjectData Name="monster" ActionTag="923726164" FrameEvent="" Tag="2" LeftMargin="572.7648" RightMargin="672.2352" TopMargin="725.6825" BottomMargin="330.3175" ctype="SpriteObjectData">
+                <Position X="590.2648" Y="342.3175" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <Size X="35.0000" Y="24.0000" />
+                <PrePosition X="0.4611" Y="0.3170" />
+                <PreSize X="0.0000" Y="0.0000" />
+                <FileData Type="Normal" Path="sprite2.png" />
+              </NodeObjectData>
+            </Children>
+            <FileData Type="Normal" Path="main.csd" />
           </NodeObjectData>
           <NodeObjectData Name="hero" ActionTag="171835711" FrameEvent="" Tag="1" LeftMargin="298.9204" RightMargin="960.0796" TopMargin="728.4393" BottomMargin="329.5607" ctype="SpriteObjectData">
             <Position X="309.4204" Y="340.5607" />

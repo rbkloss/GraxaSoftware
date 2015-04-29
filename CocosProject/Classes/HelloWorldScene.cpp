@@ -44,11 +44,13 @@ bool HelloWorld::init() {
 
 	tempNode = rootNode->getChildByName("Ground");
 	auto sprite = (Sprite*)tempNode;
-	auto physBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(1.0f, 0.0f, 1.0f));
+	auto physBody = cocos2d::PhysicsBody::createEdgeBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(100.0f, 0.0f, 1.0f));
 	physBody->setDynamic(false);
 	sprite->setPhysicsBody(physBody);
 	
-	tempNode = rootNode->getChildByName("monster");
+	auto layerNode = (Layer*) (rootNode->getChildByName("layer_1"));
+
+	tempNode = layerNode->getChildByName("monster");
 	sprite = (Sprite*)tempNode;
 	physBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize());
 	physBody->setDynamic(false);

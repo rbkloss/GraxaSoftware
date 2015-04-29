@@ -8,6 +8,7 @@
         <Image Name="Ground.png" />
         <Image Name="sprite1.png" />
         <Image Name="sprite2.png" />
+        <Project Name="main.csd" Type="Layer" />
       </RootFolder>
     </Group>
   </SolutionFolder>

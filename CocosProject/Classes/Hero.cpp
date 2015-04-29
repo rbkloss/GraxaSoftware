@@ -1,20 +1,23 @@
 #include "Hero.h"
 
 
-Hero::Hero() {}
+Hero::Hero() {
+	onGround = true;
+}
 Hero::~Hero() {}
 
 std::string Hero::getTag() {
 	static const char* ans = "hero";
 	return ans;
 }
+
 std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 	std::shared_ptr<Hero> hero = std::make_shared<Hero>();
 	hero->setSprite(sprite);
 	hero->addEvents();
 
 
-	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(1.0f, 0.0f, 1.0f));
+	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(0.1f, 0.0f, 1.0f));
 	//physicsBody->setResting(true);
 	physicsBody->setDynamic(true);
 	physicsBody->setRotationEnable(false);
@@ -57,9 +60,12 @@ void Hero::addEvents() {
 		}
 		case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) :
 		{
-			auto physBody = getSprite()->getPhysicsBody();
-			physBody->applyImpulse(cocos2d::Vec2(0, 5000));
-			physBody->setVelocityLimit(60);
+			if (this->onGround) {
+				auto physBody = getSprite()->getPhysicsBody();
+				physBody->applyImpulse(cocos2d::Vec2(0, 5000));
+				physBody->setVelocityLimit(60);
+				this->onGround = false;
+			}
 			break;
 		}
 		}
@@ -83,13 +89,23 @@ void Hero::addEvents() {
 	};
 
 	auto onContactBegin = [=](cocos2d::PhysicsContact& contact) {
-		auto bodyA = contact.getShapeA()->getBody();
-		auto bodyB = contact.getShapeB()->getBody();
+		auto normal = contact.getContactData()->normal;
+		auto shapeA = contact.getShapeA();
+		auto bodyA = shapeA->getBody();
+		auto shapeB = contact.getShapeB();
+		auto bodyB = shapeB->getBody();
+
+		auto isHeroUp = [=](cocos2d::Node* hero, cocos2d::Node* other, cocos2d::Vec2 &normal) {
+			return (normal.y > 0);
+		};
+
 		auto nodeA = bodyA->getNode();
 		auto nodeB = bodyB->getNode();
-		if (1 != nodeB->getTag()) {
+		if (this->getTag() == nodeA->getName()) {
+			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
 			nodeB->removeFromParentAndCleanup(true);
 		} else {
+			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
 			nodeA->removeFromParentAndCleanup(true);
 		}
 		cocos2d::log("collision");
