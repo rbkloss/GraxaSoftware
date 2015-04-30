@@ -3,3 +3,6 @@
 
 #include "gtest\gtest.h"
 
+TEST(SumTest, TwoTwo) {
+	EXPECT_EQ(4, 2 + 2);
+}
