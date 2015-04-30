@@ -103,10 +103,12 @@ void Hero::addEvents() {
 		auto nodeB = bodyB->getNode();
 		if (this->getTag() == nodeA->getName()) {
 			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
-			nodeB->removeFromParentAndCleanup(true);
+			if (nodeB->getName() != "Ground")
+				nodeB->removeFromParentAndCleanup(true);
 		} else {
 			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
-			nodeA->removeFromParentAndCleanup(true);
+			if (nodeA->getName() != "Ground")
+				nodeA->removeFromParentAndCleanup(true);
 		}
 		cocos2d::log("collision");
 

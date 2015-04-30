@@ -46,6 +46,7 @@ bool HelloWorld::init() {
 	auto sprite = (Sprite*)tempNode;
 	auto physBody = cocos2d::PhysicsBody::createEdgeBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(100.0f, 0.0f, 1.0f));
 	physBody->setDynamic(false);
+	physBody->setContactTestBitmask(1);
 	sprite->setPhysicsBody(physBody);
 	
 	auto layerNode = (Layer*) (rootNode->getChildByName("layer_1"));
