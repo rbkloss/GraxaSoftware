@@ -10,6 +10,12 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StartScreen">
+      <UniqueIdentifier>{fae42968-b43d-4ec8-b8b4-9ac659936c0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Stage1">
+      <UniqueIdentifier>{e4c11599-7839-450c-9506-c7dee3898482}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -18,11 +24,17 @@
     <ClCompile Include="..\Classes\AppDelegate.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Hero.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StartScreenScene.cpp">
+      <Filter>StartScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StageOneScene.cpp">
+      <Filter>Stage1</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\StartScreenModel.cpp">
+      <Filter>StartScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -32,11 +44,17 @@
     <ClInclude Include="..\Classes\AppDelegate.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Hero.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartScreenScene.h">
+      <Filter>StartScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StageOneScene.h">
+      <Filter>Stage1</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\StartScreenModel.h">
+      <Filter>StartScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

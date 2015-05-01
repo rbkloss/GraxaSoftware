@@ -22,10 +22,11 @@
     <Item Key="TabsParamsKey">
       <Value ctype="TabsInfo">
         <OpenedDocuments>
-          <FilePathData Path="MainScene.csd" />
+          <FilePathData Path="StartScreen.csd" />
+          <FilePathData Path="StageOneScene.csd" />
           <FilePathData Path="main.csd" />
         </OpenedDocuments>
-        <ActiveDocument Path="MainScene.csd" />
+        <ActiveDocument Path="StageOneScene.csd" />
       </Value>
     </Item>
   </Properties>
