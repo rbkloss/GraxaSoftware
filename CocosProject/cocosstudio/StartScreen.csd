@@ -30,26 +30,39 @@
                 <PrePosition X="0.5000" Y="0.7500" />
                 <PreSize X="0.4867" Y="0.1013" />
               </NodeObjectData>
-              <NodeObjectData Name="aboutButton" ActionTag="-1121034306" ZOrder="1" FrameEvent="" Tag="14" PositionPercentXEnabled="True" PercentWidthEnable="True" LeftMargin="489.0284" RightMargin="534.9716" TopMargin="562.1412" BottomMargin="187.8588" TouchEnable="True" FontSize="18" ButtonText="About" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" ctype="ButtonObjectData">
-                <Position X="617.0284" Y="212.8588" />
+              <NodeObjectData Name="aboutButton" ActionTag="-1121034306" ZOrder="1" FrameEvent="" Tag="14" PositionPercentXEnabled="True" PercentWidthEnable="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="559.1658" BottomMargin="190.8342" TouchEnable="True" FontSize="18" ButtonText="About" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" ctype="ButtonObjectData">
+                <Position X="640.0000" Y="215.8342" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <CColor A="255" R="105" G="116" B="220" />
                 <Size X="256.0000" Y="50.0000" />
-                <PrePosition X="0.4821" Y="0.2661" />
+                <PrePosition X="0.5000" Y="0.2698" />
                 <PreSize X="0.2000" Y="0.0625" />
                 <TextColor A="255" R="226" G="220" B="33" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
                 <PressedFileData Type="Default" Path="Default/Button_Press.png" />
                 <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
               </NodeObjectData>
-              <NodeObjectData Name="startButton" ActionTag="-1387143705" FrameEvent="" Tag="11" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="491.9951" RightMargin="532.0049" TopMargin="472.8567" BottomMargin="277.1433" TouchEnable="True" FontSize="18" ButtonText="Start Game" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" ctype="ButtonObjectData">
-                <Position X="619.9951" Y="302.1433" />
+              <NodeObjectData Name="startButton" ActionTag="-1387143705" FrameEvent="" Tag="11" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="472.8568" BottomMargin="277.1432" TouchEnable="True" FontSize="18" ButtonText="Start Game" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" ctype="ButtonObjectData">
+                <Position X="640.0000" Y="302.1432" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <CColor A="255" R="105" G="116" B="220" />
                 <Size X="256.0000" Y="50.0000" />
-                <PrePosition X="0.4844" Y="0.3777" />
+                <PrePosition X="0.5000" Y="0.3777" />
+                <PreSize X="0.2000" Y="0.0625" />
+                <TextColor A="255" R="226" G="220" B="33" />
+                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />
+                <PressedFileData Type="Default" Path="Default/Button_Press.png" />
+                <NormalFileData Type="Default" Path="Default/Button_Normal.png" />
+              </NodeObjectData>
+              <NodeObjectData Name="Test" ActionTag="1776421883" ZOrder="1" FrameEvent="" Tag="28" PositionPercentXEnabled="True" PercentWidthEnable="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="645.4748" BottomMargin="104.5252" TouchEnable="True" FontSize="18" ButtonText="Test" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" ctype="ButtonObjectData">
+                <Position X="640.0000" Y="129.5252" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <CColor A="255" R="105" G="116" B="220" />
+                <Size X="256.0000" Y="50.0000" />
+                <PrePosition X="0.5000" Y="0.1619" />
                 <PreSize X="0.2000" Y="0.0625" />
                 <TextColor A="255" R="226" G="220" B="33" />
                 <DisabledFileData Type="Default" Path="Default/Button_Disable.png" />

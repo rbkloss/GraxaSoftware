@@ -10,6 +10,8 @@
         <Image Name="sprite2.png" />
         <Project Name="main.csd" Type="Layer" />
         <Project Name="StartScreen.csd" Type="Scene" />
+        <Project Name="JumpTest.csd" Type="Scene" />
+        <Image Name="check.png" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -12,4 +12,4 @@ else
   APP_OPTIM := release
 endif
 
-APP_ABI := x86
+APP_ABI := armeabi-v7a x86

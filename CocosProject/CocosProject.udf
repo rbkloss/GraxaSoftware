@@ -19,15 +19,5 @@
         <KeystoreAliasPassword Value="" />
       </Value>
     </Item>
-    <Item Key="TabsParamsKey">
-      <Value ctype="TabsInfo">
-        <OpenedDocuments>
-          <FilePathData Path="StartScreen.csd" />
-          <FilePathData Path="StageOneScene.csd" />
-          <FilePathData Path="main.csd" />
-        </OpenedDocuments>
-        <ActiveDocument Path="StageOneScene.csd" />
-      </Value>
-    </Item>
   </Properties>
 </UserData>
