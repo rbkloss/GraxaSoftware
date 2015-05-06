@@ -11,7 +11,9 @@ using namespace cocostudio::timeline;
 Scene* TestMovimentationScene::createScene() {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	auto world = scene->getPhysicsWorld();
+	world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	world->setGravity(cocos2d::Vec2(0, -98));
 
 	// 'layer' is an autorelease object
 	auto layer = TestMovimentationScene::create();
@@ -40,8 +42,11 @@ bool TestMovimentationScene::init() {
 	auto createBlock = [=](std::string name) {
 		auto tempNode = rootNode->getChildByName(name);
 		auto sprite = (Sprite*)tempNode;
-		auto physBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size, cocos2d::PhysicsMaterial(1.0f, 0.0f, 0));
-		physBody->setDynamic(false);
+		auto physBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size);
+		physBody->setDynamic(true);
+		physBody->setGravityEnable(false);
+		physBody->setRotationEnable(false);
+		physBody->setMass(PHYSICS_INFINITY);
 		physBody->setContactTestBitmask(1);
 		sprite->setPhysicsBody(physBody);
 

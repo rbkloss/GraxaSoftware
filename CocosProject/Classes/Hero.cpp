@@ -17,11 +17,13 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 	hero->addEvents();
 
 
-	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->boundingBox().size, cocos2d::PhysicsMaterial(0.1f, 0.0f, 1.0f));
+	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->boundingBox().size, cocos2d::PhysicsMaterial(0.1f, 0.0f, 0));
 	//physicsBody->setResting(true);
 	physicsBody->setDynamic(true);
 	physicsBody->setRotationEnable(false);
 	physicsBody->setContactTestBitmask(0xfffffff);
+	//physicsBody->setLinearDamping(0);
+	physicsBody->setVelocityLimit(1000);
 	sprite->setPhysicsBody(physicsBody);
 	return hero;
 }
@@ -41,28 +43,23 @@ void Hero::addEvents() {
 		switch (code) {
 		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) :
 		{
-			auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(-100, 0, 0));
-			/*auto physBody = getSprite()->getPhysicsBody();
-			physBody->setVelocityLimit(1000);
-			auto moveFunc = cocos2d::CallFunc::create([=]() {
-			physBody->applyForce(cocos2d::Vec2(-100, 0));
+			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(-100, 0, 0));*/
+			auto moveAction = cocos2d::CallFunc::create([=]() {
+				auto body = this->getSprite()->getPhysicsBody();
+				body->applyImpulse(cocos2d::Vec2(-1000, 0));
 			});
-			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveFunc, nullptr));*/
 			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
 			forever->setTag(26);
 			getSprite()->runAction(forever);
-
 			break;
 		}
 		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) :
 		{
-			auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(100, 0, 0));/*
-			auto physBody = getSprite()->getPhysicsBody();
-			physBody->setVelocityLimit(1000);
-			auto moveFunc = cocos2d::CallFunc::create([=]() {
-			physBody->applyForce(cocos2d::Vec2(100, 0));
+			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(100, 0, 0));*/
+			auto moveAction = cocos2d::CallFunc::create([=]() {
+				auto body = this->getSprite()->getPhysicsBody();
+				body->applyImpulse(cocos2d::Vec2(1000, 0));
 			});
-			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveFunc, nullptr));*/
 			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
 			forever->setTag(27);
 			getSprite()->runAction(forever);
@@ -72,12 +69,10 @@ void Hero::addEvents() {
 		{
 			if (this->onGround) {
 				this->onGround = false;
-				//auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
-				//getSprite()->runAction(jump);
+				/*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
+				getSprite()->runAction(jump);*/
 				auto physBody = getSprite()->getPhysicsBody();
 				physBody->applyImpulse(cocos2d::Vec2(0, 50000));
-				physBody->setVelocityLimit(1000);
-
 			}
 			break;
 		}

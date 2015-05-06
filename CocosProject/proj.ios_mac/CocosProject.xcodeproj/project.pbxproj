@@ -115,8 +115,8 @@
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		E4E9495E93D700EF88A10783 /* res */ = {isa = PBXFileReference; lastKnownFileType = "?"; name = res; path = ../Resources/res; sourceTree = "<group>"; };
-		F0E04C57BAF67E6B4649EDAD /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
-		F3014FEF88BC17BF379EDC40 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<absolute>"; };
+		F0E04C57BAF67E6B4649EDAD /* libcocos2d Mac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d Mac.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac/libcocos2d Mac.a"; sourceTree = "<absolute>"; };
+		F3014FEF88BC17BF379EDC40 /* libcocos2d iOS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libcocos2d iOS.a"; path = "/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios/libcocos2d iOS.a"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,14 +460,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/ios",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/ios/Simulation",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/ios",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/ios",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -497,14 +497,14 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/ios",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/ios/Simulation",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/ios",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/ios/Simulation",
 				);
 				INFOPLIST_FILE = ios/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/ios",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/ios",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
@@ -537,13 +537,13 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/mac",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external/glfw3/include/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
@@ -571,13 +571,13 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/platform/mac",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external/glfw3/include/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/platform/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/glfw3/include/mac",
 				);
 				INFOPLIST_FILE = mac/Info.plist;
 				LIBRARY_SEARCH_PATHS = (
 					"",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/prebuilt/mac",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/prebuilt/mac",
 				);
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_MAC_BEGIN)",
@@ -597,19 +597,19 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/base",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/physics",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/math",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/2d",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/ui",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/network",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/audio/include",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/editor-support",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/extensions",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external/chipmunk/include/chipmunk",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/base",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/physics",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/math",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/2d",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/ui",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/network",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/audio/include",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/editor-support",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/extensions",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/chipmunk/include/chipmunk",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
@@ -626,19 +626,19 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/base",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/physics",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/math",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/2d",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/ui",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/network",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/audio/include",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/cocos/editor-support",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/extensions",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external",
-					"/Applications/Cocos/frameworks/cocos2d-x-3.5/external/chipmunk/include/chipmunk",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/base",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/physics",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/math",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/2d",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/ui",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/network",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/audio/include",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/cocos/editor-support",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/extensions",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external",
+					"/Applications/Cocos/frameworks/cocos2d-x-3.6/external/chipmunk/include/chipmunk",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

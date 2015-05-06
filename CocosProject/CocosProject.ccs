@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="CocosProject" Version="2.2.1.0" Type="CocosStudio" />
+  <PropertyGroup Name="CocosProject" Version="2.2.5.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -10,8 +10,10 @@
         <Image Name="sprite2.png" />
         <Project Name="main.csd" Type="Layer" />
         <Project Name="StartScreen.csd" Type="Scene" />
-        <Project Name="JumpTest.csd" Type="Scene" />
         <Image Name="check.png" />
+        <Folder Name="Tests">
+          <Project Name="JumpTest.csd" Type="Scene" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

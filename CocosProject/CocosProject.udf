@@ -11,12 +11,28 @@
         <iOS_Target Value="CocosProject iOS" />
         <iOS_BundleID Value="" />
         <Platform Value="Android" />
-        <PublishSetting Value="VS" />
-        <FrameworkVersion Value="cocos2d-x-3.5" />
+        <FrameworkVersion Value="cocos2d-x-3.6" />
         <IsDebugKeystore Value="True" />
         <KeystorePassword Value="" />
         <KeystoreAliasName Value="" />
         <KeystoreAliasPassword Value="" />
+        <EnableSourceMap Value="False" />
+        <EnableHTML5Advanced Value="False" />
+      </Value>
+    </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="Tests/JumpTest.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="Tests/JumpTest.csd" />
+      </Value>
+    </Item>
+    <Item Key="CocosRecentOperation">
+      <Value ctype="CocosRecentOperation">
+        <LastPublishType Value="VS" />
+        <IsLastPublish Value="True" />
+        <LastRunType Value="Android" />
       </Value>
     </Item>
   </Properties>
