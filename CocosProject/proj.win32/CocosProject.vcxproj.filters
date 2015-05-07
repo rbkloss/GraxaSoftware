@@ -42,6 +42,12 @@
     <ClCompile Include="..\Classes\TestMovimentationScene.cc">
       <Filter>TestScenes\Movimentation</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Blocks.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Requirements.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -61,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\TestMovimentationScene.h">
       <Filter>TestScenes\Movimentation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Requirements.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Blocks.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

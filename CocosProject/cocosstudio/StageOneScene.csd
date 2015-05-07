@@ -6,35 +6,122 @@
       <ObjectData Name="StageOneScene" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="monster" ActionTag="923726164" Tag="2" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="565.7708" RightMargin="679.2292" TopMargin="446.6547" BottomMargin="329.3453" ctype="SpriteObjectData">
-            <Size X="35.0000" Y="24.0000" />
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="583.2708" Y="341.3453" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.4557" Y="0.4267" />
-            <PreSize X="0.0273" Y="0.0300" />
-            <FileData Type="Normal" Path="sprite2.png" Plist="" />
-          </AbstractNodeData>
-          <AbstractNodeData Name="Ground" ActionTag="1027123623" Tag="66" IconVisible="False" LeftMargin="256.7778" RightMargin="600.2222" TopMargin="470.4763" BottomMargin="11.5237" FlipX="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="Ground" ActionTag="1027123623" Tag="66" IconVisible="False" LeftMargin="256.7778" RightMargin="600.2222" TopMargin="390.4763" BottomMargin="11.5237" FlipX="True" ctype="SpriteObjectData">
             <Size X="423.0000" Y="318.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="468.2778" Y="170.5237" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3658" Y="0.2132" />
+            <PrePosition X="0.3658" Y="0.2368" />
             <PreSize />
-            <FileData Type="Normal" Path="Ground.png" Plist="" />
+            <FileData Type="Normal" Path="images/Ground.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="171835711" Tag="1" IconVisible="False" LeftMargin="299.5871" RightMargin="959.4129" TopMargin="448.4393" BottomMargin="329.5607" ctype="SpriteObjectData">
-            <Size X="21.0000" Y="22.0000" />
+          <AbstractNodeData Name="starButton" ActionTag="1983573685" Tag="21" IconVisible="False" LeftMargin="97.1838" RightMargin="1054.8162" TopMargin="75.1241" BottomMargin="516.8759" TouchEnable="True" FontSize="14" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+            <Size X="128.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="310.0871" Y="340.5607" />
+            <Position X="161.1838" Y="580.8759" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2423" Y="0.4257" />
+            <PrePosition X="0.1259" Y="0.8068" />
+            <PreSize X="0.1000" Y="0.1778" />
+            <TextColor A="255" R="65" G="65" B="70" />
+            <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
+            <PressedFileData Type="Normal" Path="images/starOn.png" Plist="" />
+            <NormalFileData Type="Normal" Path="images/star.png" Plist="" />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="255" G="127" B="80" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="424.4004" RightMargin="823.5996" TopMargin="358.5410" BottomMargin="329.4590" ctype="SpriteObjectData">
+            <Size X="32.0000" Y="32.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="440.4004" Y="345.4590" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.3441" Y="0.4798" />
             <PreSize />
-            <FileData Type="Normal" Path="sprite1.png" Plist="" />
+            <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="700.4061" RightMargin="3.5940" TopMargin="7.3243" BottomMargin="424.6757" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+            <Size X="576.0000" Y="288.0000" />
+            <Children>
+              <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="27.0000" BottomMargin="177.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                <Size X="173.0000" Y="23.0000" />
+                <Children>
+                  <AbstractNodeData Name="CheckBox_2_4_6" ActionTag="164462600" Tag="39" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="173.0000" RightMargin="-24.0000" TopMargin="-0.5000" BottomMargin="-0.5000" TouchEnable="True" ctype="CheckBoxObjectData">
+                    <Size X="24.0000" Y="24.0000" />
+                    <AnchorPoint ScaleY="0.5000" />
+                    <Position X="173.0000" Y="11.5000" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.0000" Y="0.5000" />
+                    <PreSize X="0.1387" Y="1.0435" />
+                    <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
+                    <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
+                    <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
+                    <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
+                    <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleY="0.5000" />
+                <Position Y="276.5000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition Y="0.9425" />
+                <PreSize X="0.3003" Y="0.0799" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="255" G="127" B="80" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="Text_2_0_0_0" ActionTag="2119957518" ZOrder="1" Tag="42" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" TopMargin="23.0000" BottomMargin="242.0000" FontSize="20" LabelText="-Personagem Movimenta?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+                <Size X="230.0000" Y="23.0000" />
+                <Children>
+                  <AbstractNodeData Name="CheckBox_2_4_6_10" ActionTag="758471182" Tag="43" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="230.0000" RightMargin="-24.0000" TopMargin="0.3983" BottomMargin="-1.3983" TouchEnable="True" ctype="CheckBoxObjectData">
+                    <Size X="24.0000" Y="24.0000" />
+                    <AnchorPoint ScaleY="0.5157" />
+                    <Position X="230.0000" Y="10.9796" />
+                    <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                    <CColor A="255" R="255" G="255" B="255" />
+                    <PrePosition X="1.0000" Y="0.4774" />
+                    <PreSize X="0.1043" Y="1.0435" />
+                    <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
+                    <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
+                    <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
+                    <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
+                    <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
+                  </AbstractNodeData>
+                </Children>
+                <AnchorPoint ScaleY="0.5000" />
+                <Position Y="253.5000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition Y="0.8802" />
+                <PreSize X="0.3003" Y="0.0799" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="255" G="127" B="80" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleY="1.0000" />
+            <Position X="700.4061" Y="712.6757" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5472" Y="0.9898" />
+            <PreSize X="0.4500" Y="0.4000" />
+            <SingleColor A="255" R="150" G="150" B="255" />
+            <FirstColor A="255" R="150" G="150" B="255" />
+            <EndColor A="255" R="255" G="255" B="255" />
+            <ColorVector ScaleY="1.0000" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="score" ActionTag="1596763673" Tag="52" VisibleForFrame="False" IconVisible="False" LeftMargin="893.8578" RightMargin="296.1422" TopMargin="398.4590" BottomMargin="298.5410" FontSize="48" LabelText="Score is : " OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+            <Size X="212.0000" Y="55.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="938.8578" Y="310.0410" />
+            <Scale ScaleX="5.7378" ScaleY="12.5140" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.7335" Y="0.4306" />
+            <PreSize />
+            <OutlineColor A="255" R="255" G="0" B="0" />
+            <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

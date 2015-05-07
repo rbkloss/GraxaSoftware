@@ -51,14 +51,14 @@
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="hero" ActionTag="32948538" Tag="19" IconVisible="False" LeftMargin="285.8326" RightMargin="959.1674" TopMargin="367.0017" BottomMargin="408.9983" ctype="SpriteObjectData">
-            <Size X="35.0000" Y="24.0000" />
+            <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="303.3326" Y="420.9983" />
             <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.2370" Y="0.5262" />
             <PreSize />
-            <FileData Type="Normal" Path="sprite2.png" Plist="" />
+            <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Title" ActionTag="-1769658455" Tag="24" IconVisible="False" LeftMargin="369.6105" RightMargin="88.3894" TopMargin="0.1182" BottomMargin="557.8818" FontSize="72" LabelText="Jump and movimentation &#xA;Test" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
@@ -91,7 +91,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7636" Y="0.4234" />
             <PreSize />
-            <FileData Type="Normal" Path="check.png" Plist="" />
+            <FileData Type="Normal" Path="images/check.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="checkRight" ActionTag="1571297819" Tag="30" VisibleForFrame="False" IconVisible="False" LeftMargin="961.4642" RightMargin="286.5358" TopMargin="450.1950" BottomMargin="237.8050" ctype="SpriteObjectData">
@@ -102,7 +102,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7636" Y="0.3525" />
             <PreSize />
-            <FileData Type="Normal" Path="check.png" Plist="" />
+            <FileData Type="Normal" Path="images/check.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="checkLeft" ActionTag="-1660173866" Tag="31" VisibleForFrame="False" IconVisible="False" LeftMargin="961.4642" RightMargin="286.5358" TopMargin="501.2666" BottomMargin="186.7334" ctype="SpriteObjectData">
@@ -113,7 +113,7 @@
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.7636" Y="0.2816" />
             <PreSize />
-            <FileData Type="Normal" Path="check.png" Plist="" />
+            <FileData Type="Normal" Path="images/check.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
           <AbstractNodeData Name="Text_3" ActionTag="-779653498" Tag="32" IconVisible="False" LeftMargin="1022.2931" RightMargin="210.7069" TopMargin="404.7555" BottomMargin="292.2445" FontSize="20" LabelText="Jump" ctype="TextObjectData">

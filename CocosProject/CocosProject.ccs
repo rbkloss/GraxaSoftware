@@ -4,16 +4,22 @@
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
         <Project Name="StageOneScene.csd" Type="Scene" />
-        <Image Name="HelloWorld.png" />
-        <Image Name="Ground.png" />
-        <Image Name="sprite1.png" />
-        <Image Name="sprite2.png" />
         <Project Name="main.csd" Type="Layer" />
         <Project Name="StartScreen.csd" Type="Scene" />
-        <Image Name="check.png" />
         <Folder Name="Tests">
           <Project Name="JumpTest.csd" Type="Scene" />
         </Folder>
+        <Folder Name="images">
+          <Image Name="check.png" />
+          <Image Name="Ground.png" />
+          <Image Name="HelloWorld.png" />
+          <Image Name="heroBlock.png" />
+          <Image Name="star.png" />
+          <Image Name="starOn.png" />
+        </Folder>
+        <Image Name="CheckBox_Disable.png" />
+        <Project Name="reqListing.csd" Type="Layer" />
+        <TTF Name="arial.ttf" />
       </RootFolder>
     </Group>
   </SolutionFolder>

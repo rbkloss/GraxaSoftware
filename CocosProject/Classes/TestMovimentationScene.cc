@@ -4,6 +4,8 @@
 #include "ui/CocosGUI.h"
 
 #include "Hero.h"
+#include "Blocks.h"
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -39,23 +41,11 @@ bool TestMovimentationScene::init() {
 	auto tempNode = rootNode->getChildByName(Hero::getTag());
 	auto heroSprite = (Sprite*)tempNode;
 	static auto hero = Hero::create(heroSprite);
-	auto createBlock = [=](std::string name) {
-		auto tempNode = rootNode->getChildByName(name);
-		auto sprite = (Sprite*)tempNode;
-		auto physBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size);
-		physBody->setDynamic(true);
-		physBody->setGravityEnable(false);
-		physBody->setRotationEnable(false);
-		physBody->setMass(PHYSICS_INFINITY);
-		physBody->setContactTestBitmask(1);
-		sprite->setPhysicsBody(physBody);
-
-		return sprite;
-	};
-	auto bottom = createBlock("bottom");
-	auto top = createBlock("top");
-	auto left = createBlock("left");
-	auto right = createBlock("right");
+	
+	auto bottom = Blocks::createGroundBlock("bottom", rootNode); 
+	auto top = Blocks::createGroundBlock("top", rootNode);
+	auto left = Blocks::createGroundBlock("left", rootNode);
+	auto right = Blocks::createGroundBlock("right", rootNode);
 
 	auto leftRightContact = [=](cocos2d::PhysicsContact& contact) {
 		auto normal = contact.getContactData()->normal;

@@ -4,6 +4,11 @@
 #include "ui/CocosGUI.h"
 
 #include "Hero.h"
+#include "Requirements.h"
+#include "Blocks.h"
+
+
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -11,8 +16,10 @@ using namespace cocostudio::timeline;
 Scene* StageOneScene::createScene() {
 	// 'scene' is an autorelease object
 	auto scene = Scene::createWithPhysics();
-	scene->getPhysicsWorld()->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-
+	auto world = scene->getPhysicsWorld();
+	world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
+	world->setSubsteps(4);
+	//world->setSpeed(2.0);
 	// 'layer' is an autorelease object
 	auto layer = StageOneScene::create();
 
@@ -30,29 +37,40 @@ bool StageOneScene::init() {
 	if (!Layer::init()) {
 		return false;
 	}
+	auto sz = Director::getInstance()->getVisibleSize();
 
 	auto rootNode = CSLoader::createNode("StageOneScene.csb");
+	auto screenEdge = cocos2d::PhysicsBody::createEdgeBox(sz);
+	//rootNode->setPhysicsBody(screenEdge);
 	this->addChild(rootNode);
 
 	auto tempNode = rootNode->getChildByName(Hero::getTag());
 	auto heroSprite = (Sprite*)tempNode;
 	static auto hero = Hero::create(heroSprite);
 
-	tempNode = rootNode->getChildByName("Ground");
-	auto sprite = (Sprite*)tempNode;
-	auto physBody = cocos2d::PhysicsBody::createEdgeBox(sprite->getContentSize(), cocos2d::PhysicsMaterial(100.0f, 0.0f, 1.0f));
-	physBody->setDynamic(false);
-	physBody->setContactTestBitmask(1);
-	sprite->setPhysicsBody(physBody);
+	Blocks::createGroundBlock("Ground", rootNode);
 
+	Requirements::getInstance().create(rootNode, "listing", std::vector<bool>(2, true));
 
-	tempNode = rootNode->getChildByName("monster");
-	sprite = (Sprite*)tempNode;
-	physBody = cocos2d::PhysicsBody::createBox(sprite->getContentSize());
-	physBody->setDynamic(true);
-	physBody->setContactTestBitmask(1);
-	sprite->setPhysicsBody(physBody);
-
+	auto button = (cocos2d::ui::Button*) rootNode->getChildByName("starButton");
+	button->addTouchEventListener([=](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
+		if (type == ui::Widget::TouchEventType::ENDED) {
+			auto score = Requirements::getInstance().evaluateScore();
+			//label->setVisible(true);
+			std::stringstream ss;
+			ss << "Score is " << score;
+			static cocos2d::Label* label = nullptr;
+			if (label == nullptr) {
+				label = cocos2d::Label::createWithSystemFont(ss.str(), "arial.ttf", 48);
+			} else {
+				label->removeFromParentAndCleanup(true);
+				label = cocos2d::Label::createWithSystemFont(ss.str(), "arial.ttf", 48);
+			}
+			label->setPosition(sz.width / 2, sz.height / 2);
+			label->setVisible(true);
+			rootNode->addChild(label);
+		}
+	});
 
 	return true;
 }

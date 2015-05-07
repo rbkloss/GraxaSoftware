@@ -1,8 +1,8 @@
 #include "Hero.h"
-
+#include "ui/CocosGUI.h"
 
 Hero::Hero() {
-	onGround = true;
+	onGround_ = true;
 }
 Hero::~Hero() {}
 
@@ -17,13 +17,15 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 	hero->addEvents();
 
 
-	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->boundingBox().size, cocos2d::PhysicsMaterial(0.1f, 0.0f, 0));
+	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size, cocos2d::PhysicsMaterial(0, 0.0f, 0.85f));
 	//physicsBody->setResting(true);
 	physicsBody->setDynamic(true);
 	physicsBody->setRotationEnable(false);
 	physicsBody->setContactTestBitmask(0xfffffff);
+	physicsBody->setMass(600);
 	//physicsBody->setLinearDamping(0);
-	physicsBody->setVelocityLimit(1000);
+	physicsBody->setVelocityLimit(500);
+
 	sprite->setPhysicsBody(physicsBody);
 	return hero;
 }
@@ -44,9 +46,15 @@ void Hero::addEvents() {
 		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) :
 		{
 			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(-100, 0, 0));*/
+			auto body = this->getSprite()->getPhysicsBody();
+			if (onGround_)
+				body->setVelocity(cocos2d::Vec2(10, 0));
 			auto moveAction = cocos2d::CallFunc::create([=]() {
-				auto body = this->getSprite()->getPhysicsBody();
-				body->applyImpulse(cocos2d::Vec2(-1000, 0));
+				if (this->onGround_) {
+					body->applyImpulse(cocos2d::Vec2(-1000, 0));
+				} else {
+					body->applyImpulse(cocos2d::Vec2(-200, 0));
+				}
 			});
 			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
 			forever->setTag(26);
@@ -56,9 +64,15 @@ void Hero::addEvents() {
 		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) :
 		{
 			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(100, 0, 0));*/
+			auto body = this->getSprite()->getPhysicsBody();
+			if (onGround_)
+				body->setVelocity(cocos2d::Vec2(-10, 0));
 			auto moveAction = cocos2d::CallFunc::create([=]() {
-				auto body = this->getSprite()->getPhysicsBody();
-				body->applyImpulse(cocos2d::Vec2(1000, 0));
+				if (this->onGround_) {
+					body->applyImpulse(cocos2d::Vec2(1000, 0));
+				} else {
+					body->applyImpulse(cocos2d::Vec2(200, 0));
+				}
 			});
 			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
 			forever->setTag(27);
@@ -67,12 +81,12 @@ void Hero::addEvents() {
 		}
 		case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) :
 		{
-			if (this->onGround) {
-				this->onGround = false;
+			if (this->onGround_) {
+				this->onGround_ = false;
 				/*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
 				getSprite()->runAction(jump);*/
 				auto physBody = getSprite()->getPhysicsBody();
-				physBody->applyImpulse(cocos2d::Vec2(0, 50000));
+				physBody->applyImpulse(cocos2d::Vec2(0, 80000));
 			}
 			break;
 		}
@@ -83,15 +97,27 @@ void Hero::addEvents() {
 		switch (code) {
 		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
 			getSprite()->stopActionByTag(26);
+			if (this->onGround_) {
+				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(3000, 0));
+			} else {
+				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(300, 0));
+			}
 			break;
 		}
 		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
 			getSprite()->stopActionByTag(27);
+			if (this->onGround_) {
+				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-3000, 0));
+			} else {
+				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-300, 0));
+			}
 			break;
 		}
 		}
 	};
-
+	auto isHeroUp = [=](cocos2d::Node* hero, cocos2d::Node* other, cocos2d::Vec2 &normal) {
+		return (normal.y > 0);
+	};
 	auto onContactBegin = [=](cocos2d::PhysicsContact& contact) {
 		auto normal = contact.getContactData()->normal;
 		auto shapeA = contact.getShapeA();
@@ -99,28 +125,47 @@ void Hero::addEvents() {
 		auto shapeB = contact.getShapeB();
 		auto bodyB = shapeB->getBody();
 
-		auto isHeroUp = [=](cocos2d::Node* hero, cocos2d::Node* other, cocos2d::Vec2 &normal) {
-			return (normal.y > 0);
-		};
-
 		auto nodeA = bodyA->getNode();
 		auto nodeB = bodyB->getNode();
 		if (this->getTag() == nodeA->getName()) {
-			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
-			/*if (nodeB->getName() != "Ground")
-				nodeB->removeFromParentAndCleanup(true);*/
-		} else {
-			if (isHeroUp(nodeA, nodeB, normal)) this->onGround = true;
-			/*if (nodeA->getName() != "Ground")
-				nodeA->removeFromParentAndCleanup(true);*/
+			if (isHeroUp(nodeA, nodeB, normal)) {
+				this->onGround_ = true;
+			}
+		} else if (this->getTag() == nodeB->getName()) {
+			if (isHeroUp(nodeB, nodeA, normal)) {
+				this->onGround_ = true;
+			}
 		}
-		cocos2d::log("collision");
 
 		return true;
 	};
 
+	auto onContactEnd = [=](cocos2d::PhysicsContact& contact) {
+		auto normal = contact.getContactData()->normal;
+		auto shapeA = contact.getShapeA();
+		auto bodyA = shapeA->getBody();
+		auto shapeB = contact.getShapeB();
+		auto bodyB = shapeB->getBody();
+
+		auto nodeA = bodyA->getNode();
+		auto nodeB = bodyB->getNode();
+		if (this->getTag() == nodeA->getName()) {
+			if (isHeroUp(nodeA, nodeB, normal)) {
+				this->onGround_ = false;
+			}
+		} else if (this->getTag() == nodeB->getName()) {
+			if (isHeroUp(nodeB, nodeA, normal)) {
+				this->onGround_ = false;
+			}
+
+			/*if (nodeA->getName() != "Ground")
+			nodeA->removeFromParentAndCleanup(true);*/
+		}
+	};
+
 	auto contactListener = cocos2d::EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = onContactBegin;
+	contactListener->onContactSeperate = onContactEnd;
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, getSprite());
 

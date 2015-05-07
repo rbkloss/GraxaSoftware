@@ -7,7 +7,7 @@ class Hero {
 	cocos2d::Sprite* sprite_;
 protected:
 	void setSprite(cocos2d::Sprite* sprite);
-	bool onGround;
+	bool onGround_;
 public:
 	Hero();
 	virtual ~Hero();
