@@ -15,6 +15,7 @@ public:
 	static std::shared_ptr<Hero> create(cocos2d::Sprite* sprite);
 	static std::string getTag();
 
+	void update(float dt);
 	
 	cocos2d::Sprite* getSprite();
 

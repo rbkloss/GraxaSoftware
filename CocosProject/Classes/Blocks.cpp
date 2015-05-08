@@ -4,6 +4,7 @@
 
 cocos2d::Sprite*  Blocks::createGroundBlock(const std::string &name, cocos2d::Node* rootNode) {
 	auto tempNode = rootNode->getChildByName(name);
+	tempNode->setTag(BlockTypes::GROUND_BLOCK);
 	auto sprite = (cocos2d::Sprite*)tempNode;
 	auto physBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size, cocos2d::PhysicsMaterial(0.0f, 0.0f, 0.9f));
 	physBody->setDynamic(true);

@@ -1,0 +1,1 @@
+cocos compile -s .\ -p linux -m release -o bin\release\linux\ > log

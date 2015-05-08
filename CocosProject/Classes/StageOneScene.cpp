@@ -18,7 +18,7 @@ Scene* StageOneScene::createScene() {
 	auto scene = Scene::createWithPhysics();
 	auto world = scene->getPhysicsWorld();
 	world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-	world->setSubsteps(4);
+	world->setSubsteps(6);
 	//world->setSpeed(2.0);
 	// 'layer' is an autorelease object
 	auto layer = StageOneScene::create();
@@ -46,7 +46,7 @@ bool StageOneScene::init() {
 
 	auto tempNode = rootNode->getChildByName(Hero::getTag());
 	auto heroSprite = (Sprite*)tempNode;
-	static auto hero = Hero::create(heroSprite);
+	hero_ = Hero::create(heroSprite);
 
 	Blocks::createGroundBlock("Ground", rootNode);
 
@@ -72,5 +72,11 @@ bool StageOneScene::init() {
 		}
 	});
 
+	schedule(CC_SCHEDULE_SELECTOR(StageOneScene::update), 0.3f);
+
 	return true;
+}
+
+void StageOneScene::update(float dt) {
+	hero_->update(dt);
 }

@@ -1,0 +1,59 @@
+
+Microsoft Visual Studio 2013 Version 12.0.31101.0.
+Copyright (C) Microsoft Corp. All rights reserved.
+Upgrading project 'CocosProject'...
+	No upgrade required.
+Upgrading project 'Test_CocosProject'...
+	No upgrade required.
+
+Migration completed successfully, but some warnings were detected during migration.
+For more information, see the migration report:
+D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog5.htm
+
+Microsoft Visual Studio 2013 Version 12.0.31101.0.
+Copyright (C) Microsoft Corp. All rights reserved.
+1>------ Build started: Project: CocosProject, Configuration: Release Win32 ------
+1>  Blocks.cpp
+1>  Hero.cpp
+1>  StageOneScene.cpp
+1>  StartScreenScene.cpp
+1>  TestMovimentationScene.cc
+1>  51 arquivo(s) copiado(s)
+1>  0 arquivo(s) copiado(s)
+1>     Creating library D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.lib and object D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.exp
+1>  Generating code
+1>  Finished generating code
+1>  CocosProject.vcxproj -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
+Running command: compile
+Building mode: release
+building
+Required VS version : 11.0
+find vs in reg : 64bit
+find vs in reg : 32bit
+Find VS path : C:\Program Files (x86)\Microsoft Visual Studio 12.0\
+running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.com" "D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\CocosProject.sln" /Upgrade'
+
+running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.com" "D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\CocosProject.sln" /Build "Release" /Project "CocosProject"'
+
+build succeeded.
+Copying CocosProject.exe
+Copying glew32.dll
+Copying iconv.dll
+Copying libcocos2d.dll
+Copying libcocos2d_2012.dll
+Copying libcocos2d_2013.dll
+Copying libcurl.dll
+Copying libeay32.dll
+Copying libmpg123.dll
+Copying libogg.dll
+Copying libtiff.dll
+Copying libvorbis.dll
+Copying libvorbisfile.dll
+Copying lua51.dll
+Copying mozjs-28.dll
+Copying OpenAL32.dll
+Copying sqlite3.dll
+Copying ssleay32.dll
+Copying websockets.dll
+Copying zlib1.dll

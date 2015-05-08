@@ -3,65 +3,65 @@
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
-      <ObjectData Name="Scene" Tag="12" ctype="GameNodeObjectData">
+      <ObjectData Name="Scene" Visible="False" Tag="12" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="right" ActionTag="-198298920" Tag="15" IconVisible="False" LeftMargin="513.3769" RightMargin="720.6231" TopMargin="331.1968" BottomMargin="422.8032" ctype="SpriteObjectData">
+          <AbstractNodeData Name="right" ActionTag="-198298920" Tag="15" IconVisible="False" LeftMargin="513.3769" RightMargin="720.6231" TopMargin="251.1968" BottomMargin="422.8032" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="536.3769" Y="445.8032" />
             <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="3" G="159" B="0" />
-            <PrePosition X="0.4190" Y="0.5573" />
+            <PrePosition X="0.4190" Y="0.6192" />
             <PreSize />
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="left" ActionTag="-91163267" Tag="16" IconVisible="False" LeftMargin="66.5683" RightMargin="1167.4316" TopMargin="329.2312" BottomMargin="424.7688" ctype="SpriteObjectData">
+          <AbstractNodeData Name="left" ActionTag="-91163267" Tag="16" IconVisible="False" LeftMargin="66.5683" RightMargin="1167.4316" TopMargin="249.2312" BottomMargin="424.7688" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="89.5683" Y="447.7688" />
             <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="206" G="36" B="36" />
-            <PrePosition X="0.0700" Y="0.5597" />
+            <PrePosition X="0.0700" Y="0.6219" />
             <PreSize />
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="bottom" ActionTag="-1212792134" Tag="17" IconVisible="False" LeftMargin="282.3329" RightMargin="951.6671" TopMargin="426.5572" BottomMargin="327.4428" ctype="SpriteObjectData">
+          <AbstractNodeData Name="bottom" ActionTag="-1212792134" Tag="17" IconVisible="False" LeftMargin="282.3329" RightMargin="951.6671" TopMargin="346.5572" BottomMargin="327.4428" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="305.3329" Y="350.4428" />
             <Scale ScaleX="9.8260" ScaleY="2.0000" />
             <CColor A="255" R="172" G="82" B="82" />
-            <PrePosition X="0.2385" Y="0.4381" />
+            <PrePosition X="0.2385" Y="0.4867" />
             <PreSize />
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="top" ActionTag="-140314547" Tag="18" IconVisible="False" LeftMargin="278.8332" RightMargin="955.1668" TopMargin="222.6304" BottomMargin="531.3696" ctype="SpriteObjectData">
+          <AbstractNodeData Name="top" ActionTag="-140314547" Tag="18" IconVisible="False" LeftMargin="278.8332" RightMargin="955.1668" TopMargin="142.6304" BottomMargin="531.3696" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="301.8332" Y="554.3696" />
             <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="0" G="13" B="255" />
-            <PrePosition X="0.2358" Y="0.6930" />
+            <PrePosition X="0.2358" Y="0.7700" />
             <PreSize />
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="32948538" Tag="19" IconVisible="False" LeftMargin="285.8326" RightMargin="959.1674" TopMargin="367.0017" BottomMargin="408.9983" ctype="SpriteObjectData">
+          <AbstractNodeData Name="hero" ActionTag="32948538" Tag="19" IconVisible="False" LeftMargin="280.3326" RightMargin="953.6674" TopMargin="276.0017" BottomMargin="397.9983" ctype="SpriteObjectData">
             <Size X="46.0000" Y="46.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="303.3326" Y="420.9983" />
             <Scale ScaleX="2.0000" ScaleY="2.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.2370" Y="0.5262" />
+            <PrePosition X="0.2370" Y="0.5847" />
             <PreSize />
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Title" ActionTag="-1769658455" Tag="24" IconVisible="False" LeftMargin="369.6105" RightMargin="88.3894" TopMargin="0.1182" BottomMargin="557.8818" FontSize="72" LabelText="Jump and movimentation &#xA;Test" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
+          <AbstractNodeData Name="Title" ActionTag="-1769658455" Tag="24" IconVisible="False" LeftMargin="369.6105" RightMargin="88.3895" TopMargin="0.1182" BottomMargin="557.8818" FontSize="72" LabelText="Jump and movimentation &#xA;Test" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
             <Size X="822.0000" Y="162.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="780.6105" Y="638.8818" />
@@ -72,7 +72,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-171367341" Tag="26" IconVisible="False" LeftMargin="589.3421" RightMargin="12.6580" TopMargin="171.9600" BottomMargin="425.0401" FontSize="36" LabelText="Please, Hit the top and left and right boxes &#xA;by moving the blue sprite&#xA; with the keyboard arrows." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_2" ActionTag="-171367341" Tag="26" IconVisible="False" LeftMargin="589.3421" RightMargin="12.6580" TopMargin="171.9599" BottomMargin="425.0401" FontSize="36" LabelText="Please, Hit the top and left and right boxes &#xA;by moving the blue sprite&#xA; with the keyboard arrows." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ctype="TextObjectData">
             <Size X="678.0000" Y="123.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="928.3421" Y="486.5401" />

@@ -20,6 +20,17 @@
         <EnableHTML5Advanced Value="False" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="Tests/JumpTest.csd" />
+          <FilePathData Path="StageOneScene.csd" />
+          <FilePathData Path="reqListing.csd" />
+          <FilePathData Path="StartScreen.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="StartScreen.csd" />
+      </Value>
+    </Item>
     <Item Key="CocosRecentOperation">
       <Value ctype="CocosRecentOperation">
         <LastPublishType Value="VS" />

@@ -32,21 +32,37 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="424.4004" RightMargin="823.5996" TopMargin="358.5410" BottomMargin="329.4590" ctype="SpriteObjectData">
+          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="429.8961" RightMargin="818.1039" TopMargin="359.3261" BottomMargin="328.6739" FlipX="True" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
+            <Children>
+              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="84.4984" RightMargin="-92.4984" TopMargin="-135.6627" BottomMargin="127.6627" TouchEnable="True" ctype="CheckBoxObjectData">
+                <Size X="40.0000" Y="40.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="104.4984" Y="147.6627" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="3.2656" Y="4.6145" />
+                <PreSize />
+                <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
+                <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
+                <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
+                <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
+                <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
+              </AbstractNodeData>
+            </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="440.4004" Y="345.4590" />
+            <Position X="445.8961" Y="344.6739" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.3441" Y="0.4798" />
+            <CColor A="255" R="50" G="153" B="47" />
+            <PrePosition X="0.3484" Y="0.4787" />
             <PreSize />
             <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
-            <BlendFunc Src="1" Dst="771" />
+            <BlendFunc Src="1" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="700.4061" RightMargin="3.5940" TopMargin="7.3243" BottomMargin="424.6757" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
+          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="700.4061" RightMargin="3.5939" TopMargin="7.3243" BottomMargin="424.6757" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
             <Size X="576.0000" Y="288.0000" />
             <Children>
-              <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="27.0000" BottomMargin="177.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" BottomMargin="265.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="173.0000" Y="23.0000" />
                 <Children>
                   <AbstractNodeData Name="CheckBox_2_4_6" ActionTag="164462600" Tag="39" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="173.0000" RightMargin="-24.0000" TopMargin="-0.5000" BottomMargin="-0.5000" TouchEnable="True" ctype="CheckBoxObjectData">
@@ -68,18 +84,18 @@
                 <Position Y="276.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition Y="0.9425" />
+                <PrePosition Y="0.9601" />
                 <PreSize X="0.3003" Y="0.0799" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Text_2_0_0_0" ActionTag="2119957518" ZOrder="1" Tag="42" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" TopMargin="23.0000" BottomMargin="242.0000" FontSize="20" LabelText="-Personagem Movimenta?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+              <AbstractNodeData Name="Text_2_0_0_0" ActionTag="2119957518" ZOrder="1" Tag="42" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="346.0000" TopMargin="23.0000" BottomMargin="242.0000" FontSize="20" LabelText="-Personagem Movimenta?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="230.0000" Y="23.0000" />
                 <Children>
-                  <AbstractNodeData Name="CheckBox_2_4_6_10" ActionTag="758471182" Tag="43" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="230.0000" RightMargin="-24.0000" TopMargin="0.3983" BottomMargin="-1.3983" TouchEnable="True" ctype="CheckBoxObjectData">
+                  <AbstractNodeData Name="CheckBox_2_4_6_10" ActionTag="758471182" Tag="43" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="230.0000" RightMargin="-24.0000" TopMargin="0.3966" BottomMargin="-1.3966" TouchEnable="True" ctype="CheckBoxObjectData">
                     <Size X="24.0000" Y="24.0000" />
                     <AnchorPoint ScaleY="0.5157" />
-                    <Position X="230.0000" Y="10.9796" />
+                    <Position X="230.0000" Y="10.9802" />
                     <Scale ScaleX="1.0000" ScaleY="1.0000" />
                     <CColor A="255" R="255" G="255" B="255" />
                     <PrePosition X="1.0000" Y="0.4774" />
@@ -112,7 +128,7 @@
             <EndColor A="255" R="255" G="255" B="255" />
             <ColorVector ScaleY="1.0000" />
           </AbstractNodeData>
-          <AbstractNodeData Name="score" ActionTag="1596763673" Tag="52" VisibleForFrame="False" IconVisible="False" LeftMargin="893.8578" RightMargin="296.1422" TopMargin="398.4590" BottomMargin="298.5410" FontSize="48" LabelText="Score is : " OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
+          <AbstractNodeData Name="score" ActionTag="1596763673" Tag="52" VisibleForFrame="False" IconVisible="False" LeftMargin="832.8578" RightMargin="235.1422" TopMargin="382.4590" BottomMargin="282.5410" FontSize="48" LabelText="Score is : " OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
             <Size X="212.0000" Y="55.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="938.8578" Y="310.0410" />

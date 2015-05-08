@@ -1,0 +1,1 @@
+cocos compile -s .\ -p win32 -m release -o bin\release\win32\ > log
