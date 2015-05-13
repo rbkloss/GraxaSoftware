@@ -3,6 +3,8 @@
 
 #include "Blocks.h"
 
+#include <string>
+
 USING_NS_CC;
 
 Hero::Hero() {
@@ -21,13 +23,14 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 	hero->addEvents();
 
 
-	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox().size, cocos2d::PhysicsMaterial(0, 0.0f, 0.85f));
-	//physicsBody->setResting(true);
+	auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox()
+		.size, cocos2d::PhysicsMaterial(0, 0.0f, 0.85f));
+	// physicsBody->setResting(true);
 	physicsBody->setDynamic(true);
 	physicsBody->setRotationEnable(false);
 	physicsBody->setContactTestBitmask(0xfffffff);
 	physicsBody->setMass(600);
-	//physicsBody->setLinearDamping(0);
+	// physicsBody->setLinearDamping(0);
 	physicsBody->setVelocityLimit(500);
 
 	sprite->setPhysicsBody(physicsBody);
@@ -45,84 +48,47 @@ cocos2d::Sprite* Hero::getSprite() {
 void Hero::addEvents() {
 	auto listener = cocos2d::EventListenerKeyboard::create();
 
-	listener->onKeyPressed = [=](cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* evt) {
+	listener->onKeyPressed = [this](cocos2d::EventKeyboard::KeyCode code,
+		cocos2d::Event* evt) {
 		switch (code) {
-		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) :
-		{
-			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(-100, 0, 0));*/
-			auto body = this->getSprite()->getPhysicsBody();
-			if (onGround_)
-				body->setVelocity(cocos2d::Vec2(-25, 0));
-			auto moveAction = cocos2d::CallFunc::create([=]() {
-				if (this->onGround_) {
-					body->applyImpulse(cocos2d::Vec2(-1000, 0));
-				} else {
-					body->applyImpulse(cocos2d::Vec2(-200, 0));
-				}
-			});
-			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
-			forever->setTag(26);
-			getSprite()->runAction(forever);
+		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
+			this->moveHoriz(-1);
 			break;
 		}
-		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) :
-		{
-			/*auto moveAction = cocos2d::MoveBy::create(1, cocos2d::Vec3(100, 0, 0));*/
-			auto body = this->getSprite()->getPhysicsBody();
-			if (onGround_)
-				body->setVelocity(cocos2d::Vec2(25, 0));
-			auto moveAction = cocos2d::CallFunc::create([=]() {
-				if (this->onGround_) {
-					body->applyImpulse(cocos2d::Vec2(1000, 0));
-				} else {
-					body->applyImpulse(cocos2d::Vec2(200, 0));
-				}
-			});
-			auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
-			forever->setTag(27);
-			getSprite()->runAction(forever);
+		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
+			this->moveHoriz(1);
 			break;
 		}
-		case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) :
-		{
-			if (this->onGround_) {
-				this->onGround_ = false;
-				/*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
-				getSprite()->runAction(jump);*/
-				auto physBody = getSprite()->getPhysicsBody();
-				physBody->applyImpulse(cocos2d::Vec2(0, 60000));
-				onGround_ = false;
-				auto check = (cocos2d::ui::CheckBox*)this->getSprite()->getChildByName("check");
-				check->setSelected(onGround_);
-			}
+		case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) : {
+			this->jump();
 			break;
 		}
 		}
 	};
 
-	listener->onKeyReleased = [=](cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* evt) {
+	listener->onKeyReleased = [this](cocos2d::EventKeyboard::KeyCode code, cocos2d::Event* evt) {
 		switch (code) {
 		case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
-			getSprite()->stopActionByTag(26);
+			this->getSprite()->stopActionByTag(26);
 			if (this->onGround_) {
-				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(3000, 0));
+				this->getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(3000, 0));
 			} else {
-				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(300, 0));
+				this->getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(300, 0));
 			}
 			break;
 		}
 		case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
-			getSprite()->stopActionByTag(27);
+			this->getSprite()->stopActionByTag(27);
 			if (this->onGround_) {
-				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-3000, 0));
+				this->getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-3000, 0));
 			} else {
-				getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-300, 0));
+				this->getSprite()->getPhysicsBody()->applyImpulse(cocos2d::Vec2(-300, 0));
 			}
 			break;
 		}
 		}
 	};
-	auto isHeroUp = [=](cocos2d::Node* hero, cocos2d::Node* other, cocos2d::Vec2 &normal) {
+	auto isHeroUp = [](cocos2d::Node* hero, cocos2d::Node* other, cocos2d::Vec2 &normal) {
 		return (normal.y > 0);
 	};
 	/*auto onContactBegin = [=](cocos2d::PhysicsContact& contact) {
@@ -156,23 +122,24 @@ void Hero::addEvents() {
 
 	//cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, getSprite());
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, getSprite());
+	cocos2d::Director::getInstance()->getEventDispatcher()->
+		addEventListenerWithSceneGraphPriority(listener, getSprite());
 }
 
 void Hero::update(float dt) {
 	auto sprite = getSprite();
 	auto scene = sprite->getScene();
 	auto world = scene->getPhysicsWorld();
-	auto groundBellow = [=](PhysicsWorld& world, const PhysicsRayCastInfo& info, void* data)->bool {
+	auto groundBellow = [this](PhysicsWorld& world, const PhysicsRayCastInfo& info, void* data)->bool {
 		auto shape = info.shape;
 		auto body = shape->getBody();
 		auto node = body->getNode();
 
 		if (node->getTag() & Blocks::BlockTypes::GROUND_BLOCK) {
-			onGround_ = true;
+			this->onGround_ = true;
 		}
 		auto check = (cocos2d::ui::CheckBox*)this->getSprite()->getChildByName("check");
-		check->setSelected(onGround_);
+		check->setSelected(this->onGround_);
 
 		return true;
 	};
@@ -183,4 +150,32 @@ void Hero::update(float dt) {
 	cocos2d::Vec2 end = center;
 	end.add(cocos2d::Vec2(0, -2));
 	world->rayCast(groundBellow, center, end, nullptr);
+}
+
+void Hero::jump() {
+	if (this->onGround_) {
+		this->onGround_ = false;
+		/*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
+		getSprite()->runAction(jump);*/
+		auto physBody = this->getSprite()->getPhysicsBody();
+		physBody->applyImpulse(cocos2d::Vec2(0, 60000));
+		this->onGround_ = false;
+		auto check = (cocos2d::ui::CheckBox*)this->getSprite()->getChildByName("check");
+		check->setSelected(onGround_);
+	}
+}
+void Hero::moveHoriz(int direction) {
+	auto body = this->getSprite()->getPhysicsBody();
+	if (onGround_)
+		body->setVelocity(cocos2d::Vec2(direction * 25, 0));
+	auto moveAction = cocos2d::CallFunc::create([this, body, direction]() {
+		if (this->onGround_) {
+			body->applyImpulse(cocos2d::Vec2(direction * 1000, 0));
+		} else {
+			body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
+		}
+	});
+	auto forever = cocos2d::RepeatForever::create(cocos2d::Sequence::create(moveAction, nullptr));
+	forever->setTag(27);
+	this->getSprite()->runAction(forever);
 }

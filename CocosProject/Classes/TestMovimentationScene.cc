@@ -6,9 +6,12 @@
 #include "Hero.h"
 #include "Blocks.h"
 
+#include <iostream>
+
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
+using cocos2d::Sprite;
 
 Scene* TestMovimentationScene::createScene() {
 	// 'scene' is an autorelease object
@@ -39,15 +42,15 @@ bool TestMovimentationScene::init() {
 	this->addChild(rootNode);
 
 	auto tempNode = rootNode->getChildByName(Hero::getTag());
-	auto heroSprite = (Sprite*)tempNode;
+	Sprite* heroSprite = (Sprite*)(tempNode);
 	static auto hero = Hero::create(heroSprite);
-	
-	auto bottom = Blocks::createGroundBlock("bottom", rootNode); 
+
+	auto bottom = Blocks::createGroundBlock("bottom", rootNode);
 	auto top = Blocks::createGroundBlock("top", rootNode);
 	auto left = Blocks::createGroundBlock("left", rootNode);
 	auto right = Blocks::createGroundBlock("right", rootNode);
 
-	auto leftRightContact = [=](cocos2d::PhysicsContact& contact) {
+	auto leftRightContact = [rootNode](cocos2d::PhysicsContact& contact) {
 		auto normal = contact.getContactData()->normal;
 		auto shapeA = contact.getShapeA();
 		auto bodyA = shapeA->getBody();
@@ -84,11 +87,13 @@ bool TestMovimentationScene::init() {
 	auto contactListener = cocos2d::EventListenerPhysicsContact::create();
 	contactListener->onContactBegin = leftRightContact;
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, left);
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener->clone(), right);
+	cocos2d::Director::getInstance()->getEventDispatcher()->
+		addEventListenerWithSceneGraphPriority(contactListener, left);
+	cocos2d::Director::getInstance()->getEventDispatcher()->
+		addEventListenerWithSceneGraphPriority(contactListener->clone(), right);
 
 	static bool topHit = false;
-	auto topBottomContact = [=](cocos2d::PhysicsContact& contact) {
+	auto topBottomContact = [rootNode](cocos2d::PhysicsContact& contact) {
 		auto normal = contact.getContactData()->normal;
 		auto shapeA = contact.getShapeA();
 		auto bodyA = shapeA->getBody();
@@ -120,8 +125,10 @@ bool TestMovimentationScene::init() {
 	auto topBottomContactListener = cocos2d::EventListenerPhysicsContact::create();
 	topBottomContactListener->onContactBegin = topBottomContact;
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(topBottomContactListener, top);
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(topBottomContactListener->clone(), bottom);
+	cocos2d::Director::getInstance()->getEventDispatcher()->
+		addEventListenerWithSceneGraphPriority(topBottomContactListener, top);
+	cocos2d::Director::getInstance()->getEventDispatcher()->
+		addEventListenerWithSceneGraphPriority(topBottomContactListener->clone(), bottom);
 
 	return true;
 }
