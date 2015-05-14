@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="32" tileheight="32" nextobjectid="71">
+ <tileset firstgid="1" name="grass_9" tilewidth="32" tileheight="32">
+  <image source="grass_9.png" width="512" height="640"/>
+ </tileset>
+ <layer name="collidable" width="40" height="23">
+  <data encoding="base64" compression="zlib">
+   eJzt0bkKwlAQheG8ikbtjUvv2rsW6dzSuz6//4VcGCQTsRgCMge+4pIDM0ySxOPxeDye39NCu5SiI96a2OuiZ7xfhgGGGGGMfo2qvmWmmGGOHEtMasj+ouxb5tt9mr6fNjPuI2/XxH7aP4s7rYTwziu6lglz19hgix32YqeDoHUtE+YeccIZFxRip6ugdS0T5t5wxwNPvD72it+1rsfzr3kDcaAp4g==
+  </data>
+ </layer>
+ <objectgroup name="positions">
+  <object id="68" x="32" y="288" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="collisions">
+  <object id="70" name="ground" x="0" y="320" width="544" height="32"/>
+ </objectgroup>
+</map>
