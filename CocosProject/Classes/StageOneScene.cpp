@@ -19,7 +19,8 @@ Scene* StageOneScene::createScene() {
   auto scene = Scene::createWithPhysics();
   auto world = scene->getPhysicsWorld();
   world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
-  world->setSubsteps(6);
+  world->setUpdateRate(0.5f);
+  world->setSubsteps(4);  
   // world->setSpeed(2.0);
   // 'layer' is an autorelease object
   auto layer = StageOneScene::create();

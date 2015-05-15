@@ -58,6 +58,7 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
     body->setGravityEnable(false);
     body->setRotationEnable(false);
     body->setMass(cocos2d::PHYSICS_INFINITY);
+    body->setContactTestBitmask(Blocks::GROUND_BLOCK);
     auto tilePos = tile->getPosition();
     auto tileSize = tile->getContentSize();
 

@@ -1,6 +1,6 @@
 #include <string>
 
-#include "Hero.h"
+#include "./Hero.h"
 #include "ui/CocosGUI.h"
 
 #include "Blocks.h"
@@ -25,12 +25,12 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
 
 
   auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox()
-    .size, cocos2d::PhysicsMaterial(0, 0.0f, 0.85f));
+    .size, cocos2d::PhysicsMaterial(0, 0.0f, 2.0f));
   physicsBody->setDynamic(true);
   physicsBody->setRotationEnable(false);
   physicsBody->setContactTestBitmask(0xfffffff);
   physicsBody->setMass(600);
-  physicsBody->setVelocityLimit(100);
+  physicsBody->setVelocityLimit(150);
 
   sprite->setPhysicsBody(physicsBody);
   return hero;
@@ -94,9 +94,14 @@ void Hero::addEvents() {
   };
   auto isHeroUp = [](cocos2d::Node* hero,
     cocos2d::Node* other, cocos2d::Vec2 &normal) {
+    if (!other) return false;
+    if (!hero) return false;
     return (normal.y > 0);
   };
-  /*auto onContactBegin = [=](cocos2d::PhysicsContact& contact) {
+  auto onContactBegin = [](cocos2d::PhysicsContact& contact)->bool {
+    return true;
+  };
+  auto onContactSeparate = [this, isHeroUp](cocos2d::PhysicsContact& contact)->void {
     auto normal = contact.getContactData()->normal;
     auto shapeA = contact.getShapeA();
     auto bodyA = shapeA->getBody();
@@ -105,27 +110,29 @@ void Hero::addEvents() {
 
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
+
+    cocos2d::Node* heroNode = nullptr;
+    cocos2d::Node* otherNode = nullptr;
     if (this->getTag() == nodeA->getName()) {
-    if (isHeroUp(nodeA, nodeB, normal)) {
-    this->onGround_ = true;
-    }
+      heroNode = nodeA;
+      otherNode = nodeB;
     } else if (this->getTag() == nodeB->getName()) {
-    if (isHeroUp(nodeB, nodeA, normal)) {
-    this->onGround_ = true;
+      heroNode = nodeB;
+      otherNode = nodeA;
     }
+    if (isHeroUp(nodeA, nodeB, normal)) {
+      this->onGround_ = false;
     }
-    if (this->onGround_) {
-    auto check = (cocos2d::ui::CheckBox*)this->getSprite()->getChildByName("check");
-    check->setSelected(true);
-    }
-    return true;
-    };*/
+    auto check = (cocos2d::ui::CheckBox*)this->getSprite()->
+      getChildByName("check");
+    check->setSelected(onGround_);
+  };
 
-  /*auto contactListener = cocos2d::EventListenerPhysicsContact::create();
+  auto contactListener = cocos2d::EventListenerPhysicsContact::create();
+  contactListener->onContactSeperate = onContactSeparate;
   contactListener->onContactBegin = onContactBegin;
-  contactListener->onContactSeperate = onContactEnd;*/
-
-  //cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(contactListener, getSprite());
+  cocos2d::Director::getInstance()->getEventDispatcher()->
+    addEventListenerWithSceneGraphPriority(contactListener, getSprite());
 
   cocos2d::Director::getInstance()->getEventDispatcher()->
     addEventListenerWithSceneGraphPriority(listener, getSprite());
@@ -135,28 +142,41 @@ void Hero::update(float dt) {
   auto sprite = getSprite();
   auto scene = sprite->getScene();
   auto world = scene->getPhysicsWorld();
+
   auto groundBellow = [this](PhysicsWorld& world,
     const PhysicsRayCastInfo& info, void* data)->bool {
     auto shape = info.shape;
     auto body = shape->getBody();
     auto node = body->getNode();
 
-
-    if (node->getTag() & Blocks::GROUND_BLOCK) {
+    if (!node)
+      this->onGround_ = false;
+    else if (node->getTag() != this->getSprite()->getTag()) {
       this->onGround_ = true;
+    } else {
+      this->onGround_ = false;
     }
     auto check = (cocos2d::ui::CheckBox*)this->
       getSprite()->getChildByName("check");
     check->setSelected(this->onGround_);
-
-    return true;
+    return this->onGround_;
   };
+
+  static cocos2d::DrawNode* drawNode = nullptr;
+  if (!drawNode) {
+    drawNode = cocos2d::DrawNode::create();
+    scene->addChild(drawNode);
+  }
 
   auto center = getSprite()->getPosition();
   auto sz = getSprite()->getBoundingBox().size;
-  center.add(cocos2d::Vec2(0, -(sz.height / 2)));
+  center.add({ -(sz.width / 2), -(sz.height / 2 + 4) });
   cocos2d::Vec2 end = center;
-  end.add(cocos2d::Vec2(0, -2));
+  end.add({ sz.width, 0.0f });
+
+  // drawNode->drawLine(center, end, cocos2d::Color4F::MAGENTA);
+  drawNode->drawSegment(center, end, 1, cocos2d::Color4F::MAGENTA);
+
   world->rayCast(groundBellow, center, end, nullptr);
 }
 
@@ -166,7 +186,7 @@ void Hero::jump() {
     /*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
     getSprite()->runAction(jump);*/
     auto physBody = this->getSprite()->getPhysicsBody();
-    physBody->applyImpulse(cocos2d::Vec2(0, 60000));
+    physBody->applyImpulse(cocos2d::Vec2(0, 65000));
     this->onGround_ = false;
     auto check = (cocos2d::ui::CheckBox*)this->
       getSprite()->getChildByName("check");
@@ -176,12 +196,12 @@ void Hero::jump() {
 void Hero::moveHoriz(int direction) {
   auto body = this->getSprite()->getPhysicsBody();
   if (onGround_)
-    body->setVelocity(cocos2d::Vec2(direction * 25, 0));
+    body->setVelocity(cocos2d::Vec2(direction * 0, 0));
   auto moveFunc = [this, body, direction]() {
     if (this->onGround_) {
-      body->applyImpulse(cocos2d::Vec2(direction * 1000, 0));
+      body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
     } else {
-      body->applyImpulse(cocos2d::Vec2(direction * 100, 0));
+      body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
     }
   };
   auto moveAction = cocos2d::CallFunc::create(moveFunc);
