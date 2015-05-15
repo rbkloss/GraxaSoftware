@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="CocosProject" Version="2.2.5.0" Type="CocosStudio" />
+  <PropertyGroup Name="CocosProject" Version="2.2.6.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -20,6 +20,7 @@
         <Image Name="CheckBox_Disable.png" />
         <Project Name="reqListing.csd" Type="Layer" />
         <TTF Name="arial.ttf" />
+        <TmxFile Name="platformerTest.tmx" />
       </RootFolder>
     </Group>
   </SolutionFolder>

@@ -1,1 +1,0 @@
-python styleGuide\cpplint.py --output=vs7 --extensions=h,cpp,cc --root=.\CocosProject\ %1
