@@ -12,3 +12,10 @@ A maioria das dúvidas pode ser respondida por uma consulta a:
 http://www.cocos2d-x.org/programmersguide/
 no github da organização que publica a cocos pode se encontrar mais materiais : 
 https://github.com/chukong/
+
+Caso seja necessário uso de xml ou json, cocos provê bibliotecas externas e basta colocar os seguintes includes:
+<br>
+ "
+ #include "tinyxml2\tinyxml2.h"
+ #include "json\rapidjson.h"
+ "
