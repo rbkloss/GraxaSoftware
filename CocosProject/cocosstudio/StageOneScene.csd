@@ -6,15 +6,15 @@
       <ObjectData Name="StageOneScene" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="tileMap" ActionTag="2028102553" Tag="11" IconVisible="False" TopMargin="-16.0000" ctype="GameMapObjectData">
-            <Size X="1280.0000" Y="736.0000" />
+          <AbstractNodeData Name="tileMap" ActionTag="2028102553" Tag="11" IconVisible="False" LeftMargin="8.8962" RightMargin="471.1038" TopMargin="-3.6241" BottomMargin="83.6241" ctype="GameMapObjectData">
+            <Size X="800.0000" Y="640.0000" />
             <AnchorPoint />
-            <Position />
+            <Position X="8.8962" Y="83.6241" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition />
+            <PrePosition X="0.0070" Y="0.1161" />
             <PreSize />
-            <FileData Type="Normal" Path="platformerTest.tmx" Plist="" />
+            <FileData Type="Normal" Path="rodrigo/cena_1.tmx" Plist="" />
           </AbstractNodeData>
           <AbstractNodeData Name="starButton" ActionTag="1983573685" Tag="21" IconVisible="False" LeftMargin="97.1838" RightMargin="1054.8162" TopMargin="75.1241" BottomMargin="516.8759" TouchEnable="True" FontSize="14" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="128.0000" Y="128.0000" />
@@ -31,7 +31,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="163.8961" RightMargin="1084.1039" TopMargin="269.3261" BottomMargin="418.6739" FlipX="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="45.3630" RightMargin="1202.6370" TopMargin="378.4118" BottomMargin="309.5882" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <Children>
               <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="84.4984" RightMargin="-92.4984" TopMargin="-135.6627" BottomMargin="127.6627" TouchEnable="True" ctype="CheckBoxObjectData">
@@ -50,10 +50,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="179.8961" Y="434.6739" />
+            <Position X="61.3630" Y="325.5882" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="50" G="153" B="47" />
-            <PrePosition X="0.1405" Y="0.6037" />
+            <CColor A="255" R="255" G="0" B="0" />
+            <PrePosition X="0.0479" Y="0.4522" />
             <PreSize />
             <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
             <BlendFunc Src="1" Dst="1" />

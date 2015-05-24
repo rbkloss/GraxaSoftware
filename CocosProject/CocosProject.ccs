@@ -21,6 +21,9 @@
         <Project Name="reqListing.csd" Type="Layer" />
         <TTF Name="arial.ttf" />
         <TmxFile Name="platformerTest.tmx" />
+        <Folder Name="rodrigo">
+          <TmxFile Name="cena_1.tmx" />
+        </Folder>
       </RootFolder>
     </Group>
   </SolutionFolder>

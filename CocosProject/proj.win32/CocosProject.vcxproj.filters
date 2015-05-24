@@ -39,13 +39,13 @@
     <ClCompile Include="..\Classes\TestMovimentationScene.cc">
       <Filter>TestScenes\Movimentation</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Blocks.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Requirements.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Hero.cc">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Blocks.cc">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>

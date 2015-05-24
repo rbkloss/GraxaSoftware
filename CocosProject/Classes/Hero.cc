@@ -10,6 +10,7 @@ USING_NS_CC;
 
 Hero::Hero() {
   onGround_ = true;
+  jumping_ = false;
 }
 Hero::~Hero() {}
 
@@ -50,46 +51,46 @@ void Hero::addEvents() {
   listener->onKeyPressed = [this](cocos2d::EventKeyboard::KeyCode code,
     cocos2d::Event* evt) {
     switch (code) {
-    case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
-      this->moveHoriz(-1);
-      break;
-    }
-    case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
-      this->moveHoriz(1);
-      break;
-    }
-    case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) : {
-      this->jump();
-      break;
-    }
+      case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
+        this->moveHoriz(-1);
+        break;
+      }
+      case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
+        this->moveHoriz(1);
+        break;
+      }
+      case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) : {
+        this->jump();
+        break;
+      }
     }
   };
 
   listener->onKeyReleased = [this](cocos2d::EventKeyboard::KeyCode code,
     cocos2d::Event* evt) {
     switch (code) {
-    case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
-      this->getSprite()->stopActionByTag(24);
-      if (this->onGround_) {
-        this->getSprite()->getPhysicsBody()->
-          applyImpulse(cocos2d::Vec2(3000, 0));
-      } else {
-        this->getSprite()->getPhysicsBody()->
-          applyImpulse(cocos2d::Vec2(300, 0));
+      case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
+        this->getSprite()->stopActionByTag(24);
+        if (this->onGround_) {
+          this->getSprite()->getPhysicsBody()->
+            applyImpulse(cocos2d::Vec2(3000, 0));
+        } else {
+          this->getSprite()->getPhysicsBody()->
+            applyImpulse(cocos2d::Vec2(300, 0));
+        }
+        break;
       }
-      break;
-    }
-    case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
-      this->getSprite()->stopActionByTag(26);
-      if (this->onGround_) {
-        this->getSprite()->getPhysicsBody()->
-          applyImpulse(cocos2d::Vec2(-3000, 0));
-      } else {
-        this->getSprite()->getPhysicsBody()->
-          applyImpulse(cocos2d::Vec2(-300, 0));
+      case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
+        this->getSprite()->stopActionByTag(26);
+        if (this->onGround_) {
+          this->getSprite()->getPhysicsBody()->
+            applyImpulse(cocos2d::Vec2(-3000, 0));
+        } else {
+          this->getSprite()->getPhysicsBody()->
+            applyImpulse(cocos2d::Vec2(-300, 0));
+        }
+        break;
       }
-      break;
-    }
     }
   };
   auto isHeroUp = [](cocos2d::Node* hero,
@@ -170,27 +171,30 @@ void Hero::update(float dt) {
 
   auto center = getSprite()->getPosition();
   auto sz = getSprite()->getBoundingBox().size;
-  center.add({ -(sz.width / 2), -(sz.height / 2 + 4) });
+  center.add({ -(sz.width / 2), -(sz.height / 2 + 2) });
   cocos2d::Vec2 end = center;
   end.add({ sz.width, 0.0f });
 
-  // drawNode->drawLine(center, end, cocos2d::Color4F::MAGENTA);
-  drawNode->drawSegment(center, end, 1, cocos2d::Color4F::MAGENTA);
-
-  world->rayCast(groundBellow, center, end, nullptr);
+  if (!onGround_) {
+    // drawNode->drawLine(center, end, cocos2d::Color4F::MAGENTA);
+    drawNode->drawSegment(center, end, 1, cocos2d::Color4F::MAGENTA);
+    world->rayCast(groundBellow, center, end, nullptr);
+  }
 }
 
 void Hero::jump() {
   if (this->onGround_) {
     this->onGround_ = false;
+
     /*auto jump = cocos2d::JumpBy::create(0.5, cocos2d::Vec2(0, 0), 100, 1);
     getSprite()->runAction(jump);*/
     auto physBody = this->getSprite()->getPhysicsBody();
-    physBody->applyImpulse(cocos2d::Vec2(0, 65000));
+    physBody->applyImpulse(cocos2d::Vec2(0, 100000));
     this->onGround_ = false;
-    auto check = (cocos2d::ui::CheckBox*)this->
-      getSprite()->getChildByName("check");
+    auto check = dynamic_cast<cocos2d::ui::CheckBox*>(this->
+      getSprite()->getChildByName("check"));
     check->setSelected(onGround_);
+
   }
 }
 void Hero::moveHoriz(int direction) {
