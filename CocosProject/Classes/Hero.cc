@@ -171,9 +171,9 @@ void Hero::update(float dt) {
 
   auto center = getSprite()->getPosition();
   auto sz = getSprite()->getBoundingBox().size;
-  center.add({ -(sz.width / 2), -(sz.height / 2 + 2) });
+  center.add({ -(sz.width / 2) + 2, -(sz.height / 2 + 2) });
   cocos2d::Vec2 end = center;
-  end.add({ sz.width, 0.0f });
+  end.add({ sz.width - 4, 0.0f });
 
   if (!onGround_) {
     // drawNode->drawLine(center, end, cocos2d::Color4F::MAGENTA);

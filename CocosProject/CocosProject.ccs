@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="CocosProject" Version="2.2.6.0" Type="CocosStudio" />
+  <PropertyGroup Name="CocosProject" Version="2.2.8.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -22,6 +22,9 @@
         <TTF Name="arial.ttf" />
         <TmxFile Name="platformerTest.tmx" />
         <Folder Name="rodrigo">
+          <TmxFile Name="cena_1.tmx" />
+        </Folder>
+        <Folder Name="rodrigo_big">
           <TmxFile Name="cena_1.tmx" />
         </Folder>
       </RootFolder>
