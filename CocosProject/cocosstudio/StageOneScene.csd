@@ -1,28 +1,28 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="StageOneScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.6.0" />
+  <PropertyGroup Type="Scene" Name="StageOneScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.8.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
       <ObjectData Name="StageOneScene" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="tileMap" ActionTag="2028102553" Tag="11" IconVisible="False" TopMargin="-16.0000" ctype="GameMapObjectData">
-            <Size X="1280.0000" Y="736.0000" />
+          <AbstractNodeData Name="tileMap" ActionTag="2028102553" Tag="11" IconVisible="False" TopMargin="-48.0000" ctype="GameMapObjectData">
+            <Size X="1280.0000" Y="768.0000" />
             <AnchorPoint />
             <Position />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition />
             <PreSize />
-            <FileData Type="Normal" Path="platformerTest.tmx" Plist="" />
+            <FileData Type="Normal" Path="rodrigo_big/cena_1.tmx" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="starButton" ActionTag="1983573685" Tag="21" IconVisible="False" LeftMargin="97.1838" RightMargin="1054.8162" TopMargin="75.1241" BottomMargin="516.8759" TouchEnable="True" FontSize="14" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="starButton" ActionTag="1983573685" Tag="21" IconVisible="False" LeftMargin="95.6082" RightMargin="1056.3918" TopMargin="67.2565" BottomMargin="524.7435" TouchEnable="True" FontSize="14" LeftEage="10" RightEage="10" TopEage="10" BottomEage="10" Scale9OriginX="10" Scale9OriginY="10" Scale9Width="12" Scale9Height="12" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
             <Size X="128.0000" Y="128.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="161.1838" Y="580.8759" />
+            <Position X="159.6082" Y="588.7435" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.1259" Y="0.8068" />
+            <PrePosition X="0.1247" Y="0.8177" />
             <PreSize X="0.1000" Y="0.1778" />
             <TextColor A="255" R="65" G="65" B="70" />
             <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
@@ -31,16 +31,16 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="163.8961" RightMargin="1084.1039" TopMargin="269.3261" BottomMargin="418.6739" FlipX="True" ctype="SpriteObjectData">
+          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="295.2869" RightMargin="952.7131" TopMargin="367.6810" BottomMargin="320.3190" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <Children>
-              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="84.4984" RightMargin="-92.4984" TopMargin="-135.6627" BottomMargin="127.6627" TouchEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
                 <Size X="40.0000" Y="40.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="104.4984" Y="147.6627" />
+                <Position X="70.3440" Y="175.2818" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="3.2656" Y="4.6145" />
+                <PrePosition X="2.1982" Y="5.4776" />
                 <PreSize />
                 <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
                 <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
@@ -50,15 +50,15 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="179.8961" Y="434.6739" />
+            <Position X="311.2869" Y="336.3190" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="50" G="153" B="47" />
-            <PrePosition X="0.1405" Y="0.6037" />
+            <CColor A="255" R="255" G="0" B="0" />
+            <PrePosition X="0.2432" Y="0.4671" />
             <PreSize />
             <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
             <BlendFunc Src="1" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" LeftMargin="700.4061" RightMargin="3.5939" TopMargin="7.3243" BottomMargin="424.6757" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
+          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="709.8116" RightMargin="-5.8116" TopMargin="54.3472" BottomMargin="377.6528" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
             <Size X="576.0000" Y="288.0000" />
             <Children>
               <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" BottomMargin="265.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
@@ -82,7 +82,7 @@
                 <AnchorPoint ScaleY="0.5000" />
                 <Position Y="276.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
+                <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition Y="0.9601" />
                 <PreSize X="0.3003" Y="0.0799" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -109,7 +109,7 @@
                 <AnchorPoint ScaleY="0.5000" />
                 <Position Y="253.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
+                <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition Y="0.8802" />
                 <PreSize X="0.3003" Y="0.0799" />
                 <OutlineColor A="255" R="255" G="0" B="0" />
@@ -117,10 +117,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="700.4061" Y="712.6757" />
+            <Position X="709.8116" Y="665.6528" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5472" Y="0.9898" />
+            <PrePosition X="0.5545" Y="0.9245" />
             <PreSize X="0.4500" Y="0.4000" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />

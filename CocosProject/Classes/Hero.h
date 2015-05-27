@@ -8,6 +8,7 @@ class Hero {
 protected:
 	void setSprite(cocos2d::Sprite* sprite);
 	bool onGround_;
+	bool jumping_;
 public:
 	Hero();
 	virtual ~Hero();

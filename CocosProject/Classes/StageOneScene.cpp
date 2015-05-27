@@ -20,7 +20,7 @@ Scene* StageOneScene::createScene() {
   auto world = scene->getPhysicsWorld();
   world->setDebugDrawMask(PhysicsWorld::DEBUGDRAW_ALL);
   world->setUpdateRate(0.5f);
-  world->setSubsteps(4);  
+  world->setSubsteps(4);
   // world->setSpeed(2.0);
   // 'layer' is an autorelease object
   auto layer = StageOneScene::create();
@@ -48,7 +48,7 @@ bool StageOneScene::init() {
 
   auto tempNode = rootNode->getChildByName(Hero::getTag());
   Blocks::inflateTileMap(rootNode);
-  cocos2d::Sprite* heroSprite = (cocos2d::Sprite*)(tempNode);
+  cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
   hero_ = Hero::create(heroSprite);
 
 
