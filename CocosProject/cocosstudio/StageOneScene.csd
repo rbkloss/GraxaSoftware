@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="StageOneScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.8.0" />
+  <PropertyGroup Type="Scene" Name="StageOneScene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="2.2.9.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -34,13 +34,13 @@
           <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="295.2869" RightMargin="952.7131" TopMargin="367.6810" BottomMargin="320.3190" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <Children>
-              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" VisibleForFrame="False" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
                 <Size X="40.0000" Y="40.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="70.3440" Y="175.2818" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="2.1982" Y="5.4776" />
+                <PrePosition X="2.1983" Y="5.4776" />
                 <PreSize />
                 <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
                 <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
@@ -58,7 +58,7 @@
             <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
             <BlendFunc Src="1" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="709.8116" RightMargin="-5.8116" TopMargin="54.3472" BottomMargin="377.6528" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
+          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="696.6367" RightMargin="7.3633" TopMargin="1.6532" BottomMargin="430.3468" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
             <Size X="576.0000" Y="288.0000" />
             <Children>
               <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" BottomMargin="265.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
@@ -117,10 +117,10 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="709.8116" Y="665.6528" />
+            <Position X="696.6367" Y="718.3468" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5545" Y="0.9245" />
+            <PrePosition X="0.5442" Y="0.9977" />
             <PreSize X="0.4500" Y="0.4000" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />
