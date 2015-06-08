@@ -27,6 +27,7 @@
         <Folder Name="rodrigo_big">
           <TmxFile Name="cena_1.tmx" />
         </Folder>
+        <Project Name="TutorialScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

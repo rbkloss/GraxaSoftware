@@ -55,7 +55,7 @@ bool StageOneScene::init() {
   Requirements::getInstance().create(rootNode, "listing",
     std::vector<bool>(2, true));
 
-  auto button = (cocos2d::ui::Button*) rootNode->getChildByName("starButton");
+  auto button = static_cast<cocos2d::ui::Button*>(rootNode->getChildByName("starButton"));
   button->addTouchEventListener(
     [rootNode, sz](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
     if (type == ui::Widget::TouchEventType::ENDED) {
