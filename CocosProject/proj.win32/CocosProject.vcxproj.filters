@@ -22,6 +22,9 @@
     <Filter Include="TestScenes\Movimentation">
       <UniqueIdentifier>{9c32e0a5-9b1b-478d-9972-466d8ee34eeb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Coins">
+      <UniqueIdentifier>{1705c19a-6758-4703-b31e-44916d47f62b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,6 +51,9 @@
     <ClCompile Include="..\Classes\Blocks.cc">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Coin.cc">
+      <Filter>src\Coins</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\Blocks.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Coin.h">
+      <Filter>src\Coins</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
