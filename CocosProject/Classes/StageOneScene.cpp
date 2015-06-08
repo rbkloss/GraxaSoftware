@@ -43,19 +43,22 @@ bool StageOneScene::init() {
 
   auto rootNode = CSLoader::createNode("StageOneScene.csb");
   auto screenEdge = cocos2d::PhysicsBody::createEdgeBox(sz);
-  // rootNode->setPhysicsBody(screenEdge);
+  auto screenNode = cocos2d::DrawNode::create();
+  screenNode->setPosition(sz.width / 2, sz.height / 2);
+  screenNode->setPhysicsBody(screenEdge);
+  this->addChild(screenNode);
   this->addChild(rootNode);
 
-  auto tempNode = rootNode->getChildByName(Hero::getTag());
-  Blocks::inflateTileMap(rootNode);
+  auto tempNode = rootNode->getChildByName(Hero::getName());
   cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
   hero_ = Hero::create(heroSprite);
+  Blocks::inflateTileMap(rootNode, hero_.get());
 
 
   Requirements::getInstance().create(rootNode, "listing",
     std::vector<bool>(2, true));
 
-  auto button = (cocos2d::ui::Button*) rootNode->getChildByName("starButton");
+  auto button = static_cast<cocos2d::ui::Button*>(rootNode->getChildByName("starButton"));
   button->addTouchEventListener(
     [rootNode, sz](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
     if (type == ui::Widget::TouchEventType::ENDED) {
