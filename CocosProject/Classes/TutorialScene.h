@@ -9,10 +9,10 @@
 
 class Hero;
 class TutorialScene : public cocos2d::Layer {
-
-  std::string state_;
+  int state_;
+  std::vector<std::string> texts_;
   cocos2d::ui::Button* button_;
-  cocos2d::LabelTTF* text_;
+  cocos2d::ui::Text* textLabel_;
   public:
   // Creates An auto-release scene object for the first stage
   static cocos2d::Scene* createScene();
