@@ -146,6 +146,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\StartScreenScene.cpp" />
     <ClCompile Include="..\Classes\Hero.cc" />
     <ClCompile Include="..\Classes\TestMovimentationScene.cc" />
+    <ClCompile Include="..\Classes\TutorialScene.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +158,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\StartScreenScene.h" />
     <ClInclude Include="..\Classes\Hero.h" />
     <ClInclude Include="..\Classes\TestMovimentationScene.h" />
+    <ClInclude Include="..\Classes\TutorialScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

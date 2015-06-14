@@ -22,8 +22,11 @@
     <Filter Include="TestScenes\Movimentation">
       <UniqueIdentifier>{9c32e0a5-9b1b-478d-9972-466d8ee34eeb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Coins">
-      <UniqueIdentifier>{1705c19a-6758-4703-b31e-44916d47f62b}</UniqueIdentifier>
+    <Filter Include="Game">
+      <UniqueIdentifier>{afd6e9a2-2434-4d27-a3fb-f2daf0c5ee5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TutorialScene">
+      <UniqueIdentifier>{3653e5d9-e082-48fd-806c-a60431227a71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -42,17 +45,20 @@
     <ClCompile Include="..\Classes\TestMovimentationScene.cc">
       <Filter>TestScenes\Movimentation</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Requirements.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Blocks.cc">
+      <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Hero.cc">
-      <Filter>src</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Blocks.cc">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\Requirements.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\TutorialScene.cc">
+      <Filter>TutorialScene</Filter>
     </ClCompile>
     <ClCompile Include="..\Classes\Coin.cc">
-      <Filter>src\Coins</Filter>
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,9 +66,6 @@
       <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\Hero.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\StartScreenScene.h">
@@ -74,14 +77,20 @@
     <ClInclude Include="..\Classes\TestMovimentationScene.h">
       <Filter>TestScenes\Movimentation</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Requirements.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\Blocks.h">
-      <Filter>src</Filter>
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Hero.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Requirements.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\TutorialScene.h">
+      <Filter>TutorialScene</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Coin.h">
-      <Filter>src\Coins</Filter>
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

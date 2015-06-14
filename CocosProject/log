@@ -8,28 +8,24 @@ Upgrading project 'Test_CocosProject'...
 
 Migration completed successfully, but some warnings were detected during migration.
 For more information, see the migration report:
-D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog17.htm
+D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog.htm
 
 Microsoft Visual Studio 2013 Version 12.0.31101.0.
 Copyright (C) Microsoft Corp. All rights reserved.
 1>------ Build started: Project: CocosProject, Configuration: Release Win32 ------
 1>  AppDelegate.cpp
 1>  Blocks.cc
-1>  Coin.cc
-1>  Requirements.cpp
+1>  Hero.cc
 1>  StageOneScene.cpp
 1>  StartScreenScene.cpp
-1>  Hero.cc
 1>  TestMovimentationScene.cc
-1>..\Classes\Coin.cc(48): error C3866: destructor call missing argument list
-1>  main.cpp
-1>..\Classes\TestMovimentationScene.cc(44): error C2039: 'getTag' : is not a member of 'Hero'
-1>          d:\docs\development\codes\games\softwareengineering\graxasoftware\cocosproject\classes\Hero.h(6) : see declaration of 'Hero'
-1>..\Classes\TestMovimentationScene.cc(44): error C2664: 'cocos2d::Node *cocos2d::Node::getChildByName(const std::string &) const' : cannot convert argument 1 from 'int' to 'const std::string &'
-1>          Reason: cannot convert from 'int' to 'const std::string'
-1>          No constructor could take the source type, or constructor overload resolution was ambiguous
-1>..\Classes\TestMovimentationScene.cc(45): error C3536: 'tempNode': cannot be used before it is initialized
-========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========
+1>  53 arquivo(s) copiado(s)
+1>  0 arquivo(s) copiado(s)
+1>     Creating library D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.lib and object D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.exp
+1>  Generating code
+1>  Finished generating code
+1>  CocosProject.vcxproj -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
 Running command: compile
 Building mode: release
 building
@@ -41,4 +37,24 @@ running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\deven
 
 running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.com" "D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\CocosProject.sln" /Build "Release" /Project "CocosProject"'
 
-Error running command, return code: 1
+build succeeded.
+Copying CocosProject.exe
+Copying glew32.dll
+Copying iconv.dll
+Copying libcocos2d.dll
+Copying libcocos2d_2012.dll
+Copying libcocos2d_2013.dll
+Copying libcurl.dll
+Copying libeay32.dll
+Copying libmpg123.dll
+Copying libogg.dll
+Copying libtiff.dll
+Copying libvorbis.dll
+Copying libvorbisfile.dll
+Copying lua51.dll
+Copying mozjs-33.dll
+Copying OpenAL32.dll
+Copying sqlite3.dll
+Copying ssleay32.dll
+Copying websockets.dll
+Copying zlib1.dll

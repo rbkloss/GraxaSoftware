@@ -16,6 +16,9 @@
           <Image Name="heroBlock.png" />
           <Image Name="star.png" />
           <Image Name="starOn.png" />
+          <Image Name="tuto.png" />
+          <Image Name="background.png" />
+          <Image Name="Arrow.png" />
         </Folder>
         <Image Name="CheckBox_Disable.png" />
         <Project Name="reqListing.csd" Type="Layer" />
@@ -27,6 +30,7 @@
         <Folder Name="rodrigo_big">
           <TmxFile Name="cena_1.tmx" />
         </Folder>
+        <Project Name="TutorialScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
