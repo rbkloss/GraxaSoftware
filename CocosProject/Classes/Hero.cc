@@ -2,9 +2,11 @@
 
 #include "./Hero.h"
 #include "ui/CocosGUI.h"
+#include "Blocks.h"
 
 
 USING_NS_CC;
+std::shared_ptr<Hero> Hero::singleton_ = nullptr;
 
 int Hero::tag = 0x1;
 
@@ -14,15 +16,12 @@ Hero::Hero() {
 }
 Hero::~Hero() {}
 
-std::string Hero::getName() {
-  static const char* ans = "hero";
-  return ans;
-}
-
-std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
-  std::shared_ptr<Hero> hero = std::make_shared<Hero>();
-  hero->setSprite(sprite);
-  hero->addEvents();
+void Hero::init(cocos2d::Sprite* sprite) {
+  struct enable_shared :public Hero {};
+  singleton_ = std::make_shared<enable_shared>();
+  sprite->setTag(Blocks::HERO_BLOCK);
+  singleton_->setSprite(sprite);
+  singleton_->addEvents();
 
 
   auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox()
@@ -30,11 +29,20 @@ std::shared_ptr<Hero> Hero::create(cocos2d::Sprite* sprite) {
   physicsBody->setDynamic(true);
   physicsBody->setRotationEnable(false);
   physicsBody->setContactTestBitmask(0xfffffff);
+  //physicsBody->setCategoryBitmask(Blocks::HERO_BLOCK);
   physicsBody->setMass(600);
   physicsBody->setVelocityLimit(150);
 
   sprite->setPhysicsBody(physicsBody);
-  return hero;
+}
+
+std::string Hero::getName() {
+  static const char* ans = "hero";
+  return ans;
+}
+
+std::shared_ptr<Hero> Hero::getInstance() {
+  return singleton_;
 }
 
 void Hero::setSprite(cocos2d::Sprite* sprite) {
@@ -50,9 +58,9 @@ void Hero::initOptions() {
 }
 
 void Hero::addEvents() {
-  auto listener = cocos2d::EventListenerKeyboard::create();
+  keyListener_ = cocos2d::EventListenerKeyboard::create();
 
-  listener->onKeyPressed = [this](cocos2d::EventKeyboard::KeyCode code,
+  keyListener_->onKeyPressed = [this](cocos2d::EventKeyboard::KeyCode code,
     cocos2d::Event* evt) {
     switch (code) {
       case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
@@ -71,7 +79,7 @@ void Hero::addEvents() {
     }
   };
 
-  listener->onKeyReleased = [this](cocos2d::EventKeyboard::KeyCode code,
+  keyListener_->onKeyReleased = [this](cocos2d::EventKeyboard::KeyCode code,
     cocos2d::Event* evt) {
     switch (code) {
       case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
@@ -116,7 +124,8 @@ void Hero::addEvents() {
     } else if (this->getName() == nodeB->getName()) {
       isHeroUp = normal.y > 0;
     }
-    if (isHeroUp)onGround_ = true;
+    if (isHeroUp)
+      onGround_ = true;
     auto check = static_cast<cocos2d::ui::CheckBox*>(this->getSprite()->
       getChildByName("check"));
     check->setSelected(onGround_);
@@ -149,14 +158,14 @@ void Hero::addEvents() {
     check->setSelected(onGround_);
   };
 
-  auto contactListener = cocos2d::EventListenerPhysicsContact::create();
-  contactListener->onContactSeperate = onContactSeparate;
-  contactListener->onContactBegin = onContactBegin;
+  contactListener_ = cocos2d::EventListenerPhysicsContact::create();
+  contactListener_->onContactSeperate = onContactSeparate;
+  contactListener_->onContactBegin = onContactBegin;
   cocos2d::Director::getInstance()->getEventDispatcher()->
-    addEventListenerWithSceneGraphPriority(contactListener, getSprite());
+    addEventListenerWithSceneGraphPriority(contactListener_, getSprite());
 
   cocos2d::Director::getInstance()->getEventDispatcher()->
-    addEventListenerWithSceneGraphPriority(listener, getSprite());
+    addEventListenerWithSceneGraphPriority(keyListener_, getSprite());
 }
 
 void Hero::update(float dt) {}
@@ -175,6 +184,15 @@ void Hero::jump() {
     check->setSelected(onGround_);
 
   }
+}
+
+void Hero::die() {
+  sprite_->removeAllChildrenWithCleanup(true);
+  cocos2d::Director::getInstance()->getEventDispatcher()
+    ->removeEventListener(contactListener_);
+  cocos2d::Director::getInstance()->getEventDispatcher()
+    ->removeEventListener(keyListener_);
+  sprite_->removeFromParentAndCleanup(true);
 }
 
 void Hero::increaseScore(int value) {

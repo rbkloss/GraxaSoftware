@@ -2,26 +2,23 @@
 
 #include "./Hero.h"
 #include "ui/CocosGUI.h"
+#include "Blocks.h"
 
 Coin::Coin() {}
 
 Coin::~Coin() {}
 
-void Coin::init(cocos2d::Node* rootNode, const int x, const int y,
-  const Hero* hero) {
-  assert(hero);
+void Coin::init(cocos2d::Node* rootNode, const int x, const int y) {
   static unsigned count = 0;
-  hero_ = const_cast<Hero*>(hero);
   std::string imagePath("images/spinning_coin_gold.png");
   sprite_ = cocos2d::Sprite::create();
   sprite_->initWithFile(imagePath, { 0, 0, 32, 32 });
   auto body = cocos2d::PhysicsBody::createBox({ 32, 32 });
   body->setDynamic(false);
   body->setCollisionBitmask(0);
-  body->setContactTestBitmask(Hero::tag);
+  body->setContactTestBitmask(Blocks::COIN_BLOCK);
   sprite_->setPhysicsBody(body);
 
-  sprite_->setAnchorPoint({ 0.0f, 1.0f });
   sprite_->setPosition(x, y);
   sprite_->setName("coin" + std::to_string(++count));
 
@@ -35,14 +32,16 @@ void Coin::init(cocos2d::Node* rootNode, const int x, const int y,
 
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
+    if (!nodeA || !nodeB)return false;
 
-    if (hero_->getName() == nodeA->getName()) {
+    auto spriteName = sprite_->getName();
+    if (Hero::getInstance()->getName() == nodeA->getName()) {
       std::string name = nodeB->getName();
-      if (name == sprite_->getName())
+      if (name == spriteName)
         coinContact(sprite_);
-    } else if (hero_->getName() == nodeB->getName()) {
+    } else if (Hero::getInstance()->getName() == nodeB->getName()) {
       std::string name = nodeA->getName();
-      if (name == sprite_->getName())
+      if (name == spriteName)
         coinContact(sprite_);
     }
 
@@ -55,7 +54,7 @@ void Coin::init(cocos2d::Node* rootNode, const int x, const int y,
 }
 
 void Coin::coinContact(cocos2d::Sprite* coin) {
-  hero_->increaseScore(10);
+  Hero::getInstance()->increaseScore(10);
   coin->removeAllChildrenWithCleanup(true);
   coin->removeFromParentAndCleanup(true);
 

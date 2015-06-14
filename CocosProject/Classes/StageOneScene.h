@@ -6,7 +6,6 @@
 
 class Hero;
 class StageOneScene : public cocos2d::Layer {
-	std::shared_ptr<Hero> hero_;
 public:
 	// Creates An auto-release scene object for the first stage
 	static cocos2d::Scene* createScene();
