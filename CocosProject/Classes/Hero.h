@@ -9,15 +9,19 @@ protected:
 	void setSprite(cocos2d::Sprite* sprite);
 	bool onGround_;
 	bool jumping_;
+	int score_ = 0;
 public:
 	Hero();
 	virtual ~Hero();
 
 	static std::shared_ptr<Hero> create(cocos2d::Sprite* sprite);
-	static std::string getTag();
+	static std::string getName();
+	static int tag;
 
 	void moveHoriz(int direction);
 	void jump();
+
+	void increaseScore(int value);
 
 	void update(float dt);
 	

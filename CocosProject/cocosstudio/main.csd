@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="main" ID="5cfd3723-2362-412e-9b2c-8aa455da7fe9" Version="2.2.8.0" />
+  <PropertyGroup Type="Layer" Name="main" ID="5cfd3723-2362-412e-9b2c-8aa455da7fe9" Version="2.2.9.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

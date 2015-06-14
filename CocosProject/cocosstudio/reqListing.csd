@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Layer" Name="reqListing" ID="56715113-4fcf-492c-b0e2-cef1ea8949f3" Version="2.2.8.0" />
+  <PropertyGroup Type="Layer" Name="reqListing" ID="56715113-4fcf-492c-b0e2-cef1ea8949f3" Version="2.2.9.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />

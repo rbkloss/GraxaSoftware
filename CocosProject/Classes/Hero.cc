@@ -3,10 +3,10 @@
 #include "./Hero.h"
 #include "ui/CocosGUI.h"
 
-#include "Blocks.h"
-
 
 USING_NS_CC;
+
+int Hero::tag = 0x1;
 
 Hero::Hero() {
   onGround_ = true;
@@ -14,7 +14,7 @@ Hero::Hero() {
 }
 Hero::~Hero() {}
 
-std::string Hero::getTag() {
+std::string Hero::getName() {
   static const char* ans = "hero";
   return ans;
 }
@@ -45,6 +45,10 @@ cocos2d::Sprite* Hero::getSprite() {
   return this->sprite_;
 }
 
+void Hero::initOptions() {
+  //TODO:
+}
+
 void Hero::addEvents() {
   auto listener = cocos2d::EventListenerKeyboard::create();
 
@@ -63,6 +67,7 @@ void Hero::addEvents() {
         this->jump();
         break;
       }
+      default: break;
     }
   };
 
@@ -104,20 +109,16 @@ void Hero::addEvents() {
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
     bool isHeroUp = false;
-    cocos2d::Node* heroNode = nullptr;
-    cocos2d::Node* otherNode = nullptr;
-    if (this->getTag() == nodeA->getName()) {
-      heroNode = nodeA;
-      otherNode = nodeB;
+    if (!nodeA)return false;
+    if (!nodeB)return false;
+    if (this->getName() == nodeA->getName()) {
       isHeroUp = normal.y < 0;
-    } else if (this->getTag() == nodeB->getName()) {
-      heroNode = nodeB;
-      otherNode = nodeA;
+    } else if (this->getName() == nodeB->getName()) {
       isHeroUp = normal.y > 0;
     }
     if (isHeroUp)onGround_ = true;
-    auto check = (cocos2d::ui::CheckBox*)this->getSprite()->
-      getChildByName("check");
+    auto check = static_cast<cocos2d::ui::CheckBox*>(this->getSprite()->
+      getChildByName("check"));
     check->setSelected(onGround_);
     return true;
   };
@@ -130,25 +131,21 @@ void Hero::addEvents() {
 
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
+    if (!nodeA)return;
+    if (!nodeB)return;
 
-    cocos2d::Node* heroNode = nullptr;
-    cocos2d::Node* otherNode = nullptr;
     bool isHeroUp = false;
-    if (this->getTag() == nodeA->getName()) {
-      heroNode = nodeA;
-      otherNode = nodeB;
+    if (this->getName() == nodeA->getName()) {
       isHeroUp = normal.y < 0;
-    } else if (this->getTag() == nodeB->getName()) {
-      heroNode = nodeB;
-      otherNode = nodeA;
+    } else if (this->getName() == nodeB->getName()) {
       isHeroUp = normal.y > 0;
     }
     if (isHeroUp) {
       onGround_ = false;
     }
 
-    auto check = (cocos2d::ui::CheckBox*)this->getSprite()->
-      getChildByName("check");
+    auto check = static_cast<cocos2d::ui::CheckBox*>(this->getSprite()->
+      getChildByName("check"));
     check->setSelected(onGround_);
   };
 
@@ -179,6 +176,11 @@ void Hero::jump() {
 
   }
 }
+
+void Hero::increaseScore(int value) {
+  this->score_ += value;
+}
+
 void Hero::moveHoriz(int direction) {
   auto body = this->getSprite()->getPhysicsBody();
   if (onGround_)

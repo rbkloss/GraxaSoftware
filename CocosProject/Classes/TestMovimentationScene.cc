@@ -6,8 +6,6 @@
 #include "Hero.h"
 #include "Blocks.h"
 
-#include <iostream>
-
 USING_NS_CC;
 
 using namespace cocostudio::timeline;
@@ -41,8 +39,8 @@ bool TestMovimentationScene::init() {
 	auto rootNode = CSLoader::createNode("JumpTest.csb");
 	this->addChild(rootNode);
 
-	auto tempNode = rootNode->getChildByName(Hero::getTag());
-	Sprite* heroSprite = (Sprite*)(tempNode);
+	auto tempNode = rootNode->getChildByName(Hero::getName());
+	Sprite* heroSprite = static_cast<Sprite*>(tempNode);
 	static auto hero = Hero::create(heroSprite);
 
 	auto bottom = Blocks::createGroundBlock("bottom", rootNode);
@@ -65,18 +63,18 @@ bool TestMovimentationScene::init() {
 		auto nameB = nodeB->getName();
 		if ("hero" == nodeA->getName()) {
 			if (nameB == "left") {
-				auto checkNode = (cocos2d::Sprite*) rootNode->getChildByName("checkLeft");
+				auto checkNode = static_cast<cocos2d::Sprite*>(rootNode->getChildByName("checkLeft"));
 				checkNode->setVisible(true);
 			} else if (nameB == "right") {
-				auto checkNode = (cocos2d::Sprite*) rootNode->getChildByName("checkRight");
+				auto checkNode = static_cast<cocos2d::Sprite*>(rootNode->getChildByName("checkRight"));
 				checkNode->setVisible(true);
 			}
 		} else if ("hero" == nodeB->getName()) {
 			if (nameA == "left") {
-				auto checkNode = (cocos2d::Sprite*) rootNode->getChildByName("checkLeft");
+				auto checkNode = static_cast<cocos2d::Sprite*>(rootNode->getChildByName("checkLeft"));
 				checkNode->setVisible(true);
 			} else if (nameA == "right") {
-				auto checkNode = (cocos2d::Sprite*) rootNode->getChildByName("checkRight");
+				auto checkNode = static_cast<cocos2d::Sprite*>(rootNode->getChildByName("checkRight"));
 				checkNode->setVisible(true);
 			}
 		}
