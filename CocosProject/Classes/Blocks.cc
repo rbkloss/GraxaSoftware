@@ -3,6 +3,7 @@
 
 #include "cocos2d.h"
 #include "Coin.h"
+#include "Pit.h"
 
 cocos2d::Sprite*  Blocks::createGroundBlock(
   const std::string &name, cocos2d::Node* rootNode) {
@@ -17,7 +18,7 @@ cocos2d::Sprite*  Blocks::createGroundBlock(
   physBody->setGravityEnable(false);
   physBody->setRotationEnable(false);
   physBody->setMass(cocos2d::PHYSICS_INFINITY);
-  physBody->setContactTestBitmask(1);
+  physBody->setContactTestBitmask(BlockTypes::HERO_BLOCK);
   sprite->setPhysicsBody(physBody);
 
   return sprite;
@@ -59,7 +60,7 @@ void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
     body->setMass(cocos2d::PHYSICS_INFINITY);
     body->setContactTestBitmask(Blocks::GROUND_BLOCK);
     auto tilePos = tile->getPosition();
-    auto tileSize = tile->getContentSize();
+    //auto tileSize = tile->getContentSize();
 
     tile->setPhysicsBody(body);
     // setPhysicsBody messes with positions of nodes with anchor different
@@ -72,18 +73,34 @@ void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
   }
 }
 
-void Blocks::parseCoins(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* coinsGroup, 
-  cocos2d::TMXTiledMap* map, const Hero* hero) {
-  auto sz = rootNode->getContentSize();
+void Blocks::parseCoins(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* coinsGroup, cocos2d::TMXTiledMap* map) {
+  //auto sz = rootNode->getContentSize();
   auto coinObjects = coinsGroup->getObjects();
   auto mapPos = map->getPosition();
-  auto mapSize = map->getContentSize();
+  //auto mapSize = map->getContentSize();
   for (auto object : coinObjects) {
     auto propertyMap = object.asValueMap();
     int x = 0, y = 0, width = 0, height = 0;
-    int tileWidth = 0, tileHeight = 0;
-    tileWidth = map->getTileSize().width;
-    tileHeight = map->getTileSize().height;
+    cocos2d::Value tempValue;
+    tempValue = (propertyMap["x"]);
+    x = tempValue.asInt();
+    tempValue = (propertyMap["y"]);
+    y = tempValue.asInt();
+
+    Coin* coin = new Coin();
+    coin->init(rootNode, x, y);
+  }
+}
+
+void Blocks::parsePits(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* pitsGroup, cocos2d::TMXTiledMap* map) {
+  auto pits = pitsGroup->getObjects();
+  auto mapPos = map->getPosition();
+
+  size_t count = 0;
+  for (auto object : pits) {
+    auto propertyMap = object.asValueMap();
+    int x = 0, y = 0, width = 0, height = 0;
+
     cocos2d::Value tempValue;
     tempValue = (propertyMap["width"]);
     width = tempValue.asInt();
@@ -94,19 +111,23 @@ void Blocks::parseCoins(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* coinsG
     tempValue = (propertyMap["y"]);
     y = tempValue.asInt();
 
-    Coin* coin = new Coin();
-    coin->init(rootNode, x, y, hero);
+    PitBlock::setup(x, y, width, height, rootNode, "pit" + std::to_string(++count));
   }
 }
 
-void Blocks::inflateTileMap(cocos2d::Node* rootNode, const Hero* hero) {
+void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto map = dynamic_cast<cocos2d::TMXTiledMap*>
     (rootNode->getChildByName("tileMap"));
 
   auto collisionGroup = map->getObjectGroup("collisions");
   auto coinsGroup = map->getObjectGroup("coins");
-  parseCollidables(collisionGroup, map);
-  parseCoins(rootNode, coinsGroup, map, hero);
+  auto pitsGroup = map->getObjectGroup("pits");
+  if (collisionGroup)
+    parseCollidables(collisionGroup, map);
+  if (coinsGroup)
+    parseCoins(rootNode, coinsGroup, map);
+  if (pitsGroup)
+    parsePits(rootNode, pitsGroup, map);
 }
 
 cocos2d::PhysicsBody* Blocks::parseShape(const std::string &shapeName) {

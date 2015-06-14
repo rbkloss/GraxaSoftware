@@ -51,8 +51,8 @@ bool StageOneScene::init() {
 
   auto tempNode = rootNode->getChildByName(Hero::getName());
   cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
-  hero_ = Hero::create(heroSprite);
-  Blocks::inflateTileMap(rootNode, hero_.get());
+  Hero::init(heroSprite);
+  Blocks::inflateTileMap(rootNode);
 
 
   Requirements::getInstance().create(rootNode, "listing",
@@ -85,5 +85,5 @@ bool StageOneScene::init() {
 }
 
 void StageOneScene::update(float dt) {
-  hero_->update(dt);
+  Hero::getInstance()->update(dt);
 }

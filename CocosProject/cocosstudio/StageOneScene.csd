@@ -58,8 +58,8 @@
             <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
             <BlendFunc Src="1" Dst="1" />
           </AbstractNodeData>
-          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="696.6368" RightMargin="7.3632" TopMargin="-12.9840" BottomMargin="444.9840" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
-            <Size X="576.0000" Y="288.0000" />
+          <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="697.6368" RightMargin="6.3633" TopMargin="36.2209" BottomMargin="431.7791" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" VerticalType="0" ctype="ListViewObjectData">
+            <Size X="576.0000" Y="252.0000" />
             <Children>
               <AbstractNodeData Name="Text_2_0_0" ActionTag="1453374063" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" RightMargin="403.0000" BottomMargin="265.0000" FontSize="20" LabelText="-Personagem Pula?" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="TextObjectData">
                 <Size X="173.0000" Y="23.0000" />
@@ -80,7 +80,7 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleY="0.5000" />
-                <Position Y="276.5000" />
+                <Position Y="240.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition Y="0.9601" />
@@ -107,7 +107,7 @@
                   </AbstractNodeData>
                 </Children>
                 <AnchorPoint ScaleY="0.5000" />
-                <Position Y="253.5000" />
+                <Position Y="217.5000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="0" G="0" B="0" />
                 <PrePosition Y="0.8802" />
@@ -117,11 +117,11 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleY="1.0000" />
-            <Position X="696.6368" Y="732.9840" />
+            <Position X="697.6368" Y="683.7791" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5442" Y="1.0180" />
-            <PreSize X="0.4500" Y="0.4000" />
+            <PrePosition X="0.5450" Y="0.9497" />
+            <PreSize X="0.4500" Y="0.3500" />
             <SingleColor A="255" R="150" G="150" B="255" />
             <FirstColor A="255" R="150" G="150" B="255" />
             <EndColor A="255" R="255" G="255" B="255" />

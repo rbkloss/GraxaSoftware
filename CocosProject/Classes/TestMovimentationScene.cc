@@ -41,7 +41,8 @@ bool TestMovimentationScene::init() {
 
 	auto tempNode = rootNode->getChildByName(Hero::getName());
 	Sprite* heroSprite = static_cast<Sprite*>(tempNode);
-	static auto hero = Hero::create(heroSprite);
+  Hero::init(heroSprite);
+  static auto hero = Hero::getInstance();
 
 	auto bottom = Blocks::createGroundBlock("bottom", rootNode);
 	auto top = Blocks::createGroundBlock("top", rootNode);

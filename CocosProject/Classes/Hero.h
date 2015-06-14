@@ -5,21 +5,26 @@
 
 class Hero {
 	cocos2d::Sprite* sprite_;
+  static std::shared_ptr<Hero> singleton_;
+  cocos2d::EventListenerPhysicsContact* contactListener_;
+  cocos2d::EventListenerKeyboard* keyListener_;
 protected:
 	void setSprite(cocos2d::Sprite* sprite);
 	bool onGround_;
 	bool jumping_;
 	int score_ = 0;
+  Hero();
 public:
-	Hero();
+	
 	virtual ~Hero();
-
-	static std::shared_ptr<Hero> create(cocos2d::Sprite* sprite);
+  static void init(cocos2d::Sprite* sprite);
+	static std::shared_ptr<Hero> getInstance();
 	static std::string getName();
 	static int tag;
 
 	void moveHoriz(int direction);
 	void jump();
+  void die();
 
 	void increaseScore(int value);
 
