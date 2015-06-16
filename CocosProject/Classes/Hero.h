@@ -10,9 +10,15 @@ class Hero {
   cocos2d::EventListenerKeyboard* keyListener_;
 protected:
 	void setSprite(cocos2d::Sprite* sprite);
-	bool onGround_;
+	int onGround_ = 0;
 	bool jumping_;
 	int score_ = 0;
+  size_t life_ = 3;
+  const size_t MAX_LIFE_ = 3;
+
+  bool inHitState_ = false;
+  bool dead_ = false;
+
   Hero();
 public:
 	
@@ -23,8 +29,13 @@ public:
 	static int tag;
 
 	void moveHoriz(int direction);
+  void repel(const cocos2d::Vec2 &direction);
 	void jump();
   void die();
+
+
+  void harm(size_t dmg);
+  void heal(size_t amount);
 
 	void increaseScore(int value);
 

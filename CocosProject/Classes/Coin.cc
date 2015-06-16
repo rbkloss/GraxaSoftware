@@ -1,7 +1,6 @@
 #include "Coin.h"
 
 #include "./Hero.h"
-#include "ui/CocosGUI.h"
 #include "Blocks.h"
 
 Coin::Coin() {}

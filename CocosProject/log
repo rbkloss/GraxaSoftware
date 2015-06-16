@@ -8,19 +8,67 @@ Upgrading project 'Test_CocosProject'...
 
 Migration completed successfully, but some warnings were detected during migration.
 For more information, see the migration report:
-D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog.htm
+D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog4.htm
 
 Microsoft Visual Studio 2013 Version 12.0.31101.0.
 Copyright (C) Microsoft Corp. All rights reserved.
 1>------ Build started: Project: CocosProject, Configuration: Release Win32 ------
 1>  AppDelegate.cpp
 1>  Blocks.cc
-1>  Hero.cc
+1>  Coin.cc
+1>  Monster.cc
+1>  Pit.cc
+1>  Requirements.cpp
 1>  StageOneScene.cpp
 1>  StartScreenScene.cpp
+1>  Hero.cc
 1>  TestMovimentationScene.cc
+1>  TutorialScene.cc
+1>  main.cpp
 1>  53 arquivo(s) copiado(s)
-1>  0 arquivo(s) copiado(s)
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\main.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\main.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\reqListing.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\reqListing.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\StageOneScene.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\StageOneScene.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\StartScreen.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\StartScreen.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\TutorialScene.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\TutorialScene.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\Button_Disable.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\Button_Disable.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\Button_Normal.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\Button_Normal.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\Button_Press.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\Button_Press.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\CheckBoxNode_Disable.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\CheckBoxNode_Disable.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\CheckBoxNode_Normal.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\CheckBoxNode_Normal.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\CheckBox_Disable.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\CheckBox_Disable.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\CheckBox_Normal.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\CheckBox_Normal.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\CheckBox_Press.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\CheckBox_Press.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Default\Sprite.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Default\Sprite.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\Arrow.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\Arrow.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\background.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\background.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\check.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\check.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\Ground.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\Ground.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\HelloWorld.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\HelloWorld.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\heroBlock.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\heroBlock.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\monster.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\monster.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\spinning_coin_gold.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\spinning_coin_gold.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\star.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\star.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\starOn.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\starOn.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\images\tuto.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\images\tuto.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cenas.zip -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cenas.zip
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_1.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_1.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_2.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_2.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_3.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_3.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_4.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_4.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_5.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_5.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\cena_6.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\cena_6.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo\generic_platformer_tiles.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo\generic_platformer_tiles.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_1.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_1.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_2.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_2.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_3.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_3.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_4.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_4.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_5.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_5.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\cena_6.tmx -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\cena_6.tmx
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\rodrigo_big\generic_platformer_tiles.png -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\rodrigo_big\generic_platformer_tiles.png
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Tests\JumpTest.csb -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Tests\JumpTest.csb
+1>  D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\Resources\res\Tests\JumpTest.csd -> D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\res\Tests\JumpTest.csd
+1>  42 arquivo(s) copiado(s)
 1>     Creating library D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.lib and object D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\Release.win32\CocosProject.exp
 1>  Generating code
 1>  Finished generating code

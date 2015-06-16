@@ -4,6 +4,7 @@
 #include "cocos2d.h"
 #include "Coin.h"
 #include "Pit.h"
+#include "Monster.h"
 
 cocos2d::Sprite*  Blocks::createGroundBlock(
   const std::string &name, cocos2d::Node* rootNode) {
@@ -80,7 +81,7 @@ void Blocks::parseCoins(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* coinsG
   //auto mapSize = map->getContentSize();
   for (auto object : coinObjects) {
     auto propertyMap = object.asValueMap();
-    int x = 0, y = 0, width = 0, height = 0;
+    int x = 0, y = 0;
     cocos2d::Value tempValue;
     tempValue = (propertyMap["x"]);
     x = tempValue.asInt();
@@ -115,6 +116,29 @@ void Blocks::parsePits(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* pitsGro
   }
 }
 
+void Blocks::parseMonsters(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* monstersGroup, cocos2d::TMXTiledMap* map) {
+  auto monsters = monstersGroup->getObjects();
+  auto mapPos = map->getPosition();
+
+  size_t count = 0;
+  for (auto object : monsters) {
+    auto propertyMap = object.asValueMap();
+    int x = 0, y = 0, width = 0, height = 0;
+
+    cocos2d::Value tempValue;
+    tempValue = (propertyMap["width"]);
+    width = tempValue.asInt();
+    tempValue = (propertyMap["height"]);
+    height = tempValue.asInt();
+    tempValue = (propertyMap["x"]);
+    x = tempValue.asInt();
+    tempValue = (propertyMap["y"]);
+    y = tempValue.asInt();
+
+    Monster::init(x, y, width, height, rootNode, "monster" + std::to_string(++count));
+  }
+}
+
 void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto map = dynamic_cast<cocos2d::TMXTiledMap*>
     (rootNode->getChildByName("tileMap"));
@@ -122,12 +146,15 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto collisionGroup = map->getObjectGroup("collisions");
   auto coinsGroup = map->getObjectGroup("coins");
   auto pitsGroup = map->getObjectGroup("pits");
+  auto monstersGroup = map->getObjectGroup("monsters");
   if (collisionGroup)
     parseCollidables(collisionGroup, map);
   if (coinsGroup)
     parseCoins(rootNode, coinsGroup, map);
   if (pitsGroup)
     parsePits(rootNode, pitsGroup, map);
+  if (monstersGroup)
+    parseMonsters(rootNode, monstersGroup, map);
 }
 
 cocos2d::PhysicsBody* Blocks::parseShape(const std::string &shapeName) {

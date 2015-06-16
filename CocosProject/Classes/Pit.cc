@@ -29,6 +29,7 @@ void PitBlock::setup(int x, int y, int width, int height,
 
     auto nodeA = bodyA->getNode();
     auto nodeB = bodyB->getNode();
+    if (!nodeA || !nodeB)return false;
 
     bool ans = false;
     if (nodeA->getName() == Hero::getName()) {
