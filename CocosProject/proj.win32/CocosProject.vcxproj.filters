@@ -63,6 +63,7 @@
     <ClCompile Include="..\Classes\Pit.cc">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Monster.cc" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -96,6 +97,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Pit.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Monster.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

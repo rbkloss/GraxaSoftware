@@ -34,7 +34,7 @@
           <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="295.2869" RightMargin="952.7131" TopMargin="367.6810" BottomMargin="320.3190" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <Children>
-              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" VisibleForFrame="False" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
+              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
                 <Size X="40.0000" Y="40.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="70.3440" Y="175.2818" />

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="32" tileheight="32" nextobjectid="26">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="24" tilewidth="32" tileheight="32" nextobjectid="30">
  <tileset firstgid="1" name="grass" tilewidth="32" tileheight="32">
   <image source="generic_platformer_tiles.png" width="1024" height="768"/>
  </tileset>
@@ -498,9 +498,9 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
-   <tile gid="1"/>
+   <tile gid="363"/>
+   <tile gid="25"/>
+   <tile gid="366"/>
    <tile gid="362"/>
    <tile gid="363"/>
    <tile gid="364"/>
@@ -538,9 +538,9 @@
    <tile gid="1"/>
    <tile gid="1"/>
    <tile gid="323"/>
-   <tile gid="1"/>
-   <tile gid="41"/>
-   <tile gid="41"/>
+   <tile gid="121"/>
+   <tile gid="105"/>
+   <tile gid="122"/>
    <tile gid="41"/>
    <tile gid="395"/>
    <tile gid="105"/>
@@ -979,7 +979,7 @@
     <property name="AnchorY" value="14"/>
    </properties>
   </object>
-  <object id="17" name="ground" x="512" y="384" width="352" height="83">
+  <object id="17" name="ground" x="512" y="384" width="352" height="96">
    <properties>
     <property name="AnchorX" value="21"/>
     <property name="AnchorY" value="13"/>
@@ -991,6 +991,12 @@
     <property name="AnchorY" value="14"/>
    </properties>
   </object>
+  <object id="28" x="384" y="384" width="96" height="96">
+   <properties>
+    <property name="AnchorX" value="13"/>
+    <property name="AnchorY" value="13"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="coins">
   <object id="19" x="576" y="320" width="32" height="32"/>
@@ -999,5 +1005,8 @@
  </objectgroup>
  <objectgroup name="pits">
   <object id="25" x="-152" y="520" width="1568" height="248"/>
+ </objectgroup>
+ <objectgroup name="monsters">
+  <object id="26" x="896" y="384" width="64" height="64"/>
  </objectgroup>
 </map>

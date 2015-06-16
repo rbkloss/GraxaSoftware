@@ -3,6 +3,7 @@
 #include "ui/CocosGUI.h"
 
 #include "TutorialScene.h"
+#include "StageOneScene.h"
 
 #include "TestMovimentationScene.h"
 
@@ -41,7 +42,7 @@ bool StartScreenScene::init() {
   startButton->addTouchEventListener([](Ref*sender, cocos2d::ui::Widget::TouchEventType type) {
     if (type == ui::Widget::TouchEventType::ENDED) {
       auto director = cocos2d::Director::getInstance();
-      auto tutorialScene = TutorialScene::createScene();
+      auto tutorialScene = StageOneScene::createScene();
       director->replaceScene(TransitionFade::create(0.5, tutorialScene, Color3B(0, 255, 255)));
     }
   });
