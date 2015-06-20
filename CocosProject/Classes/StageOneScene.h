@@ -2,10 +2,11 @@
 #define _STAGE_ONE_SCENE_H_
 
 #include "cocos2d.h"
-#include <memory>
+#include "Blocks.h"
 
 class Hero;
 class StageOneScene : public cocos2d::Layer {
+  Blocks blocks_;
 public:
 	// Creates An auto-release scene object for the first stage
 	static cocos2d::Scene* createScene();
@@ -14,6 +15,8 @@ public:
 	virtual bool init() override;
 
 	void update(float dt) override;
+
+  std::shared_ptr<Monster> getMonsterByName(const std::string& monsterName);
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(StageOneScene);

@@ -6,6 +6,10 @@
 #include "Pit.h"
 #include "Monster.h"
 
+Blocks::~Blocks() {
+  monsters_.clear();
+}
+
 cocos2d::Sprite*  Blocks::createGroundBlock(
   const std::string &name, cocos2d::Node* rootNode) {
   auto tempNode = rootNode->getChildByName(name);
@@ -27,6 +31,7 @@ cocos2d::Sprite*  Blocks::createGroundBlock(
 
 void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
   cocos2d::TMXTiledMap* map) {
+  static size_t count = 0;
   auto layer = map->getLayer("foreground");
   auto collisionObjects = collisionsGroup->getObjects();
   for (auto object : collisionObjects) {
@@ -54,6 +59,7 @@ void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
         cocos2d::PhysicsMaterial(0.0f, 0.0f, 0.9f));
     }
     auto tile = layer->getTileAt(cocos2d::Vec2(x, y));
+    tile->setName("ground" + std::to_string(++count));
 
     body->setDynamic(true);
     body->setGravityEnable(false);
@@ -135,7 +141,9 @@ void Blocks::parseMonsters(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* mon
     tempValue = (propertyMap["y"]);
     y = tempValue.asInt();
 
-    Monster::init(x, y, width, height, rootNode, "monster" + std::to_string(++count));
+    auto monsterName = "monster" + std::to_string(++count);
+    auto monster = Monster::init(x, y, width, height, rootNode, monsterName);
+    monsters_.insert(std::make_pair(monsterName, monster));
   }
 }
 
@@ -160,4 +168,12 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
 cocos2d::PhysicsBody* Blocks::parseShape(const std::string &shapeName) {
   // TODO(rbkloss): implement this
   return nullptr;
+}
+
+std::shared_ptr<Monster> Blocks::getMonsterByName(const std::string& name) {
+  auto it = monsters_.find(name);
+  std::shared_ptr<Monster> ans(nullptr);
+  if (it != monsters_.end())
+    ans = it->second;
+  return ans;
 }

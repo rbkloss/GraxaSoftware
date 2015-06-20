@@ -3,6 +3,7 @@
 #include "./Hero.h"
 #include "ui/CocosGUI.h"
 #include "Blocks.h"
+#include "Projectile.h"
 
 
 USING_NS_CC;
@@ -75,7 +76,14 @@ void Hero::addEvents() {
         this->jump();
         break;
       }
+      case (EventKeyboard::KeyCode::KEY_SPACE) : {
+        this->fire();
+        break;
+      }
       default: break;
+  
+      
+  
     }
   };
 
@@ -199,6 +207,24 @@ void Hero::die() {
     ->removeEventListener(keyListener_);
   sprite_->removeAllChildrenWithCleanup(true);
   sprite_->removeFromParentAndCleanup(true);
+}
+
+void Hero::fire(){
+  if (fired_)return;
+  auto stepOne = cocos2d::CallFunc::create([this]() {
+    int x, y;
+    x = sprite_->getPositionX() + sprite_->getContentSize().width / 2;
+    y = sprite_->getPositionY();
+    HeroProjectile::setup(sprite_->getScene(), x, y, { 1, 0 }, "images/mfireball.png", { 0.0f, 0.0f, 64.0f, 32.0f });
+    fired_ = true;
+
+  });
+  auto delay = cocos2d::DelayTime::create(1.0f);
+  auto stepTwo = cocos2d::CallFunc::create([this]() {
+    fired_ = false;
+  });
+  sprite_->runAction(cocos2d::Sequence::create(stepOne, 
+    delay, stepTwo, nullptr));
 }
 
 void Hero::harm(size_t dmg) {

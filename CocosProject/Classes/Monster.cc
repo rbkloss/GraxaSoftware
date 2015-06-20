@@ -3,12 +3,16 @@
 #include "Hero.h"
 
 
+Monster::Monster(cocos2d::Sprite* sprite) {
+  sprite_ = sprite;
+}
+
 void Monster::movimentation(cocos2d::Sprite* monster) {
   auto body = monster->getPhysicsBody();
   auto moveLeft = cocos2d::CallFunc::create([body]() {
     body->setVelocity({ -32, 0 });
   });
-  
+
   auto moveRight = cocos2d::CallFunc::create([body]() {
     body->setVelocity({ 32, 0 });
   });
@@ -20,7 +24,7 @@ void Monster::movimentation(cocos2d::Sprite* monster) {
   monster->runAction(cocos2d::RepeatForever::create(sequence));
 }
 
-void Monster::init(int x, int y, int width, int height, cocos2d::Node* rootNode, const std::string &name) {
+std::shared_ptr<Monster> Monster::init(int x, int y, int width, int height, cocos2d::Node* rootNode, const std::string &name) {
   std::string imagePath("images/monster.png");
   auto sprite = cocos2d::Sprite::create();
   sprite->initWithFile(imagePath);
@@ -83,4 +87,21 @@ void Monster::init(int x, int y, int width, int height, cocos2d::Node* rootNode,
   movimentation(sprite);
 
   rootNode->addChild(sprite);
+  struct enable_shared :Monster {
+    enable_shared(cocos2d::Sprite* sprite) :Monster(sprite) {};
+  };
+  return std::make_shared<enable_shared>(sprite);
+}
+
+void Monster::harm(int value) {
+  life_ -= value;
+  if (life_ <= 0)
+    die();
+}
+
+void Monster::die() {
+  if (!alive_) return;
+  alive_ = false;
+  sprite_->removeAllChildrenWithCleanup(true);
+  sprite_->removeFromParentAndCleanup(true);
 }

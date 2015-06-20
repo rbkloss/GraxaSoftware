@@ -143,11 +143,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\Coin.cc" />
     <ClCompile Include="..\Classes\Monster.cc" />
     <ClCompile Include="..\Classes\Pit.cc" />
+    <ClCompile Include="..\Classes\Projectile.cc" />
     <ClCompile Include="..\Classes\Requirements.cpp" />
     <ClCompile Include="..\Classes\StageOneScene.cpp" />
     <ClCompile Include="..\Classes\StartScreenScene.cpp" />
     <ClCompile Include="..\Classes\Hero.cc" />
-    <ClCompile Include="..\Classes\TestMovimentationScene.cc" />
     <ClCompile Include="..\Classes\TutorialScene.cc" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -157,11 +157,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\Coin.h" />
     <ClInclude Include="..\Classes\Monster.h" />
     <ClInclude Include="..\Classes\Pit.h" />
+    <ClInclude Include="..\Classes\Projectile.h" />
     <ClInclude Include="..\Classes\Requirements.h" />
     <ClInclude Include="..\Classes\StageOneScene.h" />
     <ClInclude Include="..\Classes\StartScreenScene.h" />
     <ClInclude Include="..\Classes\Hero.h" />
-    <ClInclude Include="..\Classes\TestMovimentationScene.h" />
     <ClInclude Include="..\Classes\TutorialScene.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>

@@ -7,7 +7,7 @@
 
 #include "Hero.h"
 #include "Requirements.h"
-#include "Blocks.h"
+
 
 
 USING_NS_CC;
@@ -24,6 +24,7 @@ Scene* StageOneScene::createScene() {
   // world->setSpeed(2.0);
   // 'layer' is an autorelease object
   auto layer = StageOneScene::create();
+  layer->setName("StageOneSceneLayer");
 
   // add layer as a child to scene
   scene->addChild(layer);
@@ -52,7 +53,7 @@ bool StageOneScene::init() {
   auto tempNode = rootNode->getChildByName(Hero::getName());
   cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
   Hero::init(heroSprite);
-  Blocks::inflateTileMap(rootNode);
+  blocks_.inflateTileMap(rootNode);
 
 
   Requirements::getInstance().create(rootNode, "listing",
@@ -86,4 +87,8 @@ bool StageOneScene::init() {
 
 void StageOneScene::update(float dt) {
   Hero::getInstance()->update(dt);
+}
+
+std::shared_ptr<Monster> StageOneScene::getMonsterByName(const std::string& monsterName){
+  return blocks_.getMonsterByName(monsterName);
 }

@@ -36,7 +36,6 @@ bool StartScreenScene::init() {
   auto rootNode = CSLoader::createNode("StartScreen.csb");
   auto panelNode = static_cast<cocos2d::ui::Layout*>(rootNode->getChildByName("PanelView"));
   auto startButton = static_cast<cocos2d::ui::Button*>(panelNode->getChildByName("startButton"));
-  auto testButton = static_cast<cocos2d::ui::Button*>(panelNode->getChildByName("Test"));
 
 
   startButton->addTouchEventListener([](Ref*sender, cocos2d::ui::Widget::TouchEventType type) {
@@ -44,14 +43,6 @@ bool StartScreenScene::init() {
       auto director = cocos2d::Director::getInstance();
       auto tutorialScene = StageOneScene::createScene();
       director->replaceScene(TransitionFade::create(0.5, tutorialScene, Color3B(0, 255, 255)));
-    }
-  });
-
-  testButton->addTouchEventListener([](Ref*sender, cocos2d::ui::Widget::TouchEventType type) {
-    if (type == ui::Widget::TouchEventType::ENDED) {
-      auto director = cocos2d::Director::getInstance();
-      auto scene = TestMovimentationScene::createScene();
-      director->replaceScene(TransitionFade::create(0.5, scene, Color3B(0, 255, 255)));
     }
   });
 

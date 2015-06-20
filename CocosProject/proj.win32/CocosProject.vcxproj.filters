@@ -16,12 +16,6 @@
     <Filter Include="Stage1">
       <UniqueIdentifier>{e4c11599-7839-450c-9506-c7dee3898482}</UniqueIdentifier>
     </Filter>
-    <Filter Include="TestScenes">
-      <UniqueIdentifier>{3131251f-04ce-4dee-8956-5cd70928d5f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="TestScenes\Movimentation">
-      <UniqueIdentifier>{9c32e0a5-9b1b-478d-9972-466d8ee34eeb}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{afd6e9a2-2434-4d27-a3fb-f2daf0c5ee5a}</UniqueIdentifier>
     </Filter>
@@ -42,9 +36,6 @@
     <ClCompile Include="..\Classes\StageOneScene.cpp">
       <Filter>Stage1</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\TestMovimentationScene.cc">
-      <Filter>TestScenes\Movimentation</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\Blocks.cc">
       <Filter>Game</Filter>
     </ClCompile>
@@ -63,7 +54,12 @@
     <ClCompile Include="..\Classes\Pit.cc">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Monster.cc" />
+    <ClCompile Include="..\Classes\Projectile.cc">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Monster.cc">
+      <Filter>Game</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -77,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="..\Classes\StageOneScene.h">
       <Filter>Stage1</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Classes\TestMovimentationScene.h">
-      <Filter>TestScenes\Movimentation</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Blocks.h">
       <Filter>Game</Filter>
@@ -100,6 +93,9 @@
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Monster.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Projectile.h">
       <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>

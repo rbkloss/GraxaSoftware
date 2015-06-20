@@ -18,6 +18,7 @@ protected:
 
   bool inHitState_ = false;
   bool dead_ = false;
+  bool fired_ = false;
 
   Hero();
 public:
@@ -32,6 +33,8 @@ public:
   void repel(const cocos2d::Vec2 &direction);
 	void jump();
   void die();
+
+  void fire();
 
 
   void harm(size_t dmg);
