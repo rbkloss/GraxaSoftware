@@ -6,7 +6,7 @@
 class Monster;
 
 class HeroProjectile {
-  static void animate();
+  static void animate(cocos2d::Sprite* projectile, const std::string& imageName, const cocos2d::Rect& initRect, const int nStates);
   static void monsterCollision(cocos2d::Sprite* sprite, std::shared_ptr<Monster> monster);
   static void groundCollision(cocos2d::Sprite* sprite, cocos2d::Node* ground);
   public:

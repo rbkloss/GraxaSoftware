@@ -215,7 +215,9 @@ void Hero::fire(){
     int x, y;
     x = sprite_->getPositionX() + sprite_->getContentSize().width / 2;
     y = sprite_->getPositionY();
-    HeroProjectile::setup(sprite_->getScene(), x, y, { 1, 0 }, "images/mfireball.png", { 0.0f, 0.0f, 64.0f, 32.0f });
+    HeroProjectile::setup(sprite_->getScene(), x, y, 
+    { static_cast<float>(direction_), 0.0f }
+    , "images/mfireball.png", { 0.0f, 0.0f, 64.0f, 32.0f });
     fired_ = true;
 
   });
@@ -252,20 +254,22 @@ void Hero::increaseScore(int value) {
 
 void Hero::moveHoriz(int direction) {
   auto body = this->getSprite()->getPhysicsBody();
-  if (onGround_ > 0 && !inHitState_)
+  if (onGround_ > 0 && !inHitState_) {
+    direction_ = direction;
     body->setVelocity(cocos2d::Vec2(direction * 0, 0));
-  auto moveFunc = [this, body, direction]() {
-    if (onGround_ > 0 && !inHitState_) {
-      body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
-    } else {
-      body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
-    }
-  };
-  auto moveAction = cocos2d::CallFunc::create(moveFunc);
-  auto forever = cocos2d::RepeatForever::create(
-    cocos2d::Sequence::create(moveAction, nullptr));
-  forever->setTag(25 + direction);
-  getSprite()->runAction(forever);
+    auto moveFunc = [this, body, direction]() {
+      if (onGround_ > 0 && !inHitState_) {
+        body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
+      } else {
+        body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
+      }
+    };
+    auto moveAction = cocos2d::CallFunc::create(moveFunc);
+    auto forever = cocos2d::RepeatForever::create(
+      cocos2d::Sequence::create(moveAction, nullptr));
+    forever->setTag(25 + direction);
+    getSprite()->runAction(forever);
+  }
 }
 
 void Hero::repel(const cocos2d::Vec2& direction) {

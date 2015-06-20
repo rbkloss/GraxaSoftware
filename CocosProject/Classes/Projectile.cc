@@ -7,11 +7,12 @@
 void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
   const cocos2d::Vec2& direction, const std::string& imageFilename, const cocos2d::Rect &from) {
   static size_t count = 0;
-  auto sprite = cocos2d::Sprite::create(imageFilename, from);
+  auto sprite = cocos2d::Sprite::create();
   sprite->setPosition(x, y);
   sprite->setName("heroProjectile" + std::to_string(++count));
+  sprite->setFlippedX(direction.x < 0);
 
-  animate();
+  animate(sprite, imageFilename, {0.0f,0.0f,64.0f,32.0f}, 3);
 
   auto body = cocos2d::PhysicsBody::createBox({ 64, 16 });
   body->setGravityEnable(false);
@@ -62,8 +63,6 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
         ans = false;
       }
     }
-      
-     
     return true;
   };
   cocos2d::Director::getInstance()->getEventDispatcher()->
@@ -72,7 +71,18 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
   rootNode->addChild(sprite);
 }
 
-void HeroProjectile::animate() {}
+void HeroProjectile::animate(cocos2d::Sprite* projectile, const std::string& imageName, const cocos2d::Rect& initRect, const int nStates) {
+  cocos2d::Vector<cocos2d::SpriteFrame*> animFrames;
+  float w = initRect.getMaxX(), h = initRect.getMaxY();
+  float x = initRect.getMinX(), y = initRect.getMinY();
+  animFrames.reserve(nStates);
+  for (int i = 0; i < nStates; ++i)
+    animFrames.pushBack(cocos2d::SpriteFrame::create(imageName, { x + w*i, y, w, h }));
+
+  auto animation = cocos2d::Animation::createWithSpriteFrames(animFrames, 0.1f);
+  auto animate = cocos2d::Animate::create(animation);
+  projectile->runAction(cocos2d::RepeatForever::create(animate));
+}
 
 void HeroProjectile::monsterCollision(cocos2d::Sprite* sprite, std::shared_ptr<Monster> monster){
   monster->harm(1);

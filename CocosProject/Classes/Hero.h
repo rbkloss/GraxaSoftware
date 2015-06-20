@@ -19,6 +19,7 @@ protected:
   bool inHitState_ = false;
   bool dead_ = false;
   bool fired_ = false;
+  int direction_ = 1;
 
   Hero();
 public:

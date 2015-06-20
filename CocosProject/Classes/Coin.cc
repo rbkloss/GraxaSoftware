@@ -11,8 +11,12 @@ void Coin::init(cocos2d::Node* rootNode, const int x, const int y) {
   static unsigned count = 0;
   std::string imagePath("images/spinning_coin_gold.png");
   sprite_ = cocos2d::Sprite::create();
-  sprite_->initWithFile(imagePath, { 0, 0, 32, 32 });
+  //sprite_->initWithFile(imagePath, { 0, 0, 32, 32 });
+
+  animate(imagePath, { 0, 0, 32, 32 }, 8);
+
   auto body = cocos2d::PhysicsBody::createBox({ 32, 32 });
+
   body->setDynamic(false);
   body->setCollisionBitmask(0);
   body->setContactTestBitmask(Blocks::COIN_BLOCK);
@@ -60,4 +64,17 @@ void Coin::coinContact(cocos2d::Sprite* coin) {
   cocos2d::Director::getInstance()->getEventDispatcher()->
     removeEventListener(contactListener_);
   this->~Coin();
+}
+
+void Coin::animate(const std::string& imageName, const cocos2d::Rect& initRect, const int nStates) {
+  cocos2d::Vector<cocos2d::SpriteFrame*> animFrames;
+  float w = initRect.getMaxX(), h = initRect.getMaxY();
+  float x = initRect.getMinX(), y = initRect.getMinY();
+  animFrames.reserve(nStates);
+  for (int i = 0; i < nStates; ++i)
+    animFrames.pushBack(cocos2d::SpriteFrame::create(imageName, { x + w*i, y, w, h }));
+
+  auto animation = cocos2d::Animation::createWithSpriteFrames(animFrames, 0.1f);
+  auto animate = cocos2d::Animate::create(animation);
+  sprite_->runAction(cocos2d::RepeatForever::create(animate));
 }
