@@ -1,5 +1,5 @@
 <Solution>
-  <PropertyGroup Name="CocosProject" Version="2.2.9.0" Type="CocosStudio" />
+  <PropertyGroup Name="CocosProject" Version="2.3.0.0" Type="CocosStudio" />
   <SolutionFolder>
     <Group ctype="ResourceGroup">
       <RootFolder Name=".">
@@ -11,7 +11,6 @@
         </Folder>
         <Folder Name="images">
           <Image Name="check.png" />
-          <Image Name="Ground.png" />
           <Image Name="HelloWorld.png" />
           <Image Name="heroBlock.png" />
           <Image Name="star.png" />
@@ -19,6 +18,8 @@
           <Image Name="tuto.png" />
           <Image Name="background.png" />
           <Image Name="Arrow.png" />
+          <Image Name="coinHud.png" />
+          <Image Name="lifeHud.png" />
         </Folder>
         <Image Name="CheckBox_Disable.png" />
         <Project Name="reqListing.csd" Type="Layer" />

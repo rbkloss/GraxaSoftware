@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="TutorialScene" ID="a90233e9-cd5f-4ba4-b025-43901ee1f45d" Version="2.2.9.0" />
+  <PropertyGroup Type="Scene" Name="TutorialScene" ID="a90233e9-cd5f-4ba4-b025-43901ee1f45d" Version="2.3.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -27,7 +27,7 @@
             <FileData Type="Normal" Path="images/tuto.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="button" ActionTag="-1056382439" Tag="20" IconVisible="False" LeftMargin="768.0834" RightMargin="383.9166" TopMargin="649.1733" BottomMargin="38.8267" TouchEnable="True" FontSize="22" ButtonText="Próximo" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ctype="ButtonObjectData">
+          <AbstractNodeData Name="button" ActionTag="-1056382439" Tag="20" IconVisible="False" LeftMargin="768.0834" RightMargin="383.9166" TopMargin="649.1733" BottomMargin="38.8267" TouchEnable="True" FontSize="22" ButtonText="Próximo" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="16" Scale9Height="14" ctype="ButtonObjectData">
             <Size X="128.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="832.0834" Y="54.8267" />
@@ -42,7 +42,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="textBox" ActionTag="-1522364625" Tag="22" IconVisible="False" LeftMargin="256.9036" RightMargin="599.0964" TopMargin="432.5464" BottomMargin="232.4536" FontSize="48" LabelText="Bem vindo ao Time!" OutlineSize="1" ShadowOffsetX="2" ShadowOffsetY="-2" ShadowEnabled="True" ctype="TextObjectData">
+          <AbstractNodeData Name="textBox" ActionTag="-1522364625" Tag="22" IconVisible="False" LeftMargin="256.9036" RightMargin="599.0964" TopMargin="432.5464" BottomMargin="232.4536" FontSize="48" LabelText="Bem vindo ao Time!" ShadowEnabled="True" ctype="TextObjectData">
             <Size X="424.0000" Y="55.0000" />
             <AnchorPoint ScaleY="1.0000" />
             <Position X="256.9036" Y="287.4536" />

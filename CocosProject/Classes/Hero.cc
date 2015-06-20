@@ -66,10 +66,12 @@ void Hero::addEvents() {
     switch (code) {
       case (cocos2d::EventKeyboard::KeyCode::KEY_LEFT_ARROW) : {
         this->moveHoriz(-1);
+        direction_ = -1;
         break;
       }
       case (cocos2d::EventKeyboard::KeyCode::KEY_RIGHT_ARROW) : {
         this->moveHoriz(1);
+        direction_ = 1;
         break;
       }
       case (cocos2d::EventKeyboard::KeyCode::KEY_UP_ARROW) : {
@@ -255,7 +257,6 @@ void Hero::increaseScore(int value) {
 void Hero::moveHoriz(int direction) {
   auto body = this->getSprite()->getPhysicsBody();
   if (onGround_ > 0 && !inHitState_) {
-    direction_ = direction;
     body->setVelocity(cocos2d::Vec2(direction * 0, 0));
     auto moveFunc = [this, body, direction]() {
       if (onGround_ > 0 && !inHitState_) {

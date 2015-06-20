@@ -12,7 +12,7 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
   sprite->setName("heroProjectile" + std::to_string(++count));
   sprite->setFlippedX(direction.x < 0);
 
-  animate(sprite, imageFilename, {0.0f,0.0f,64.0f,32.0f}, 3);
+  animate(sprite, imageFilename, { 0.0f, 0.0f, 64.0f, 32.0f }, 3);
 
   auto body = cocos2d::PhysicsBody::createBox({ 64, 16 });
   body->setGravityEnable(false);
@@ -49,13 +49,15 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
     if (aName == sprite->getName()) {
       if (aName.find("monster") != aName.npos) {
         monster = stage->getMonsterByName(aName);
+        monsterCollision(sprite, monster);
         ans = false;
       } else if (bName.find("monster") != bName.npos) {
         monster = stage->getMonsterByName(bName);
+        monsterCollision(sprite, monster);
         ans = false;
       }
-    } else if (bName == sprite->getName()){
-      if (aName.find("ground") != aName.npos){
+    } else if (bName == sprite->getName()) {
+      if (aName.find("ground") != aName.npos) {
         groundCollision(sprite, nodeA);
         ans = false;
       } else if (bName.find("ground") != bName.npos) {
@@ -84,13 +86,13 @@ void HeroProjectile::animate(cocos2d::Sprite* projectile, const std::string& ima
   projectile->runAction(cocos2d::RepeatForever::create(animate));
 }
 
-void HeroProjectile::monsterCollision(cocos2d::Sprite* sprite, std::shared_ptr<Monster> monster){
+void HeroProjectile::monsterCollision(cocos2d::Sprite* sprite, std::shared_ptr<Monster> monster) {
   monster->harm(1);
   sprite->removeAllChildrenWithCleanup(true);
   sprite->removeFromParentAndCleanup(true);
 }
 
-void HeroProjectile::groundCollision(cocos2d::Sprite* sprite, cocos2d::Node* ground){
+void HeroProjectile::groundCollision(cocos2d::Sprite* sprite, cocos2d::Node* ground) {
   sprite->removeAllChildrenWithCleanup(true);
   sprite->removeFromParentAndCleanup(true);
 }

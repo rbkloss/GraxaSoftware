@@ -220,3 +220,5 @@ pip-log.txt
 ## Cocos
 #############
 CocosProject/bin/
+CocosProject/proj.win32/Debug.win32/
+CocosProject/proj.win32/Release.win32/
