@@ -82,9 +82,9 @@ void Hero::addEvents() {
         break;
       }
       default: break;
-  
-      
-  
+
+
+
     }
   };
 
@@ -177,16 +177,15 @@ void Hero::addEvents() {
 }
 
 void Hero::update(float dt) {
-  if (dead_)
-    return;
   if (life_ == 0) {
     die();
   }
+  if (dead_)
+    return;
   auto root = sprite_->getParent();
   auto heartSprite = root->getChildByName("lifeHud");
   auto coinSprite = root->getChildByName("coinHud");
-  auto lifeLabel = static_cast<cocos2d::ui::Text*>(heartSprite->getChildByName("heartLabel"));
-  lifeLabel->setString(std::to_string(life_));
+
 
   auto coinLabel = static_cast<cocos2d::ui::Text*>(coinSprite->getChildByName("coinsLabel"));
   coinLabel->setString(std::to_string(score_));
@@ -212,6 +211,12 @@ void Hero::die() {
   if (dead_)
     return;
   dead_ = true;
+
+  auto root = sprite_->getParent();
+  auto heartSprite = root->getChildByName("lifeHud");
+  auto lifeLabel = static_cast<cocos2d::ui::Text*>(heartSprite->getChildByName("heartLabel"));
+  lifeLabel->setString(std::to_string(0));
+
   cocos2d::Director::getInstance()->getEventDispatcher()
     ->removeEventListener(contactListener_);
   cocos2d::Director::getInstance()->getEventDispatcher()
@@ -220,13 +225,13 @@ void Hero::die() {
   sprite_->removeFromParentAndCleanup(true);
 }
 
-void Hero::fire(){
+void Hero::fire() {
   if (fired_)return;
   auto stepOne = cocos2d::CallFunc::create([this]() {
     int x, y;
     x = sprite_->getPositionX() + sprite_->getContentSize().width / 2;
     y = sprite_->getPositionY();
-    HeroProjectile::setup(sprite_->getScene(), x, y, 
+    HeroProjectile::setup(sprite_->getScene(), x, y,
     { static_cast<float>(direction_), 0.0f }
     , "images/mfireball.png", { 0.0f, 0.0f, 64.0f, 32.0f });
     fired_ = true;
@@ -236,7 +241,7 @@ void Hero::fire(){
   auto stepTwo = cocos2d::CallFunc::create([this]() {
     fired_ = false;
   });
-  sprite_->runAction(cocos2d::Sequence::create(stepOne, 
+  sprite_->runAction(cocos2d::Sequence::create(stepOne,
     delay, stepTwo, nullptr));
 }
 
@@ -251,6 +256,12 @@ void Hero::harm(size_t dmg) {
   auto blink = cocos2d::Sequence::create(fadeout, delay, fadein, nullptr);
 
   sprite_->runAction(blink);
+  if (!dead_) {
+    auto root = sprite_->getParent();
+    auto heartSprite = root->getChildByName("lifeHud");
+    auto lifeLabel = static_cast<cocos2d::ui::Text*>(heartSprite->getChildByName("heartLabel"));
+    lifeLabel->setString(std::to_string(life_));
+  }
 }
 
 void Hero::heal(size_t amount) {
@@ -267,19 +278,20 @@ void Hero::moveHoriz(int direction) {
   auto body = this->getSprite()->getPhysicsBody();
   if (onGround_ > 0 && !inHitState_) {
     body->setVelocity(cocos2d::Vec2(direction * 0, 0));
-    auto moveFunc = [this, body, direction]() {
-      if (onGround_ > 0 && !inHitState_) {
-        body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
-      } else {
-        body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
-      }
-    };
-    auto moveAction = cocos2d::CallFunc::create(moveFunc);
-    auto forever = cocos2d::RepeatForever::create(
-      cocos2d::Sequence::create(moveAction, nullptr));
-    forever->setTag(25 + direction);
-    getSprite()->runAction(forever);
   }
+  auto moveFunc = [this, body, direction]() {
+    if (onGround_ > 0 && !inHitState_) {
+      body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
+    } else {
+      body->applyImpulse(cocos2d::Vec2(direction * 200, 0));
+    }
+  };
+  auto moveAction = cocos2d::CallFunc::create(moveFunc);
+  auto forever = cocos2d::RepeatForever::create(
+    cocos2d::Sequence::create(moveAction, nullptr));
+  forever->setTag(25 + direction);
+  getSprite()->runAction(forever);
+
 }
 
 void Hero::repel(const cocos2d::Vec2& direction) {
