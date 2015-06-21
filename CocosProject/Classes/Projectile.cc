@@ -18,7 +18,7 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
   body->setGravityEnable(false);
   body->setRotationEnable(false);
   body->setCollisionBitmask(0);
-  body->setContactTestBitmask(Blocks::MONSTER_BLOCK);
+  body->setContactTestBitmask(Blocks::MONSTER_BLOCK | Blocks::GROUND_BLOCK);
 
   sprite->setPhysicsBody(body);
   auto dir = direction;
@@ -46,26 +46,29 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
     auto stage = static_cast<StageOneScene*>(scene->getChildByName("StageOneSceneLayer"));
     std::shared_ptr<Monster> monster;
     bool ans = true;
-    if (aName == sprite->getName()) {
-      if (aName.find("monster") != aName.npos) {
-        monster = stage->getMonsterByName(aName);
-        monsterCollision(sprite, monster);
-        ans = false;
-      } else if (bName.find("monster") != bName.npos) {
+    auto spriteName = sprite->getName();
+    if (aName == spriteName) {
+      if (bName.find("monster") != bName.npos) {
         monster = stage->getMonsterByName(bName);
         monsterCollision(sprite, monster);
-        ans = false;
+        ans = true;
+      } else if (bName.find("ground") != bName.npos) {
+        groundCollision(sprite, nodeA);
+        ans = true;
       }
-    } else if (bName == sprite->getName()) {
+    } else if (bName == spriteName) {
       if (aName.find("ground") != aName.npos) {
         groundCollision(sprite, nodeA);
-        ans = false;
-      } else if (bName.find("ground") != bName.npos) {
-        groundCollision(sprite, nodeB);
-        ans = false;
+        ans = true;
+      } else if (aName.find("monster") != aName.npos) {
+        monster = stage->getMonsterByName(aName);
+        monsterCollision(sprite, monster);
+        ans = true;
       }
+    } else {
+      ans = false;
     }
-    return true;
+    return ans;
   };
   cocos2d::Director::getInstance()->getEventDispatcher()->
     addEventListenerWithSceneGraphPriority(contactListener, sprite);

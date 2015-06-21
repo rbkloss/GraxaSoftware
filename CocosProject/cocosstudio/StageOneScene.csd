@@ -138,24 +138,24 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="coinHud" ActionTag="-2141821531" Tag="14" IconVisible="False" LeftMargin="28.7898" RightMargin="1219.2102" TopMargin="-24.1708" BottomMargin="712.1708" ctype="SpriteObjectData">
+          <AbstractNodeData Name="coinHud" ActionTag="-2141821531" Tag="14" IconVisible="False" LeftMargin="11.3148" RightMargin="1236.6852" TopMargin="93.4808" BottomMargin="594.5192" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="44.7898" Y="728.1708" />
+            <Position X="27.3148" Y="610.5192" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0350" Y="1.0113" />
+            <PrePosition X="0.0213" Y="0.8479" />
             <PreSize />
             <FileData Type="Normal" Path="images/coinHud.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lifeHud" ActionTag="267621548" Tag="15" IconVisible="False" LeftMargin="28.7898" RightMargin="1219.2102" TopMargin="19.8085" BottomMargin="668.1915" ctype="SpriteObjectData">
+          <AbstractNodeData Name="lifeHud" ActionTag="267621548" Tag="15" IconVisible="False" LeftMargin="11.3148" RightMargin="1236.6852" TopMargin="42.2710" BottomMargin="645.7290" ctype="SpriteObjectData">
             <Size X="32.0000" Y="32.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="44.7898" Y="684.1915" />
+            <Position X="27.3148" Y="661.7290" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.0350" Y="0.9503" />
+            <PrePosition X="0.0213" Y="0.9191" />
             <PreSize />
             <FileData Type="Normal" Path="images/lifeHud.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />

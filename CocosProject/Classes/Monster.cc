@@ -78,7 +78,7 @@ std::shared_ptr<Monster> Monster::init(int x, int y, int width, int height, coco
 
     }
 
-    return ans;
+    return true;
   };
 
   cocos2d::Director::getInstance()->getEventDispatcher()->

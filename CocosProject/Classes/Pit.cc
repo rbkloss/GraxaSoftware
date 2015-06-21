@@ -47,8 +47,7 @@ void PitBlock::setup(int x, int y, int width, int height,
       }
 
     }
-
-    return ans;
+    return true;
   };
 
   cocos2d::Director::getInstance()->getEventDispatcher()->

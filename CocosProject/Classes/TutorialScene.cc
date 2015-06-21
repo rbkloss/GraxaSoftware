@@ -29,8 +29,6 @@ bool TutorialScene::init() {
   if (!Layer::init()) {
     return false;
   }
-  auto sz = Director::getInstance()->getVisibleSize();
-
   auto rootNode = CSLoader::createNode("TutorialScene.csb");
 
   state_ = 0;

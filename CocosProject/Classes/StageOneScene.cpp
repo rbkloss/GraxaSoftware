@@ -53,6 +53,23 @@ bool StageOneScene::init() {
   auto tempNode = rootNode->getChildByName(Hero::getName());
   cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
   Hero::init(heroSprite);
+
+  auto heart = rootNode->getChildByName("lifeHud");
+  auto coins = rootNode->getChildByName("coinHud");
+  auto heartLabel = cocos2d::ui::Text::create(std::to_string(3),
+    "arial.ttf", 32);
+  heartLabel->setName("heartLabel");
+  heartLabel->setAnchorPoint({ 0.5f, 0.5f });
+  heart->addChild(heartLabel);
+  heartLabel->setPosition({ 32, 0 });
+
+  auto coinLabel = cocos2d::ui::Text::create(std::to_string(0),
+    "arial.ttf", 32);
+  coinLabel->setName("coinsLabel");
+  coinLabel->setAnchorPoint({ 0.5f, 0.5f });
+  coins->addChild(coinLabel);
+  coinLabel->setPosition({ 32, 0 });
+
   blocks_.inflateTileMap(rootNode);
 
 

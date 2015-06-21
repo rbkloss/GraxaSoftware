@@ -22,7 +22,7 @@ int Requirements::evaluateScore() {
 	int score = 0;
 	for (auto child : children) {
 		//children are all labels
-		auto checkBox = (cocos2d::ui::CheckBox*) (child->getChildren().at(0));
+		auto checkBox = static_cast<cocos2d::ui::CheckBox*>(child->getChildren().at(0));
 		auto ans = checkBox->isSelected();
 		if (requirements_[counter++] == ans)++score;
 	}

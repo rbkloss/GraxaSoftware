@@ -24,7 +24,6 @@ void Hero::init(cocos2d::Sprite* sprite) {
   singleton_->setSprite(sprite);
   singleton_->addEvents();
 
-
   auto physicsBody = cocos2d::PhysicsBody::createBox(sprite->getBoundingBox()
     .size, cocos2d::PhysicsMaterial(0.0f, 0.0f, 2.0f));
   physicsBody->setDynamic(true);
@@ -178,9 +177,19 @@ void Hero::addEvents() {
 }
 
 void Hero::update(float dt) {
+  if (dead_)
+    return;
   if (life_ == 0) {
     die();
   }
+  auto root = sprite_->getParent();
+  auto heartSprite = root->getChildByName("lifeHud");
+  auto coinSprite = root->getChildByName("coinHud");
+  auto lifeLabel = static_cast<cocos2d::ui::Text*>(heartSprite->getChildByName("heartLabel"));
+  lifeLabel->setString(std::to_string(life_));
+
+  auto coinLabel = static_cast<cocos2d::ui::Text*>(coinSprite->getChildByName("coinsLabel"));
+  coinLabel->setString(std::to_string(score_));
 }
 
 void Hero::jump() {
