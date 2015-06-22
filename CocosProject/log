@@ -1,2 +1,47 @@
+
+Microsoft Visual Studio 2013 Version 12.0.31101.0.
+Copyright (C) Microsoft Corp. All rights reserved.
+Upgrading project 'CocosProject'...
+	No upgrade required.
+Upgrading project 'Test_CocosProject'...
+	No upgrade required.
+
+Migration completed successfully, but some warnings were detected during migration.
+For more information, see the migration report:
+D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\UpgradeLog6.htm
+
+Microsoft Visual Studio 2013 Version 12.0.31101.0.
+Copyright (C) Microsoft Corp. All rights reserved.
+========== Build: 0 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========
 Running command: compile
-Current available platforms : ['win32', 'android']. 'linux' is not available.
+Building mode: release
+building
+Required VS version : 11.0
+find vs in reg : 64bit
+find vs in reg : 32bit
+Find VS path : C:\Program Files (x86)\Microsoft Visual Studio 12.0\
+running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.com" "D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\CocosProject.sln" /Upgrade'
+
+running: '"C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\devenv.com" "D:\Docs\Development\Codes\Games\SoftwareEngineering\GraxaSoftware\CocosProject\proj.win32\CocosProject.sln" /Build "Release" /Project "CocosProject"'
+
+build succeeded.
+Copying CocosProject.exe
+Copying glew32.dll
+Copying iconv.dll
+Copying libcocos2d.dll
+Copying libcocos2d_2012.dll
+Copying libcocos2d_2013.dll
+Copying libcurl.dll
+Copying libeay32.dll
+Copying libmpg123.dll
+Copying libogg.dll
+Copying libtiff.dll
+Copying libvorbis.dll
+Copying libvorbisfile.dll
+Copying lua51.dll
+Copying mozjs-33.dll
+Copying OpenAL32.dll
+Copying sqlite3.dll
+Copying ssleay32.dll
+Copying websockets.dll
+Copying zlib1.dll

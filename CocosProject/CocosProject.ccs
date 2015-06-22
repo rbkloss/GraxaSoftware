@@ -32,6 +32,7 @@
           <TmxFile Name="cena_1.tmx" />
         </Folder>
         <Project Name="TutorialScene.csd" Type="Scene" />
+        <Project Name="GameOverScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>
