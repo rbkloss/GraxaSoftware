@@ -2,10 +2,7 @@
 #define _REQUIREMENTS_H_
 
 #include "cocos2d.h"
-#include "ui/CocosGUI.h"
 
-#include <string>
-#include <utility>
 #include <vector>
 
 class Requirements {

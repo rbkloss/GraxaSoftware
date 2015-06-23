@@ -31,33 +31,6 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="hero" ActionTag="-1310216368" Tag="22" IconVisible="False" LeftMargin="295.2869" RightMargin="952.7131" TopMargin="367.6810" BottomMargin="320.3190" ctype="SpriteObjectData">
-            <Size X="32.0000" Y="32.0000" />
-            <Children>
-              <AbstractNodeData Name="check" ActionTag="-1115354749" Tag="26" VisibleForFrame="False" IconVisible="False" LeftMargin="50.3440" RightMargin="-58.3440" TopMargin="-163.2818" BottomMargin="155.2818" TouchEnable="True" ctype="CheckBoxObjectData">
-                <Size X="40.0000" Y="40.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="70.3440" Y="175.2818" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="255" G="255" B="255" />
-                <PrePosition X="2.1983" Y="5.4776" />
-                <PreSize />
-                <NormalBackFileData Type="Default" Path="Default/CheckBox_Normal.png" Plist="" />
-                <PressedBackFileData Type="Default" Path="Default/CheckBox_Press.png" Plist="" />
-                <DisableBackFileData Type="Default" Path="Default/CheckBox_Disable.png" Plist="" />
-                <NodeNormalFileData Type="Default" Path="Default/CheckBoxNode_Normal.png" Plist="" />
-                <NodeDisableFileData Type="Default" Path="Default/CheckBoxNode_Disable.png" Plist="" />
-              </AbstractNodeData>
-            </Children>
-            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="311.2869" Y="336.3190" />
-            <Scale ScaleX="1.0000" ScaleY="1.0000" />
-            <CColor A="255" R="255" G="0" B="0" />
-            <PrePosition X="0.2432" Y="0.4671" />
-            <PreSize />
-            <FileData Type="Normal" Path="images/heroBlock.png" Plist="" />
-            <BlendFunc Src="1" Dst="1" />
-          </AbstractNodeData>
           <AbstractNodeData Name="listing" ActionTag="1159327246" Tag="37" IconVisible="False" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" LeftMargin="697.6368" RightMargin="6.3633" TopMargin="36.2209" BottomMargin="431.7791" TouchEnable="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" ScrollDirectionType="0" DirectionType="Vertical" ctype="ListViewObjectData">
             <Size X="576.0000" Y="252.0000" />
             <Children>

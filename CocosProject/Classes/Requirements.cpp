@@ -3,8 +3,6 @@
 
 #include "ui\CocosGUI.h"
 
-#include <cassert>
-
 Requirements& Requirements::getInstance() {
 	static Requirements req;
 	return req;

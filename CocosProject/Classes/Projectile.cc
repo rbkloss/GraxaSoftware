@@ -43,6 +43,8 @@ void HeroProjectile::setup(cocos2d::Node* rootNode, int x, int y,
     auto aName = nodeA->getName();
     auto bName = nodeB->getName();
     auto scene = nodeA->getScene();
+    if (!scene)return false;
+
     auto stage = static_cast<StageOneScene*>(scene->getChildByName("StageOneSceneLayer"));
     std::shared_ptr<Monster> monster;
     bool ans = true;

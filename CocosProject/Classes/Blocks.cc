@@ -5,6 +5,7 @@
 #include "Coin.h"
 #include "Pit.h"
 #include "Monster.h"
+#include "Hero.h"
 
 Blocks::~Blocks() {
   monsters_.clear();
@@ -147,6 +148,29 @@ void Blocks::parseMonsters(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* mon
   }
 }
 
+void Blocks::parseHero(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* heroGroup, cocos2d::TMXTiledMap* map) {
+  auto hero = heroGroup->getObjects();
+  auto mapPos = map->getPosition();
+  size_t count = 0;
+  for (auto object : hero) {
+    auto propertyMap = object.asValueMap();
+    int x = 0, y = 0, width = 0, height = 0;
+
+    cocos2d::Value tempValue;
+    tempValue = (propertyMap["width"]);
+    width = tempValue.asInt();
+    tempValue = (propertyMap["height"]);
+    height = tempValue.asInt();
+    tempValue = (propertyMap["x"]);
+    x = tempValue.asInt();
+    tempValue = (propertyMap["y"]);
+    y = tempValue.asInt();
+
+    auto monsterName = "monster" + std::to_string(++count);
+    Hero::init(rootNode, x + width/2, y + height / 2);    
+  }
+}
+
 void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto map = dynamic_cast<cocos2d::TMXTiledMap*>
     (rootNode->getChildByName("tileMap"));
@@ -155,6 +179,8 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto coinsGroup = map->getObjectGroup("coins");
   auto pitsGroup = map->getObjectGroup("pits");
   auto monstersGroup = map->getObjectGroup("monsters");
+  auto heroGroup = map->getObjectGroup("hero");
+  parseHero(rootNode, heroGroup, map);
   if (collisionGroup)
     parseCollidables(collisionGroup, map);
   if (coinsGroup)
@@ -163,6 +189,7 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
     parsePits(rootNode, pitsGroup, map);
   if (monstersGroup)
     parseMonsters(rootNode, monstersGroup, map);
+  
 }
 
 cocos2d::PhysicsBody* Blocks::parseShape(const std::string &shapeName) {

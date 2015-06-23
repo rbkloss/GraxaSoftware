@@ -14,6 +14,8 @@ USING_NS_CC;
 
 using namespace cocostudio::timeline;
 
+
+
 Scene* StageOneScene::createScene() {
   // 'scene' is an autorelease object
   auto scene = Scene::createWithPhysics();
@@ -40,8 +42,8 @@ bool StageOneScene::init() {
   if (!Layer::init()) {
     return false;
   }
+  
   auto sz = Director::getInstance()->getVisibleSize();
-
   auto rootNode = CSLoader::createNode("StageOneScene.csb");
   auto screenEdge = cocos2d::PhysicsBody::createEdgeBox(sz);
   auto screenNode = cocos2d::DrawNode::create();
@@ -49,10 +51,6 @@ bool StageOneScene::init() {
   screenNode->setPhysicsBody(screenEdge);
   this->addChild(screenNode);
   this->addChild(rootNode);
-
-  auto tempNode = rootNode->getChildByName(Hero::getName());
-  cocos2d::Sprite* heroSprite = dynamic_cast<cocos2d::Sprite*>(tempNode);
-  Hero::init(heroSprite);
 
   auto heart = rootNode->getChildByName("lifeHud");
   auto coins = rootNode->getChildByName("coinHud");
@@ -72,10 +70,17 @@ bool StageOneScene::init() {
 
   blocks_.inflateTileMap(rootNode);
 
+  setRequirementsUp(rootNode); 
 
+  schedule(CC_SCHEDULE_SELECTOR(StageOneScene::update), 0.3f);
+
+  return true;
+}
+
+void StageOneScene::setRequirementsUp(cocos2d::Node* rootNode) {
   Requirements::getInstance().create(rootNode, "listing",
     std::vector<bool>(2, true));
-
+  auto sz = Director::getInstance()->getVisibleSize();
   auto button = static_cast<cocos2d::ui::Button*>(rootNode->getChildByName("starButton"));
   button->addTouchEventListener(
     [rootNode, sz](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
@@ -96,10 +101,6 @@ bool StageOneScene::init() {
       rootNode->addChild(label);
     }
   });
-
-  schedule(CC_SCHEDULE_SELECTOR(StageOneScene::update), 0.3f);
-
-  return true;
 }
 
 void StageOneScene::update(float dt) {

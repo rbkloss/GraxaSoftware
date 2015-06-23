@@ -7,6 +7,8 @@
 class Hero;
 class StageOneScene : public cocos2d::Layer {
   Blocks blocks_;
+
+  void setRequirementsUp(cocos2d::Node* rootNode);
 public:
 	// Creates An auto-release scene object for the first stage
 	static cocos2d::Scene* createScene();

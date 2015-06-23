@@ -20,6 +20,9 @@
           <Image Name="Arrow.png" />
           <Image Name="coinHud.png" />
           <Image Name="lifeHud.png" />
+          <Folder Name="hero">
+            <Image Name="idle.png" />
+          </Folder>
         </Folder>
         <Image Name="CheckBox_Disable.png" />
         <Project Name="reqListing.csd" Type="Layer" />

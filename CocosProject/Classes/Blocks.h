@@ -31,6 +31,7 @@ class Blocks {
   void parseCoins(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* coinsGroup, cocos2d::TMXTiledMap* map);
   void parsePits(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* pitsGroup, cocos2d::TMXTiledMap* map);
   void parseMonsters(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* monstersGroup, cocos2d::TMXTiledMap* map);
+  void parseHero(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* heroGroup, cocos2d::TMXTiledMap* map);
 
   static cocos2d::PhysicsBody* parseShape(const std::string &shape);
 
