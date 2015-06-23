@@ -2,6 +2,7 @@
 
 #include "./Hero.h"
 #include "Blocks.h"
+#include <SimpleAudioEngine.h>
 
 Coin::Coin() {}
 
@@ -58,6 +59,9 @@ void Coin::init(cocos2d::Node* rootNode, const int x, const int y) {
 
 void Coin::coinContact(cocos2d::Sprite* coin) {
   Hero::getInstance()->increaseScore(10);
+  auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+  audio->playEffect("sound/coin.mp3");
+
   coin->removeAllChildrenWithCleanup(true);
   coin->removeFromParentAndCleanup(true);
 

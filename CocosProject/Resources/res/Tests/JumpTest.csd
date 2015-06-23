@@ -1,5 +1,5 @@
 <GameProjectFile>
-  <PropertyGroup Type="Scene" Name="JumpTest" ID="29b947b6-ebe2-44f1-84af-6c7506bed4ff" Version="2.2.9.0" />
+  <PropertyGroup Type="Scene" Name="JumpTest" ID="29b947b6-ebe2-44f1-84af-6c7506bed4ff" Version="2.3.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
       <Animation Duration="0" Speed="1.0000" />
@@ -61,7 +61,7 @@
             <FileData Type="Default" Path="Default/Sprite.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Title" ActionTag="-1769658455" Tag="24" IconVisible="False" LeftMargin="369.6105" RightMargin="88.3895" TopMargin="0.1182" BottomMargin="557.8818" FontSize="72" LabelText="Jump and movimentation &#xA;Test" HorizontalAlignmentType="HT_Center" ctype="TextObjectData">
+          <AbstractNodeData Name="Title" ActionTag="-1769658455" Tag="24" IconVisible="False" LeftMargin="369.6105" RightMargin="88.3895" TopMargin="0.1182" BottomMargin="557.8818" FontSize="72" LabelText="Jump and movimentation &#xA;Test" HorizontalAlignmentType="HT_Center" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
             <Size X="822.0000" Y="162.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="780.6105" Y="638.8818" />
@@ -72,7 +72,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_2" ActionTag="-171367341" Tag="26" IconVisible="False" LeftMargin="589.3421" RightMargin="12.6580" TopMargin="171.9599" BottomMargin="425.0401" FontSize="36" LabelText="Please, Hit the top and left and right boxes &#xA;by moving the blue sprite&#xA; with the keyboard arrows." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_2" ActionTag="-171367341" Tag="26" IconVisible="False" LeftMargin="589.3421" RightMargin="12.6580" TopMargin="171.9599" BottomMargin="425.0401" FontSize="36" LabelText="Please, Hit the top and left and right boxes &#xA;by moving the blue sprite&#xA; with the keyboard arrows." HorizontalAlignmentType="HT_Center" VerticalAlignmentType="VT_Center" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
             <Size X="678.0000" Y="123.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="928.3421" Y="486.5401" />
@@ -116,7 +116,7 @@
             <FileData Type="Normal" Path="images/check.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_3" ActionTag="-779653498" Tag="32" IconVisible="False" LeftMargin="1022.2931" RightMargin="210.7069" TopMargin="404.7555" BottomMargin="292.2445" FontSize="20" LabelText="Jump" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_3" ActionTag="-779653498" Tag="32" IconVisible="False" LeftMargin="1022.2931" RightMargin="210.7069" TopMargin="404.7555" BottomMargin="292.2445" FontSize="20" LabelText="Jump" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
             <Size X="47.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="1045.7931" Y="303.7445" />
@@ -127,7 +127,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_4" ActionTag="1532989339" Tag="33" IconVisible="False" LeftMargin="1028.7906" RightMargin="217.2094" TopMargin="449.2555" BottomMargin="247.7445" FontSize="20" LabelText="Left" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_4" ActionTag="1532989339" Tag="33" IconVisible="False" LeftMargin="1028.7906" RightMargin="217.2094" TopMargin="449.2555" BottomMargin="247.7445" FontSize="20" LabelText="Left" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
             <Size X="34.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="1045.7906" Y="259.2445" />
@@ -138,7 +138,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="255" G="127" B="80" />
           </AbstractNodeData>
-          <AbstractNodeData Name="Text_5" ActionTag="1525534898" Tag="34" IconVisible="False" LeftMargin="1024.2938" RightMargin="210.7062" TopMargin="501.7556" BottomMargin="195.2444" FontSize="20" LabelText="Right" ctype="TextObjectData">
+          <AbstractNodeData Name="Text_5" ActionTag="1525534898" Tag="34" IconVisible="False" LeftMargin="1024.2938" RightMargin="210.7062" TopMargin="501.7556" BottomMargin="195.2444" FontSize="20" LabelText="Right" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
             <Size X="45.0000" Y="23.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="1046.7938" Y="206.7444" />

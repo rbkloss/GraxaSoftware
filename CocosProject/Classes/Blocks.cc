@@ -30,25 +30,20 @@ cocos2d::Sprite*  Blocks::createGroundBlock(
   return sprite;
 }
 
-void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
-  cocos2d::TMXTiledMap* map) {
+void Blocks::parseCollidables(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* collisionsGroup, cocos2d::TMXTiledMap* map) {
   static size_t count = 0;
-  auto layer = map->getLayer("foreground");
   auto collisionObjects = collisionsGroup->getObjects();
   for (auto object : collisionObjects) {
     auto propertyMap = object.asValueMap();
     int x = 0, y = 0, width = 0, height = 0;
-    int tileWidth = 0, tileHeight = 0;
-    tileWidth = map->getTileSize().width;
-    tileHeight = map->getTileSize().height;
     cocos2d::Value tempValue;
     tempValue = (propertyMap["width"]);
     width = tempValue.asInt();
     tempValue = (propertyMap["height"]);
     height = tempValue.asInt();
-    tempValue = (propertyMap["AnchorX"]);
+    tempValue = (propertyMap["x"]);
     x = tempValue.asInt();
-    tempValue = (propertyMap["AnchorY"]);
+    tempValue = (propertyMap["y"]);
     y = tempValue.asInt();
     tempValue = propertyMap["Shape"];
     cocos2d::PhysicsBody* body = nullptr;
@@ -59,25 +54,22 @@ void Blocks::parseCollidables(cocos2d::TMXObjectGroup* collisionsGroup,
         cocos2d::Size(width, height),
         cocos2d::PhysicsMaterial(0.0f, 0.0f, 0.9f));
     }
-    auto tile = layer->getTileAt(cocos2d::Vec2(x, y));
-    tile->setName("ground" + std::to_string(++count));
+    auto sprite = cocos2d::DrawNode::create();
+    sprite->setPosition(x + width / 2, y + height / 2);
+    sprite->setName("ground" + std::to_string(++count));
 
     body->setDynamic(true);
     body->setGravityEnable(false);
     body->setRotationEnable(false);
     body->setMass(cocos2d::PHYSICS_INFINITY);
     body->setContactTestBitmask(Blocks::GROUND_BLOCK);
-    auto tilePos = tile->getPosition();
-    //auto tileSize = tile->getContentSize();
 
-    tile->setPhysicsBody(body);
+    sprite->setTag(Blocks::GROUND_BLOCK);
+    sprite->setPhysicsBody(body);
+
+    rootNode->addChild(sprite);
     // setPhysicsBody messes with positions of nodes with anchor different
     // than {0.5, 0.5}
-    auto correctPos = tilePos;
-    correctPos.add(cocos2d::Vec2(tileWidth / 2, (tileHeight / 2)));
-
-    tile->setPosition(correctPos);
-    tile->setTag(Blocks::GROUND_BLOCK);
   }
 }
 
@@ -167,7 +159,7 @@ void Blocks::parseHero(cocos2d::Node* rootNode, cocos2d::TMXObjectGroup* heroGro
     y = tempValue.asInt();
 
     auto monsterName = "monster" + std::to_string(++count);
-    Hero::init(rootNode, x + width/2, y + height / 2);    
+    Hero::init(rootNode, x + width / 2, y + height / 2);
   }
 }
 
@@ -180,16 +172,17 @@ void Blocks::inflateTileMap(cocos2d::Node* rootNode) {
   auto pitsGroup = map->getObjectGroup("pits");
   auto monstersGroup = map->getObjectGroup("monsters");
   auto heroGroup = map->getObjectGroup("hero");
-  parseHero(rootNode, heroGroup, map);
+  if (heroGroup)
+    parseHero(rootNode, heroGroup, map);
   if (collisionGroup)
-    parseCollidables(collisionGroup, map);
+    parseCollidables(rootNode, collisionGroup, map);
   if (coinsGroup)
     parseCoins(rootNode, coinsGroup, map);
   if (pitsGroup)
     parsePits(rootNode, pitsGroup, map);
   if (monstersGroup)
     parseMonsters(rootNode, monstersGroup, map);
-  
+
 }
 
 cocos2d::PhysicsBody* Blocks::parseShape(const std::string &shapeName) {

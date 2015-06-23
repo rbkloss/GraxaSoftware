@@ -7,7 +7,7 @@
 
 #include "Hero.h"
 #include "Requirements.h"
-
+#include <SimpleAudioEngine.h>
 
 
 USING_NS_CC;
@@ -42,7 +42,10 @@ bool StageOneScene::init() {
   if (!Layer::init()) {
     return false;
   }
-  
+  auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+  audio->preloadEffect("sound/coin.mp3");
+  audio->preloadEffect("sound/shot.mp3");
+
   auto sz = Director::getInstance()->getVisibleSize();
   auto rootNode = CSLoader::createNode("StageOneScene.csb");
   auto screenEdge = cocos2d::PhysicsBody::createEdgeBox(sz);
@@ -70,7 +73,7 @@ bool StageOneScene::init() {
 
   blocks_.inflateTileMap(rootNode);
 
-  setRequirementsUp(rootNode); 
+  setRequirementsUp(rootNode);
 
   schedule(CC_SCHEDULE_SELECTOR(StageOneScene::update), 0.3f);
 
@@ -107,6 +110,6 @@ void StageOneScene::update(float dt) {
   Hero::getInstance()->update(dt);
 }
 
-std::shared_ptr<Monster> StageOneScene::getMonsterByName(const std::string& monsterName){
+std::shared_ptr<Monster> StageOneScene::getMonsterByName(const std::string& monsterName) {
   return blocks_.getMonsterByName(monsterName);
 }

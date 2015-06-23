@@ -5,6 +5,10 @@
 #include "Blocks.h"
 #include "Projectile.h"
 
+#include "cocos2d.h"
+
+
+#include "SimpleAudioEngine.h"
 
 USING_NS_CC;
 std::shared_ptr<Hero> Hero::singleton_ = nullptr;
@@ -170,7 +174,11 @@ void Hero::addEvents() {
     if (isHeroUp)
       if (onGround_ <= 0) {
         onGround_ = 1;
-        animate(idleFrames_);
+        if (running_)
+          animate(runFrames_);
+        else
+          animate(idleFrames_);
+
       } else
         ++onGround_;
       return true;
@@ -256,10 +264,12 @@ void Hero::fire() {
 
   auto stepOne = cocos2d::CallFunc::create([this]() {
     animate(shootFrames_);
+    auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+    audio->playEffect("sound/shot.mp3", false, 0.0f, 0.0f, -0.5f);
     int x, y;
     x = sprite_->getPositionX() + direction_*
-      (sprite_->getContentSize().width / 2  + 32);
-      
+      (sprite_->getContentSize().width / 2 + 32);
+
     y = sprite_->getPositionY();
     HeroProjectile::setup(sprite_->getScene(), x, y,
     { static_cast<float>(direction_), 0.0f }
@@ -322,6 +332,7 @@ void Hero::moveHoriz(int direction) {
     animate(runFrames_);
   }
   auto moveFunc = [this, body, direction]() {
+    running_ = true;
     if (onGround_ > 0 && !inHitState_) {
       body->applyImpulse(cocos2d::Vec2(direction * 3000, 0));
     } else {
