@@ -6,11 +6,11 @@
       <ObjectData Name="StartScene" Visible="False" Tag="10" ctype="GameNodeObjectData">
         <Size X="1280.0000" Y="720.0000" />
         <Children>
-          <AbstractNodeData Name="PanelView" ActionTag="-1654067964" CallBackType="Touch" Tag="25" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TopMargin="-0.0014" BottomMargin="0.0014" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Enable="True" RightEage="2" BottomEage="2" Scale9OriginX="-2" Scale9OriginY="-2" Scale9Width="2" Scale9Height="2" ctype="PanelObjectData">
-            <Size X="1280.0000" Y="800.0000" />
+          <AbstractNodeData Name="PanelView" ActionTag="-1654067964" CallBackType="Touch" Tag="25" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentHeightEnable="True" PercentWidthEnabled="True" PercentHeightEnabled="True" TouchEnable="True" ClipAble="True" BackColorAlpha="102" ComboBoxIndex="1" ColorAngle="90.0000" Scale9Enable="True" RightEage="2" BottomEage="2" Scale9OriginX="-2" Scale9OriginY="-2" Scale9Width="2" Scale9Height="2" ctype="PanelObjectData">
+            <Size X="1280.0000" Y="720.0000" />
             <Children>
-              <AbstractNodeData Name="Title" ActionTag="-927035017" Tag="13" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="328.5000" RightMargin="328.5000" TopMargin="159.5000" BottomMargin="559.5000" FontSize="72" LabelText="Hard Requirements" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
-                <Size X="623.0000" Y="81.0000" />
+              <AbstractNodeData Name="Title" ActionTag="-927035017" Tag="13" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="328.5000" RightMargin="328.5000" TopMargin="159.5000" BottomMargin="559.5000" FontSize="72" LabelText="Graxa Software" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="TextObjectData">
+                <Size X="499.0000" Y="81.0000" />
                 <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
                 <Position X="640.0000" Y="600.0000" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
@@ -50,24 +50,9 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="255" G="127" B="80" />
               </AbstractNodeData>
-              <AbstractNodeData Name="Test" ActionTag="1776421883" ZOrder="1" Tag="28" IconVisible="False" PositionPercentXEnabled="True" PercentWidthEnable="True" PercentWidthEnabled="True" LeftMargin="512.0000" RightMargin="512.0000" TopMargin="645.4748" BottomMargin="104.5252" TouchEnable="True" FontSize="18" ButtonText="Test" Scale9Enable="True" BottomEage="10" Scale9Width="46" Scale9Height="26" OutlineSize="0" ShadowOffsetX="0" ShadowOffsetY="0" ctype="ButtonObjectData">
-                <Size X="256.0000" Y="50.0000" />
-                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-                <Position X="640.0000" Y="129.5252" />
-                <Scale ScaleX="1.0000" ScaleY="1.0000" />
-                <CColor A="255" R="105" G="116" B="220" />
-                <PrePosition X="0.5000" Y="0.1619" />
-                <PreSize X="0.2000" Y="0.0625" />
-                <TextColor A="255" R="226" G="220" B="33" />
-                <DisabledFileData Type="Default" Path="Default/Button_Disable.png" Plist="" />
-                <PressedFileData Type="Default" Path="Default/Button_Press.png" Plist="" />
-                <NormalFileData Type="Default" Path="Default/Button_Normal.png" Plist="" />
-                <OutlineColor A="255" R="255" G="0" B="0" />
-                <ShadowColor A="255" R="255" G="127" B="80" />
-              </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
-            <Position X="640.0000" Y="400.0014" />
+            <Position X="640.0000" Y="360.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.5000" />

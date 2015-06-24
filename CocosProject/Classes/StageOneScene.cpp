@@ -6,6 +6,7 @@
 #include "ui/CocosGUI.h"
 
 #include "Hero.h"
+#include "Monster.h"
 #include "Requirements.h"
 #include <SimpleAudioEngine.h>
 
@@ -46,6 +47,8 @@ bool StageOneScene::init() {
   audio->preloadEffect("sound/coin.mp3");
   audio->preloadEffect("sound/shot.mp3");
 
+  audio->playBackgroundMusic("sound/technology.mp3", true);
+
   auto sz = Director::getInstance()->getVisibleSize();
   auto rootNode = CSLoader::createNode("StageOneScene.csb");
   auto screenEdge = cocos2d::PhysicsBody::createEdgeBox(sz);
@@ -81,27 +84,42 @@ bool StageOneScene::init() {
 }
 
 void StageOneScene::setRequirementsUp(cocos2d::Node* rootNode) {
-  Requirements::getInstance().create(rootNode, "listing",
-    std::vector<bool>(2, true));
+  std::vector<std::pair<std::string, bool>> reqs;
+  std::vector<std::function<void()>> fixCallBacks;
+  reqs.push_back(std::make_pair("- Personagem se move?", false));
+  fixCallBacks.push_back([]() {
+    Hero::getInstance()->enableMove();
+  });
+  reqs.push_back(std::make_pair("- Personagem Pula?", false));
+  fixCallBacks.push_back([]() {
+    Hero::getInstance()->enableJump();
+  });
+  reqs.push_back(std::make_pair("- Personagem coleta moedas?", false));
+  fixCallBacks.push_back([]() {});
+  reqs.push_back(std::make_pair("- Personagem atira?", false));
+  fixCallBacks.push_back([]() {
+    Hero::getInstance()->enableFire();
+  });
+  reqs.push_back(std::make_pair("- Inimigo morre?", true));
+  fixCallBacks.push_back([]() {});
+  reqs.push_back(std::make_pair("- Inimigo move?", false));
+  fixCallBacks.push_back([]() {
+    Monster::enableMove();
+  });
+  reqs.push_back(std::make_pair("- Hero'i morre?", true));
+  fixCallBacks.push_back([]() {});
+
+  auto listView = static_cast<cocos2d::ui::ListView*>(
+    rootNode->getChildByName("listing"));
+
+  Requirements::getInstance().create(listView, reqs, fixCallBacks);
+
   auto sz = Director::getInstance()->getVisibleSize();
   auto button = static_cast<cocos2d::ui::Button*>(rootNode->getChildByName("starButton"));
   button->addTouchEventListener(
     [rootNode, sz](Ref* sender, cocos2d::ui::Widget::TouchEventType type) {
     if (type == ui::Widget::TouchEventType::ENDED) {
-      auto score = Requirements::getInstance().evaluateScore();
-      // label->setVisible(true);
-      std::stringstream ss;
-      ss << "Score is " << score;
-      static cocos2d::Label* label = nullptr;
-      if (label == nullptr) {
-        label = cocos2d::Label::createWithSystemFont(ss.str(), "arial.ttf", 48);
-      } else {
-        label->removeFromParentAndCleanup(true);
-        label = cocos2d::Label::createWithSystemFont(ss.str(), "arial.ttf", 48);
-      }
-      label->setPosition(sz.width / 2, sz.height / 2);
-      label->setVisible(true);
-      rootNode->addChild(label);
+      Requirements::getInstance().evaluate();
     }
   });
 }

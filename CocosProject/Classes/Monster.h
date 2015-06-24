@@ -7,12 +7,15 @@ class Monster {
   cocos2d::Sprite * sprite_;
   static void movimentation(cocos2d::Sprite* monster);
 
+  static bool moveEnabled_;
+
   int life_ = 5;
   bool alive_ = true;
   protected:
   explicit Monster(cocos2d::Sprite* sprite);
   public:
   static std::shared_ptr<Monster> init(int x, int y, int width, int height, cocos2d::Node* rootNode, const std::string &name);
+  static void enableMove();
 
   void harm(int value);
   void die();

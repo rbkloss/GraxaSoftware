@@ -27,7 +27,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
 		auto director = Director::getInstance();
 		auto glview = director->getOpenGLView();
 		if(!glview) {
-				glview = GLViewImpl::createWithRect("Graxa", Rect(0, 0, 800, 600));
+				glview = GLViewImpl::createWithFullScreen("Graxa");
+				//glview = GLViewImpl::createWithRect("Graxa", Rect(0, 0, 800, 600));
 				director->setOpenGLView(glview);
 		}
 

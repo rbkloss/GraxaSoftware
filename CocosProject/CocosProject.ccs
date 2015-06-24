@@ -30,11 +30,13 @@
           <TmxFile Name="cena_1.tmx" />
         </Folder>
         <Project Name="TutorialScene.csd" Type="Scene" />
-        <Project Name="GameOverScene.csd" Type="Scene" />
+        <Project Name="GameOverClientScene.csd" Type="Scene" />
         <Folder Name="sound">
           <Audio Name="coin.mp3" />
           <Audio Name="shot.mp3" />
         </Folder>
+        <Project Name="GameOverDevScene.csd" Type="Scene" />
+        <Project Name="VictoryScene.csd" Type="Scene" />
       </RootFolder>
     </Group>
   </SolutionFolder>

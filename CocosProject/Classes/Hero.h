@@ -30,6 +30,10 @@ protected:
   bool running_ = false;
   int direction_ = 1;
 
+  bool moveEnabled_ = false;
+  bool jumpEnabled_ = false;
+  bool fireEnabled_ = false;
+
   Hero();
 public:
 	
@@ -40,12 +44,16 @@ public:
 	static int tag;
 
 	void moveHoriz(int direction);
+  void enableMove();
   void haltMove(int direction);
+  
   void repel(const cocos2d::Vec2 &direction);
+  void enableJump();
 	void jump();
   void die();
 
   void fire();
+  void enableFire();
 
 
   void harm(size_t dmg);

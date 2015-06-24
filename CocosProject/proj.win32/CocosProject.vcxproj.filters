@@ -22,6 +22,9 @@
     <Filter Include="TutorialScene">
       <UniqueIdentifier>{3653e5d9-e082-48fd-806c-a60431227a71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Requirements">
+      <UniqueIdentifier>{2dcf1643-426f-4fc5-8e43-4fbb5f8acc6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -42,9 +45,6 @@
     <ClCompile Include="..\Classes\Hero.cc">
       <Filter>Game</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\Requirements.cpp">
-      <Filter>Game</Filter>
-    </ClCompile>
     <ClCompile Include="..\Classes\TutorialScene.cc">
       <Filter>TutorialScene</Filter>
     </ClCompile>
@@ -60,6 +60,15 @@
     <ClCompile Include="..\Classes\Monster.cc">
       <Filter>Game</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Requirement.cc">
+      <Filter>Game\Requirements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\Requirements.cc">
+      <Filter>Game\Requirements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\VictoryScene.cc" />
+    <ClCompile Include="..\Classes\ClientGameOverScene.cpp" />
+    <ClCompile Include="..\Classes\DevGameOverScene.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -80,9 +89,6 @@
     <ClInclude Include="..\Classes\Hero.h">
       <Filter>Game</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\Requirements.h">
-      <Filter>Game</Filter>
-    </ClInclude>
     <ClInclude Include="..\Classes\TutorialScene.h">
       <Filter>TutorialScene</Filter>
     </ClInclude>
@@ -98,6 +104,15 @@
     <ClInclude Include="..\Classes\Projectile.h">
       <Filter>Game</Filter>
     </ClInclude>
+    <ClInclude Include="..\Classes\Requirements.h">
+      <Filter>Game\Requirements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Requirement.h">
+      <Filter>Game\Requirements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\VictoryScene.h" />
+    <ClInclude Include="..\Classes\ClientGameOverScene.h" />
+    <ClInclude Include="..\Classes\DevGameOverScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="game.rc">

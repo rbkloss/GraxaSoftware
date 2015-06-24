@@ -2,6 +2,7 @@
 #include "Blocks.h"
 #include "Hero.h"
 
+bool Monster::moveEnabled_ = false;
 
 Monster::Monster(cocos2d::Sprite* sprite) {
   sprite_ = sprite;
@@ -10,11 +11,13 @@ Monster::Monster(cocos2d::Sprite* sprite) {
 void Monster::movimentation(cocos2d::Sprite* monster) {
   auto body = monster->getPhysicsBody();
   auto moveLeft = cocos2d::CallFunc::create([body]() {
-    body->setVelocity({ -32, 0 });
+    if (moveEnabled_)
+      body->setVelocity({ -32, 0 });
   });
 
   auto moveRight = cocos2d::CallFunc::create([body]() {
-    body->setVelocity({ 32, 0 });
+    if (moveEnabled_)
+      body->setVelocity({ 32, 0 });
   });
 
   auto delay = cocos2d::DelayTime::create(1.0f);
@@ -78,7 +81,7 @@ std::shared_ptr<Monster> Monster::init(int x, int y, int width, int height, coco
 
     }
 
-    return true;
+    return ans;
   };
 
   cocos2d::Director::getInstance()->getEventDispatcher()->
@@ -91,6 +94,10 @@ std::shared_ptr<Monster> Monster::init(int x, int y, int width, int height, coco
     enable_shared(cocos2d::Sprite* sprite) :Monster(sprite) {};
   };
   return std::make_shared<enable_shared>(sprite);
+}
+
+void Monster::enableMove() {
+  moveEnabled_ = true;
 }
 
 void Monster::harm(int value) {

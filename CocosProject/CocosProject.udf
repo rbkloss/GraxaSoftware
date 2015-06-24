@@ -27,5 +27,15 @@
         <LastRunType Value="Windows" />
       </Value>
     </Item>
+    <Item Key="TabsParamsKey">
+      <Value ctype="TabsInfo">
+        <OpenedDocuments>
+          <FilePathData Path="GameOverClientScene.csd" />
+          <FilePathData Path="GameOverDevScene.csd" />
+          <FilePathData Path="VictoryScene.csd" />
+        </OpenedDocuments>
+        <ActiveDocument Path="GameOverDevScene.csd" />
+      </Value>
+    </Item>
   </Properties>
 </UserData>

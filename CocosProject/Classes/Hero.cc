@@ -230,6 +230,7 @@ void Hero::update(float dt) {
 }
 
 void Hero::jump() {
+  if (!jumpEnabled_)return;
   if (this->onGround_ > 0 && !inHitState_) {
     this->onGround_ = 0;
     animate(jumpFrames_);
@@ -260,7 +261,7 @@ void Hero::die() {
 }
 
 void Hero::fire() {
-  if (fired_)return;
+  if (!fireEnabled_ || fired_)return;
 
   auto stepOne = cocos2d::CallFunc::create([this]() {
     animate(shootFrames_);
@@ -295,6 +296,10 @@ void Hero::fire() {
     delay, stepTwo, delayLong, stepThree, nullptr));
 }
 
+void Hero::enableFire() {
+  fireEnabled_ = true;
+}
+
 void Hero::harm(size_t dmg) {
   life_ -= dmg;
   //TODO: Animation
@@ -325,6 +330,7 @@ void Hero::increaseScore(int value) {
 }
 
 void Hero::moveHoriz(int direction) {
+  if (!moveEnabled_) return;
   auto body = this->getSprite()->getPhysicsBody();
   if (onGround_ > 0 && !inHitState_) {
     body->setVelocity(cocos2d::Vec2(direction * 0, 0));
@@ -345,6 +351,10 @@ void Hero::moveHoriz(int direction) {
   forever->setTag(25 + direction);
   getSprite()->runAction(forever);
 
+}
+
+void Hero::enableMove() {
+  moveEnabled_ = true;
 }
 
 void Hero::haltMove(int direction) {
@@ -374,4 +384,8 @@ void Hero::repel(const cocos2d::Vec2& direction) {
     inHitState_ = false;
   });
   sprite_->runAction(cocos2d::Sequence::create(moveAction, delay, controlAction, nullptr));
+}
+
+void Hero::enableJump() {
+  jumpEnabled_ = true;
 }
